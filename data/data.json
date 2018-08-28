@@ -1,0 +1,87 @@
+{
+  "longCorner": {
+    "name": "longCorner",
+    "description": [
+      "The four bodies of the other counter-terrorist operatives are strewn around the area alongside two terrorist corpses. Blood spatters the dusty ground and walls and pistols litter the area.",
+      "A terrorist, bandanas masking his entire face, stands near the doors, a pistol levelled at my head."
+    ],
+    "commands": [
+      {
+        "command": "i run down the street to the north",
+        "description": "I run down the street to the north.",
+        "destination": "longCorner"
+      },
+      {
+        "command": "i shoot at him",
+        "description": "I shoot at him.",
+        "destination": "shooting1"
+      }
+    ]
+  },
+
+  "shooting1": {
+    "description": [
+      ""
+    ],
+    "commands": [
+      {
+        "command": "i fire two quick shots",
+        "description": "I fire two quick shots.",
+        "destination": "shooting2"
+      }
+    ]
+  },
+
+  "shooting2": {
+    "description": [
+      ""
+    ],
+    "commands": [
+      {
+        "command": "both hit him in the head",
+        "description": "Both hit him in the head.",
+        "destination": "shooting3"
+      }
+    ]
+  },
+
+  "shooting3": {
+    "description": [
+      ""
+    ],
+    "commands": [
+      {
+        "command": "blood splashes back against the wall",
+        "description": "Blood splashes back against the wall.",
+        "destination": "shooting4"
+      }
+    ]
+  },
+
+  "shooting4": {
+    "description": [
+      ""
+    ],
+    "commands": [
+      {
+        "command": "he drops lifeless to the ground",
+        "description": "He drops lifeless to the ground.",
+        "destination": "longCorner2"
+      }
+    ]
+  },
+
+  "longCorner2": {
+    "description": [
+      "The four bodies of the other counter-terrorist operatives are strewn around the area alongside three terrorist corpses. Blood spatters the dusty ground and walls and pistols litter the area.",
+      "The terrorist I killed lies flat on his back, eyes seeing nothing."
+    ],
+    "commands": [
+      {
+        "command": "i run down the street to the north",
+        "description": "I run down the street to the north",
+        "destination": "longCorner2"
+      }
+    ]
+  }
+}

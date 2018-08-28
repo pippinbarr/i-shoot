@@ -1,0 +1,22 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
+#wrapper {
+  width: 600px;
+  margin: 0 auto;
+}
+
+#game {
+
+}
+
+#text {
+
+}
+
+.command {
+  color: #5566bb;
+}
