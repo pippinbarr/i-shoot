@@ -92,5 +92,18 @@ function setupCommands() {
     }
   }
 
+  // Wildcard for testing
+  // annyangCommands = {
+  //   "*words": function (words) {
+  //     console.log(words);
+  //   }
+  // }
+
   annyang.addCommands(annyangCommands);
+  annyang.addCallback('resultNoMatch', function (possibles) {
+    console.log("No match. Maybe heard:");
+    possibles.forEach(function (el) {
+      console.log(el);
+    });
+  });
 }
