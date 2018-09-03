@@ -21,8 +21,8 @@ Pippin Barr
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <!-- Uncomment next two lines to include jQuery UI -->
-  <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
   <!-- Include annyang! -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
@@ -39,10 +39,17 @@ Pippin Barr
 <div id="wrapper">
   <div id="commands">
     <p>
-      Try to say the following commands. If you say a command successfully, it will highlight in <span style="background-color: yellow">yellow</span>.
+      Try to say the following commands.</p>
+      <p>
+        <ul>
+          <li>The command to attempt will be highlighted in <span style="background-color: yellow">yellow</span>.</li>
+          <li>If you say a command successfully, it will highlight in <span style="background-color: green">green</span> and move to the next command.</li>
+          <li>If the command isn't recognised after three attempts, it will highlight in <span style="background-color: red">red</span>, list mishearings, and move to the next command.</li>
+        </ul>
+      </p>
     </p>
     <p>
-      Try to speak clearly and enunciate, but if one isn't working for you after a couple of tries, just move on. Please take a screenshot at the end to show which ones didn't work.
+      Try to speak clearly and enunciate, but if it's not working, remember: it's not you, it's the voice recognition software. Please take capture the page at the end to show which ones did and didn't work.
     </p>
     <hr>
   </div>
