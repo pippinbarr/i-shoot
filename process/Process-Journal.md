@@ -414,3 +414,25 @@ I might also need some instructions up front that acknowledge the problems invol
 Might be necessary and interesting to unlock clickable links if I see "resultNoMatch" too many times in a single sequence. That page then allows them to click their option, and then it resets back to the speech version. If they hit three sets of that (say), then it just completely gives up, apologises to them, and unlocks the whole game as a Twine instead? Or gives them that option at the third failure. So maybe three straight fails on any page = unlock links (with a pop-up).
 
 I think this is definitively progress and I'm much more confident that with some rewriting and can largely generate speech-links that are speakable, and that the fallback should be pretty acceptable. Think I'm finding my way into a reasonable approach to a technology that's naturally a little uncooperative.
+
+---
+
+# Thursday, 6 September 2018, 8:25AM
+
+Here are the results of the new test-bed
+
+Jim:
+![](images/jim2-1.png)
+
+![](images/jim2-2.png)
+
+![](images/jim2-3.png)
+
+Mary:
+![](images/mary2-1.png)
+
+![](images/mary2-2.png)
+
+![](images/mary2-3.png)
+
+I don't have time to analyse this right now, but overall it's pretty encouraging clearly.
