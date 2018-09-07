@@ -436,3 +436,49 @@ Mary:
 ![](images/mary2-3.png)
 
 I don't have time to analyse this right now, but overall it's pretty encouraging clearly.
+
+
+---
+
+# Friday, 7 September 2018, 11:35AM
+
+Okay so let me think about those results for a second. (And also try to reignite my brain with this project after what feels like a lot of downtime... but is actually just over a week.)
+
+Basically everything worked except
+
+- "i fire two shots at his center mass" (both)
+
+I'm guessing this is partly just a weird phrase in general that's hard for a language thing to guess. "His Center mass" is presumably tough? Looking at the mishearings... seems like "fire" is a problem - quite possibly a big NZ vs. US accent thing? "Fiuh" versus "Fyre" with the hard 'r'? In the results "centre mass" isn't actually a big program, though the aspirated 'h' on 'his' falls off and gives 'is' a few times. So "his" seems like a tough word? Yikes. But then it's okay in other phrases... maybe it's the double 's' sounds ending and starting in "his centre"? Unless you really separate them is gets lost?
+
+- "i stab him in the chest with my knife" (jim only)
+
+Not sure what the problem is there. Sibilance? "Stab" and "Chest"? Hmm. It's especially shitty since one of the "mishearings" is the correct phase... what happened there?
+
+- "he slumps onto the ground" (both)
+
+I suspect lines starting with "he" can be a problem if it's not aspirated well? Perhaps only in combination with other tricky things? "Slumps" has the sibilance problem? For jim it's pretty consistently not hearing "He"... I think this might be a "He s--" sound problem? The 'he' is dropped when it elides into the 's'? Same for Mary.
+
+- "he tumbles to the ground" (jim only)
+
+"He tumblrs to the ground" may be the great mishearing of all time. This definitely makes me feel like there's a specific underlying word base that it's matching on, which implies a kind of "cultural" matching, which is super interesting (while also potentially fucking things up). Again it mostly misses the 'he'.
+
+- "blood sprays against the wall" (mary only)
+
+Looking at the mishearings I think Mary may have been saying "across" instead of "against" in which case it would have worked. Unlikely it's hearing "across" for "against" if she was actually saying it? Does raise the oddity of someone reading out what they think it _should_ say rather than what it _does_ say.
+
+- "his blood decorates the walls" (jim only)
+
+More classic "his" being lost as "is". Starting a phrase with "his" is risky?
+
+- "his blood splashes onto the ground" (jim only)
+
+Same same.
+
+---
+
+Phew. Well, so, okay. We learn something here.
+
+- Probably don't start a phrase with "His", it's maybe too risky. (Though it "only" happened to Jim)
+- "He" + "s-" could be a problem - easy for it to become "He's" or "His" or "Is"
+
+But the larger take home is that a _lot_ of this works perfectly. So I think I can go ahead with some small amount of caution and actually build out a slice through the game that you legitimately play with UI stuff. This would enabled a fuller experience and let me work out how to indicate what's happening with nice UIish tricks and so on. Then I can move over to the "dynamic system" problem side of things. For now let's make a nice looking slice?

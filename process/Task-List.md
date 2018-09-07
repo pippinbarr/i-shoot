@@ -9,7 +9,7 @@
 - ~~Another writing pass based on current understanding of the game~~
 - ~~Do a performance to get a sense of what the feeling of play might actually be~~
 
-- Rewrite scenes based on minimising text, minimising link length (in conversation with testbed work below in terms of the link texts).
+- ~~Rewrite scenes based on minimising text, minimising link length (in conversation with testbed work below in terms of the link texts).~~ (Didn't do this - honestly I think I miiiight be done with the Twine prototyping now? Need to start working out my own UI.)
 
 # annyang prototype
 
@@ -31,8 +31,18 @@
 
 - ~~Turn it into a more thorough testbed where it progressively asks you to try a command three times then turns it into a link after the third fail (stores the interpreted phrases), gives visual feedback when it hears you say something that doesn't work~~
 - ~~Get it to print out a diagnostic page at the end with stats, failed phrases, etc.~~
-- Rewrite a series of relevant phrases (related to the world and game) that avoids suspected problem phonemes and words
+- ~~Rewrite a series of relevant phrases (related to the world and game) that avoids suspected problem phonemes and words~~ (I did do that.)
 - ~~Send it to J+M again~~
+
+# Vertical slice UI prototype
+
+- Start with annyang prototype and start figuring out nicer UI stuff
+- Add "failed" indicator
+- Three fails turns the "say it" options into links instead (with a pop up?)
+- Consider pausing/starting annyang between passages as a way to conceivably avoid the shutdowns it does sometimes when it gets confuse? (Can you unconfuse it?)
+- Improve the transition on a successful phrase
+- Improve the overall typography, margins, colours
+- Recording the voice input and allowing them to download it? (Would be an amazing sound file... don't know about the storage issues.)
 
 # Game design
 
