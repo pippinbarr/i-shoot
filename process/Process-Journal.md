@@ -482,3 +482,17 @@ Phew. Well, so, okay. We learn something here.
 - "He" + "s-" could be a problem - easy for it to become "He's" or "His" or "Is"
 
 But the larger take home is that a _lot_ of this works perfectly. So I think I can go ahead with some small amount of caution and actually build out a slice through the game that you legitimately play with UI stuff. This would enabled a fuller experience and let me work out how to indicate what's happening with nice UIish tricks and so on. Then I can move over to the "dynamic system" problem side of things. For now let's make a nice looking slice?
+
+---
+
+# Friday, 26 October 2018, 13:06PM
+
+Ok hi. Jesus. Well it's been seven weeks since I wrote anything here. SEVEN WEEKS. That is the nature of the semester. I last wrote at the end of the first week of classes, and now here we are, eight weeks in and I feel like I haven't had an edgewise moment to work on this project.
+
+Let's be honest, some amount of it is a reluctance because, like _A Series of Gunshots_ and a couple other games, it's not necessarily that fun to work on. It lacks humour. On purpose, but it still lacks it, and that's a strong motivational factor to subtract, at least for me.
+
+So here I am, back in the saddle. As per my last entry, it seems like the point at this stage is just to build the thing. I should still do a slice just because I may need to iron out some workflow things, work out a data representation of the story, blah blah, but really it's just time.
+
+I mean, I know this journal is largely supposed to be about the nature of design and so on, but some of the nature of design is just the emotional connection with a project. And right now I think I need to reconnect, of course, but also just to try to plow through, get it done, and move on. Move on. This is not the game that saves the world. That's Red Dead Redemption 2, ha ha.
+
+---
