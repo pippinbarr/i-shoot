@@ -20,3 +20,7 @@ body {
 .command {
   color: #5566bb;
 }
+
+.clickable {
+  text-decoration: underline;
+}
