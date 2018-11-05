@@ -528,3 +528,29 @@ At that level I could, for instance, go back to Twine prototyping to build the e
 Honestly I think this is a good idea. If I then decide that it's worth adding in simulation elements, I can do that with the existing data. I don't think I lose anything by starting with the simplest version and then see if I want to complicate it. And if I don't want to, I just release the fucking thing the way it is. A voice-activated Twine about Counter-Strike. Fuck. It.
 
 Ok. That's a fucking direction. Let's do that.
+
+---
+
+# Monday, 5 November 2018, 7:20AM
+
+Just spent some moments inside CS:GO to check out the naming and it's apparent that the official names used by CS:GO aren't really the same as the ones you find in players' online maps with naming conventions. And unsurprisingly there's no truly consistent naming convention for all the places.
+
+So, I was feeling cosy with the idea that I would at least have this one formal constraint, but it's not going to be quite so official? One thing about the official names is that they tend to cover really large amounts of space. There's a very real question here of how a passage should correspond to a space - how much area is it reasonable to describe at once? How much does that depend on the architecture and so on? What is the experiential effect of existing in larger amounts of space versus smaller? These are things I don't know.
+
+So the question then is do I use the official spatial naming of the game? If I do, how do I find it? (I may actually have to just play the game itself and take notes? SURELY somebody else has already done this?) Do I use the more detailed locations specified by player maps? Just as an example, here's a player generated map
+
+![](images/player-generated-map-of-de-dust2.png)
+
+(From: http://clutchround.com/csgo-map-mastery-de_dust2/)
+
+Looks like there's 50+ locations there, which is just not going to be remotely fun to navigate. Even though I'm doing the Twine version now, I do want a spatial map of the entire space regardless, just because I think that's a nice thing. (Sudden thought: do I need different typography for terrorist encounters so that they stand out?)
+
+So 50+ is ridiculous. Maybe I do revert to looking at what the official naming conventions are within CS:GO itself. Let me search for a mapping of it again...
+
+Nope. And there's a large consensus in the community, it would seem, that nobody uses those. In fact these location names are called "callouts", I now learn. Unsurprisingly there's a whole culture around them. It runs deep. But all I want is some kind of subdivision of space that I can rely on! How about I look at the callout map I already have again and just don't use all the hyper detailed ones that are more about spots within spaces rather than the spaces themselves?
+
+... it's also interesting because of course in a sense most/many spaces in CS are _transitional_ spaces you move through rather than hang out in, with a couple of exceptions like the bomb sites most obviously. As such, almost any space could be read as transitional to other spaces. That's why, for instance, the Ramp doesn't necessarily have to be a location you end up in, so much as a connection between CT Spawn and Cross. Then it becomes a matter of me determining which spaces I want you to "reach" as opposed to just implicitly travel through... let me mark up a map?
+
+![](images/marked-up-player-generated-map-of-de-dust2.png)
+
+So that gives me 17 locations with various connections. That's good enough to start off with I think. Tomorrow morning I'll plug them all into the Twine with minimalist descriptions.

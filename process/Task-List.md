@@ -36,9 +36,11 @@
 
 # Full Twine prototype
 
+- ~~Establish distinct spaces~~
 - Put together a Twine with a passage for every distinct space in the game
 - Write text and linking for every space
 - Write canned terrorist encounters with kill sequences
+- Different typography for terrorist texts?
 - Use a single variable to track terrorists killed and use that to denote game over
 - Find a one-page Twine theme?
 
