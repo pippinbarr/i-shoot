@@ -554,3 +554,13 @@ Nope. And there's a large consensus in the community, it would seem, that nobody
 ![](images/marked-up-player-generated-map-of-de-dust2.png)
 
 So that gives me 17 locations with various connections. That's good enough to start off with I think. Tomorrow morning I'll plug them all into the Twine with minimalist descriptions.
+
+---
+
+# Monday, 5 November 2018, 14:57PM
+
+A productive day. Just got done producing a Twine (back to prototyping in Twine) that maps out all the spaces as a Twine map. Nice the way it can be made to correspond with the real spaces:
+
+![](images/twine-map.png)
+
+It doesn't really have any huge bearing on the design itself, but it's nice that the spatiality extends further in than just the conceptualisation/description of space and via hyperlinks - the logic of space.
