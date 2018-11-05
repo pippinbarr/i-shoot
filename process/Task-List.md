@@ -34,6 +34,14 @@
 - ~~Rewrite a series of relevant phrases (related to the world and game) that avoids suspected problem phonemes and words~~ (I did do that.)
 - ~~Send it to J+M again~~
 
+# Full Twine prototype
+
+- Put together a Twine with a passage for every distinct space in the game
+- Write text and linking for every space
+- Write canned terrorist encounters with kill sequences
+- Use a single variable to track terrorists killed and use that to denote game over
+- Find a one-page Twine theme?
+
 # Vertical slice UI prototype
 
 - Start with annyang prototype and start figuring out nicer UI stuff
@@ -47,3 +55,7 @@
 # Game design
 
 - Attempt a more formal writing of the system's dynamics (e.g. terrorist spawning, movement, stealth, cover, etc.)
+
+# Implementation
+
+- Create every area and allow transitions between them (no descriptions for now)

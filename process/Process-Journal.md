@@ -58,7 +58,7 @@ I'm clambering back in the saddle after four weeks in Hawai‘i helping to run t
 
 I had a couple of other ideas for games while I was travelling, but I'm kind of assuming that the voice shooter is the right game to carry on with right now.
 
-Rereading the first entry right now, I've already done quite a substantial amount of the up front thinking for this thing. Reading it makes me think I need to create my [[Research Statement]] page right about now so that I can start tracking what I think this project is about in a separate space.
+Rereading the first entry right now, I've already done quite a substantial amount of the up front thinking for this thing. Reading it makes me think I need to create my [Research Statement](Research-Statement.md) page right about now so that I can start tracking what I think this project is about in a separate space.
 
 It seems like the big thing to do right now is to model a basic unit of meaning in the game and then build that in a Twine as discussed above. I guess that'll mean having a separate prototypes folder in the repo where I can put things that aren't the final codebase of the game separately from it. Twine does make a lot of sense since I think it has a huge amount of the features I want from this, with the exception of being able to choose options with voice instead of the mouse.
 
@@ -71,7 +71,7 @@ But that said it could be worth, at some point, investigating writing that plugi
 Okay ANYWAY.
 
 To do:
-- Write a first [[Research Statement]]
+- Write a first [Research Statement](Research-Statement.md)
 - Write a sketchy example of a sequence of screens that could be Twined. For now just write them in here in another entry.
 
 I note that I have tacitly, at least for now, decided to use CS:GO on dust2 as my framing.
@@ -156,7 +156,7 @@ Okay so let's say for now that you can also dynamically _die_ as well.
 A lot of words as always, but I think we got somewhere with this. I don't think it was just Twine avoidance.
 
 To do:
-- Wait, maybe the only to do here is to start my [[Task List]].
+- Wait, maybe the only to do here is to start my [Task List](Task-List.md).
 
 ---
 
@@ -337,7 +337,7 @@ Just because it's Tuesday morning and I need to write something in my writing ho
 
 Spent a little time getting a command testbed working which is not hosted in the `prototypes/annyang_command_test/` subfolder. So at least for now:
 
-https://pippinbarr.github.io/untitled-voice-shooter/prototypes/annyang_command_test/
+https://pippinbarr.github.io/i-shoot/prototypes/annyang_command_test/
 
 It's given me a little more hope that the game is feasible. Basically it's stocked with a whole bunch of basic commands that could be in the game, and it highlights them when you say them. I was able to get pretty much everything to highlight the first or second time, and generally speaking it felt like my enunciation made the difference rather than some bullshit speech recognition weirdness, so I definitely felt largely like I was in control.
 
@@ -496,3 +496,35 @@ So here I am, back in the saddle. As per my last entry, it seems like the point 
 I mean, I know this journal is largely supposed to be about the nature of design and so on, but some of the nature of design is just the emotional connection with a project. And right now I think I need to reconnect, of course, but also just to try to plow through, get it done, and move on. Move on. This is not the game that saves the world. That's Red Dead Redemption 2, ha ha.
 
 ---
+
+# Monday, 5 November 2018, 6:16AM
+
+Ok. Ok. Another significant gap. I've been doing other things, such as GAMETHING. However, now I'm trying a new model of getting some creative work done in the mornings as you can see from the timestamp, so let's see how this goes.
+
+At this point the very basic model of saying something and having it happen is done, and the basic visual representation is done. It remains to build out the story and decide on the dynamics of how the terrorists will be incorporated into the experience.
+
+I'm pretty sure I've argued with myself about the question of terrorist spawning versus just having a single canned version of the game that you play through. Clearly nobody is going to play this game more than once, and that's probably not its purpose right? It already has a fixed narrative in the sense that your teammates all die at the beginning and leave you facing three terrorists in the first place. So a question is just whether it needs dynamic text at all, versus just having fixed encounters in fixed places?
+
+The advantage of that is that it trends closer to a real game. (Wait let me re-read through this journal and see if I can recover my earlier reasoning...)
+
+Okay, I re-read the entire journal to resituate the project in my head better. It's pretty clear that I _haven't_ really resolved the question of dynamic terrorist spawning and movement versus the fully canned version.
+
+It feels like I really want this simple, clear surface to the game, but I continuing to struggle with how to actually express that.
+
+On top of it all, if I can be honest with you for a second, the project somewhat bores me right now. It's not fun or funny to think about, it's kind of relentless. It's a subject that is simultaneously disturbing and dull. Voice technology is simultaneously banal and really hard to get right as an interface. It won't play well in noisy environments. I'm not really interested in it as some kind of installation piece.
+
+SO I FEEL A BIT GROUCHY ABOUT IT RIGHT NOW.
+
+The first hour of my morning's work has been spent establishing that, yes, this project is a bit boring and not that fun to work on. Even if I do still think that the core idea is strong and useful. Certainly when I explain the gist to people there's a recognition that's it's worthwhile exploring. But the actual act of making it has really just been a grind from the very beginning, with no real moments of inspiration/joy about anything. And that's hard to sustain.
+
+Am I trying to talk myself into shelving this for a while? It's not really something I do...
+
+Here's a 'solution':
+
+Make the canned Twine+Voice version where everything is canned. The terrorists are all just in specific locations, they don't move, they don't shoot back, they are there to be shot like targets. The entire text of the game is just what it is forever and you navigate it with your voice, that's literally the only difference from it being a Twine.
+
+At that level I could, for instance, go back to Twine prototyping to build the entire game and test the flow etc., and then just transfer that data into the kind of JSON I have already and use it with voice.
+
+Honestly I think this is a good idea. If I then decide that it's worth adding in simulation elements, I can do that with the existing data. I don't think I lose anything by starting with the simplest version and then see if I want to complicate it. And if I don't want to, I just release the fucking thing the way it is. A voice-activated Twine about Counter-Strike. Fuck. It.
+
+Ok. That's a fucking direction. Let's do that.
