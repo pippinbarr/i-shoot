@@ -564,3 +564,23 @@ A productive day. Just got done producing a Twine (back to prototyping in Twine)
 ![](images/twine-map.png)
 
 It doesn't really have any huge bearing on the design itself, but it's nice that the spatiality extends further in than just the conceptualisation/description of space and via hyperlinks - the logic of space.
+
+---
+
+# Tuesday, 6 November 2018, 7:10AM
+
+Just went into CS:GO and captured images of all my locations. e.g.
+
+![](de_dust2_reference_images/Cross-3.png)
+
+It was helpful to go and feel out the space a bit more, get a sense of distances. I think the locations I've selected are pretty reasonable. I wonder a bit whether Long and Long Corner are too relative to bother with. There's something potentially interesting going on in terms of "dramatic space" that could be talked about? Like if you create too many increments of motion you lose some of the drama and fluidity of movement in the real space - if you go from Cross to Long to Long Corner, that's quite a lengthy amount of movement to do something that in the game you kind of do all in one I suppose? I mean, I could also study the game more to learn how people move and how people pause in order to gain more of an insight. At any rate, there's clearly a need to match spaces with dramatic beats, which I guess mostly centres around the idea of revealing new spaces rather than sub-travel within a space. And that actually pans out relatively well with a game like CS:GO (or any shooter) because the maps are often specifically about that idea - entrances and exits, concealed spaces that become revealed, to allow for surprise, hiding, etc. If I were a better person and had more time I should look for writing about this right?
+
+(That said it's not actually the case I'm trying to reproduce this map and spatiality and game in text - but it's become a point of interest.)
+
+I played with "Harmless" Bots in CS:GO so I could do my picture taking, as I wanted pictures of the bots themselves. Once I was playing and going through I realised I'd need pictures of them dead. The Harmless bots kind of move through the level and establish positions etc., but none of them shoot their guns, they're just around. I was also playing with the volume muted, so it was kind of eerie. They do plant the bomb, which surprised me, not so Harmless? Killing the Harmless bots felt both worse (no fighting back, they just stand there) and better (they're so artificial at that point that they genuinely seem more like crash-test dummies? Though as I write that I don't think it's true). I definitely felt/became quite clinical about it. Approach, look at the character model, shoot, observe blood spray patterns, body position on the ground, etc. Early on I'd accidentally picked up a shotgun and killed a bunch of them with that before wondering whether I should only be using the pistol since that's what is to be used in my game, different effects, body postures, blood spray? As it turned out it doesn't seem all _that_ different, so probably didn't matter. e.g.
+
+![](de_dust2_reference_images/T-Dead-5.png)
+
+![](de_dust2_reference_images/T-Dead-8.png)
+
+Anyway the upshot is that I have [pictures of locations, CTs and terrorists](de_dust_reference_images/) to use to actually write this base-level Twine that is my current task. I'll do some of that now!
