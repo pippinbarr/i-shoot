@@ -584,3 +584,19 @@ I played with "Harmless" Bots in CS:GO so I could do my picture taking, as I wan
 ![](de_dust2_reference_images/T-Dead-8.png)
 
 Anyway the upshot is that I have [pictures of locations, CTs and terrorists](de_dust_reference_images/) to use to actually write this base-level Twine that is my current task. I'll do some of that now!
+
+---
+
+# Wednesday, 7 November 2018, 7:47AM
+
+Spent my morning work session today writing descriptions and movement commands for the Twine prototype. I think I've roughly hit a style at this point, though I'll need to query how much detail the thing needs as I don't want exhausting wall-of-text experiences. That said, it's not really possible to do a lot less? In any given scene at a bare minimum you need to set the basic nature of the space, and describe all the exit points. And then perhaps include some small piece of flavour as well. It's already quite a lot if you want to do it without being utterly terse.
+
+As per the last commit, I found myself wondering about doing a kind of random flavour text thing where it loads up one of several things you might "notice" in a space. This just now made me wonder about a "look around" command in every space that could trigger such a thing? But maybe that's getting fiddly at that point, and it's not like the flavour is the thing that will make the passages "too long".
+
+Basically I fear it becoming too much of a read-a-thon, so I'll clearly need a length pass. However, I'm happy with the basic process and I only have five spaces left before there's a complex ability to navigate everywhere and see the correct things.
+
+I was thinking it might even be possible to implement a passable version of random encounters if I write up the encounters in separate passages and then just __include__ them randomly? The coding might be simple enough that it's worth doing in order to be able to create a prototype that includes more or less everything? I can at least try and then if it's getting too hard I can move on. Probably it's better just to have them in totally set locations if we're being honest, because that way I don't have to fuck around. Is it even plausible they should just be in set locations in the real game? Probably not, since it would feel weird if you ran away and then when you come back they're just exactly where you saw them. (Need to make sure I never spawn them in a place with only one exit, e.g. Pit, because that could lead to magic teleportation.) Maybe it's possible to write generic texts for terrorist deaths? Mentioning just "a wall" etc.? The dusty ground, etc.? Or maybe it's possible to add some tags to locations that would allow for specific death types to be in play? Like whether it has a door, a wall, stairs, etc. But then you'd also have to make sure the terrorist is reported as being in that location as well.
+
+There are also locations where you can see into the location you're going to (e.g. T Ramp to Outside Tunnels) - but perhaps that's getting to be too much to care about. Or at the very least I don't worry and I see how it feels in the prototype?
+
+Okay, well, I need to finish the place descriptions, do another pass to set tone a little better, and then write, for now, generic terrorist encounters and see how they feel - these could then be triggered in Twine to give a more "real" sense of how the game might be. Will try not to get too bogged down in insane details and niceties for now.
