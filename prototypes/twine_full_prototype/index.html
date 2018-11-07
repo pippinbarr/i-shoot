@@ -17,52 +17,74 @@
 
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
 
 
 
 
 
-</script><tw-passagedata pid="1" name="CT Spawn" tags="" position="1187,260.99999999999994" size="100,100">I am standing below an overbridge.
 
-There is a locked gate leading nowhere and a **stack of boxes** up against the wall. The cobbled road is dry and dusty. An incline leads up and to the east, while an open area extends out to the west.
 
-(if: $firstTime)[The rest of my four teammates have already deployed while I was getting my equipment in order. The plan is to head east and then down the long street there toward the reported location of the terrorist group.(set: $firstTime to false)]
+</script><tw-passagedata pid="1" name="CT Spawn" tags="" position="1187,260" size="100,100">A space below an overbridge lit by a hanging light. A locked metal gate leads into a storage area, a ladder lies on the ground, a large unmarked box looks like it hasn&#39;t been used in a long time. A slope leads up and to the east into the sunlight. A similarly sunny open area is visible to the west.
 
-[[&quot;I run east up the incline.&quot;-&gt;Cross]]
-[[&quot;I go west into the open area.&quot;-&gt;CT Mid]]</tw-passagedata><tw-passagedata pid="2" name="Cross" tags="" position="1384.6666666666667,217.66666666666666" size="100,100">[[CT Spawn]]
-[[Bombsite A]]
-[[Long]]</tw-passagedata><tw-passagedata pid="3" name="CT Mid" tags="" position="843,235.6666666666666" size="100,100">[[Mid Doors]]
+(if: $spawning)[The rest of the Counter Terrorist squad has already deployed to the east toward the reported location of the terrorist group.(set: $spawning to false)]
+
+[[&quot;I run east up the slope&quot;-&gt;Cross]]
+[[&quot;I run west into the open area&quot;-&gt;CT Mid]]</tw-passagedata><tw-passagedata pid="2" name="Cross" tags="" position="1367.3333333333333,278.6666666666667" size="100,100">On the street. Standing next to a pharmacy. A blue car, covered in dust is parked on the sidewalk. The sky is blue. The hotel Aurore is on the slope above you.
+
+[[&quot;I run down the slope under the overbridge&quot;-&gt;CT Spawn]]
+[[&quot;I run up to the front of the hotel&quot;-&gt;Bombsite A]]
+[[&quot;I down the street&quot;-&gt;Long Corner]]</tw-passagedata><tw-passagedata pid="3" name="CT Mid" tags="" position="843,235" size="100,100">[[Mid Doors]]
 [[CT Spawn]]
-[[Bombsite B]]</tw-passagedata><tw-passagedata pid="4" name="Long Corner" tags="" position="1359,587.6666666666667" size="100,100">[[Long]]
-[[Pit]]
-[[Outside Long]]
-</tw-passagedata><tw-passagedata pid="5" name="Bombsite A" tags="" position="1160.0000000000002,122.66666666666666" size="100,100">I am standing amongst large crates in a small courtyard. The Hotel Aurore looms decrepitly to the south with no obvious way to enter its grounds. To the south-east the overbridge extends between buildings and disappears. An incline leads down to the north from the courtyard to a dusty intersection.
+[[Bombsite B]]</tw-passagedata><tw-passagedata pid="4" name="Long Corner" tags="" position="1315.6666666666665,463.66666666666663" size="100,100">A street north-south, with the southern end running down a slope that ends in a closed gate. To the north you can see an intersection. A set of large double doors with curving mosaic above it is ajar, leading into a heavy building. A spindly palm tree stands in a corner.
+
+[[&quot;I run north up the street&quot;-&gt;Cross]]
+[[&quot;I run down the slope to the south&quot;-&gt;Pit]]
+[[&quot;I run through the double doors&quot;-&gt;Outside Long]]
+</tw-passagedata><tw-passagedata pid="5" name="Bombsite A" tags="" position="1138.3333333333333,122" size="100,100">A small courtyard in front of the the Hotel Aurore. The hotel itself looms stolidly to the south with no obvious way to enter its grounds. To the south-east an overbridge extends between buildings and disappears. An incline leads down to the north to a dusty intersection.
 
 [[&quot;I run down the incline.&quot;-&gt;Cross]]
-**&quot;I run across the overbridge.&quot;**
+[[&quot;I run across the overbridge.&quot;-&gt;Short Stairs]]</tw-passagedata><tw-passagedata pid="6" name="Terrorist 1" tags="" position="1799.6666666666667,199.66666666666663" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="Startup" tags="startup" position="32.333333333333336,36.66666666666667" size="100,100">(set: $spawning to true)
+(set: $terrorist1Active to true)
+(set: $terrorist2Active to true)
+(set: $terrorist3Active to true)</tw-passagedata><tw-passagedata pid="8" name="Short Stairs" tags="" position="1051,410" size="100,100">At the foot of a short set of stairs, surrounded closely by buildings. A colorful ad for a cyber café is painted directly on a wall above, all the doors leading into the buildings are covered with metal grills. Up the stairs in the distance to the south is the Hotel Aurore, while a walkway leads west and then south around a corner.
 
-[[Short Stairs]]</tw-passagedata><tw-passagedata pid="6" name="Shoot Terrorist 1.1" tags="" position="1698.3333333333335,598.9999999999999" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="Startup" tags="startup" position="34,20" size="100,100">(set: $firstTime to true)
-(set: $terroristKilled to false)</tw-passagedata><tw-passagedata pid="8" name="Short Stairs" tags="" position="1051.6666666666667,410" size="100,100">[[Bombsite A]]
-[[Top Mid]]</tw-passagedata><tw-passagedata pid="9" name="Top Mid" tags="" position="803.0000000000001,622.5" size="100,100">[[Short Stairs]]
-[[Mid Doors]]
-[[Suicide]]
-[[Outside Long]]</tw-passagedata><tw-passagedata pid="10" name="Mid Doors" tags="" position="841.0000000000001,411.1666666666667" size="100,100">[[Lower Tunnels]]
+[[&quot;I run up the stairs&quot;-&gt;Bombsite A]]
+[[&quot;I run around the corner&quot;-&gt;Top Mid]]</tw-passagedata><tw-passagedata pid="9" name="Top Mid" tags="" position="803,622" size="100,100">A large paved area amongst buildings with fading paint and crumbling plaster. Another open area is to the east. An alleyway leads between buildings to the south. Down a slope to the north is an impressively large and heavy-looking set of doors, while running alongside is a catwalk that hugs a building and then turns east. 
+
+(Randomized flavour?) A small two-wheeled cart is tipped up against a wall next to a garage marked with a painting of a smile.
+
+[[&quot;I run along the catwalk&quot;-&gt;Short Stairs]]
+[[&quot;I run down the slope&quot;-&gt;Mid Doors]]
+[[&quot;I run into the alleyway&quot;-&gt;Suicide]]
+[[&quot;I run to the east&quot;-&gt;Outside Long]]</tw-passagedata><tw-passagedata pid="10" name="Mid Doors" tags="" position="841,411" size="100,100">[[Lower Tunnels]]
 [[Top Mid]]
-[[CT Mid]]</tw-passagedata><tw-passagedata pid="11" name="Suicide" tags="" position="798.6666666666667,762.5000000000001" size="100,100">[[Outside Long]] 
-[[Top Mid]]</tw-passagedata><tw-passagedata pid="12" name="Outside Long" tags="" position="1197.6666666666667,760.8333333333333" size="100,100">[[Suicide]]
-[[T Spawn]]
-[[Top Mid]]
-[[Long Corner]]
-</tw-passagedata><tw-passagedata pid="13" name="Bombsite B" tags="" position="532.9999999999999,227.83333333333337" size="100,100">[[CT Mid]]
-[[Upper Tunnels]]</tw-passagedata><tw-passagedata pid="14" name="Upper Tunnels" tags="" position="524.6666666666666,406.16666666666663" size="100,100">[[Bombsite B]]
+[[CT Mid]]</tw-passagedata><tw-passagedata pid="11" name="Suicide" tags="" position="798,762" size="100,100">The darkened corner of an paved alleyway that leads both north and east toward open, well-lit areas of the town. In the northern part a large stack of boxes are piled against one wall and structural supports bridge the two buildings alley&#39;s sides to stop them collapsing onto each other.
+
+[[&quot;I run out of the alley to the north&quot;-&gt;Top Mid]] 
+[[&quot;I run out of the alley to the east&quot;-&gt;Outside Long]]</tw-passagedata><tw-passagedata pid="12" name="Outside Long" tags="" position="1162,730" size="100,100">A large open area in full sunlight. A yellow car is parked near elaborately decorated double doors that lead off to the north. A set of three garage doors create a wall to the west. An alleyway bends around their southern side, while a cobbled road follows around to their north. A sloped street leads up and to the west, climbing past apartment buildings. A column of nicely stacked tires sits against the wall of another garage.
+
+[[&quot;I run through the double doors.&quot;-&gt;Long Corner]]
+[[&quot;I run along the cobbled road.&quot;-&gt;Top Mid]]
+[[&quot;I run into the alleyway&quot;-&gt;Suicide]]
+[[&quot;I run up the slope&quot;-&gt;T Spawn]]</tw-passagedata><tw-passagedata pid="13" name="Bombsite B" tags="" position="532,227" size="100,100">[[CT Mid]]
+[[Upper Tunnels]]</tw-passagedata><tw-passagedata pid="14" name="Upper Tunnels" tags="" position="524,406" size="100,100">[[Bombsite B]]
 [[Lower Tunnels]]
-[[Outside Tunnels]]</tw-passagedata><tw-passagedata pid="15" name="Lower Tunnels" tags="" position="688,406.16666666666663" size="100,100">[[Upper Tunnels]] 
-[[Mid Doors]]</tw-passagedata><tw-passagedata pid="16" name="Outside Tunnels" tags="" position="522.9999999999999,571.1666666666666" size="100,100">[[Upper Tunnels]]
-[[T Ramp]]</tw-passagedata><tw-passagedata pid="17" name="T Ramp" tags="" position="484.66666666666663,916.1666666666666" size="100,100">[[Outside Tunnels]] 
-[[T Spawn]]</tw-passagedata><tw-passagedata pid="18" name="T Spawn" tags="" position="804.6666666666666,907.8333333333333" size="100,100">[[T Ramp]]
-[[Outside Long]] </tw-passagedata><tw-passagedata pid="19" name="Long" tags="" position="1349,410.99999999999994" size="100,100">[[Cross]]
-[[Long Corner]]</tw-passagedata><tw-passagedata pid="20" name="Pit" tags="" position="1374,762.6666666666666" size="100,100">[[Long Corner]] </tw-passagedata></tw-storydata>
+[[Outside Tunnels]]</tw-passagedata><tw-passagedata pid="15" name="Lower Tunnels" tags="" position="688,406" size="100,100">[[Upper Tunnels]] 
+[[Mid Doors]]</tw-passagedata><tw-passagedata pid="16" name="Outside Tunnels" tags="" position="522,651" size="100,100">A courtyard in front of an elegant entry way into an old building complex which stands to the north. Beautiful mosaic work fills in arches above a large central doorway. To the east and west are dusty-looking residential buildings, while a sloped road leads up to an elevated area to the south. A set of dumpsters are pushed against a decrepit wall, covered with trash bags.
+
+[[&quot;I run into the old building&quot;-&gt;Upper Tunnels]]
+[[&quot;I run up the road&quot;-&gt;T Ramp]]</tw-passagedata><tw-passagedata pid="17" name="T Ramp" tags="" position="522.3333333333334,892.6666666666666" size="100,100">A parking lot for a small auto repair shop, poised above an courtyard. A sloped road leads down into the courtyard, with pedestrian steps on its western side. The shell of an under-construction building faces the parking lot from the south. The street runs east-west here. To the east, past the garage, is the location the terrorists were reported to be in. To the west, expensive-looking apartments and houses are protected by a fence that runs across the street, preventing acccess. 
+
+[[&quot;I run down to the courtyard&quot;-&gt;Outside Tunnels]] 
+[[&quot;I run east along the street&quot;-&gt;T Spawn]]</tw-passagedata><tw-passagedata pid="18" name="T Spawn" tags="" position="804,907" size="100,100">This is the reported location of the terrorist group. A street with its curb painted red leads down a gentle hill to the east, terminating at a chainlink fence, but providing access to an open area among low buildings. To the west you can see the beginning of a parking lot. Sturdy palm trees stand in somebody&#39;s walled-off back yard. Signs tell you that the Hotel Aurore is to the east and the Kasbah is to the west.
+
+[[&quot;I run to the parking lot&quot;-&gt;T Ramp]]
+[[&quot;I run down the hill&quot;-&gt;Outside Long]] </tw-passagedata><tw-passagedata pid="19" name="Pit" tags="" position="1367.3333333333333,612" size="100,100">Up close the reinforced doors seem oddly small. An overhanging building throws shade over the street here, with the sun shining brightly back up the slope to the north. A sign indicates that the Hotel Aurore is up that way.
+
+[[&quot;I run up the slope&quot;-&gt;Long Corner]] </tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
