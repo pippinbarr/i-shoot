@@ -620,3 +620,25 @@ __Fear of annyang__. Definitely been trying to write the shortest little exit co
 __de_dust2 as reference__. Obviously I'm writing these spaces based on the spaces in de_dust2 and I'm trying pretty hard to be accurate (without being exhaustive). Nonetheless, obviously writing isn't going to convey all the details like visuals will, and so much of the reading experience will be interpretative, filling in the blanks, etc. I wonder whether the spaces will still make sense to somebody who doesn't have a mental image of the original space in their head? This is something I can test of course. The ideal is that someone with no experience can traverse the space and build a model (not necessarily to the extent they would later "recognise" de_dust2, though that's an interesting thought), while a CS player would traverse the space and recognise de_dust2 in the things there, and enjoy the strangeness of the translation. The latter is the reason why I sort of find myself wanting to include little in-jokes/referents to the game itself that they would enjoy. As such I did mention the spraypainted X at one bombsite which is used for the terrorists to find the bomb planting zone, but which is diegetic of course. More could be done in this vein, but at the same time I don't want it to be super winky! I should say, just in case it's not obvious, that I've been writing the descriptions directly with reference to the screens/photos I took of the space.
 
 That's it for now I think. A productive session. The next task is to add in terrorists and the dead CT team I suppose. Ideally as separate passages that can be randomly activated. And even if not randomly activated, still kept separate from the main scenes for easier editing?
+
+---
+
+# Friday, 9 November 2018, 7:08AM
+
+Writing an entry early today because we have to leave the house earlier than usual. I've been working on the terrorist encounters in the Twine version of the game. I wrote about the basics in the previous commit, so the info's in there.
+
+It's been helpful working in this way. As I mention in the commit, I'm starting to think there's a possible advantage to restricting myself to Twine for the prototype in that it may help me make a simpler version of the project. Having to fight Harlowe's scripting etc. makes me think in simpler terms and given that the key objective is to try to "get rid" of this project and move on (though I've come to enjoy it more again thank god), maybe that's a good thing.
+
+And even ignore the "simpler" thing, it's just good to be forced to solve the basic problems. How I solve them in Twine should be more or less applicable to how I might solve them in my own code anyway.
+
+So progress is being made. I'm trying to think of clever and simple ways to be able to these encounters that doesn't rely on a true dynamic system.
+
+I think I like the idea of the terrorist running away sometimes. I don't think he needs to be guaranteed to appear in the next room, but I like that idea. There would of course have to be a couple places he couldn't do this since there are various lines of site that would make it too obvious (like if he runs into Pit, or if he runs from T-Spawn to T-Ramp). But maybe there's an option in there somehow with tagging and so on, it would make the world feel a little bit more fresh if it wasn't just the obvious find-terrorist-kill-terrorist.
+
+It would also make sense for the terrorist to shoot sometimes (he can just always miss, or even hit but not kill, or even kill I suppose, though that's not really the point of the game - but I suppose if someone really wants to die and wants to spend the time finding terrorists, hoping to be shot repeatedly until they're dead then... fine?).
+
+Anyway, now officially on dynamics duty which is a good thing. I think tagging would be a great way to determine whether certain kinds of events can occur (e.g. can a terrorist be here, can they run from here, which exits can they take, etc. No terrorists in the same location as a dead terrorist? Probably.)
+
+Must remember that "gunfire" thing if you try to follow the team. Hear gunfire the first time in Cross to indicate where they were.
+
+Anyway it's coming along, I feel ok.
