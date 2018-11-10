@@ -40,7 +40,9 @@
 - ~~Put together a Twine with a passage for every distinct space in the game~~
 - ~~Take reference images of every location and terrorists (dead and alive) and CTs~~
 - ~~Write basic text and linking for every space~~
-- Write canned terrorist encounters with kill sequences
+- ~~Write sample terrorist encounter with kill sequences that allow testing multiple encounters~~
+- ~~Implement persistent corpses~~
+- Implement characteristic walls/shapes for terrorist encounters
 - Different typography for terrorist texts?
 - Use a single variable to track terrorists killed and use that to denote game over
 - __DOESN'T SEEM TO BE A THING?__ ~~Find a one-page Twine theme?~~

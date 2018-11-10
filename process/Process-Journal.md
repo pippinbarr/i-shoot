@@ -642,3 +642,39 @@ Anyway, now officially on dynamics duty which is a good thing. I think tagging w
 Must remember that "gunfire" thing if you try to follow the team. Hear gunfire the first time in Cross to indicate where they were.
 
 Anyway it's coming along, I feel ok.
+
+---
+
+# Saturday, 10 November 2018, 13:32PM
+
+Okay before I actually do anything on the dynamic side of things I could probably afford to try to write out a little bit of what the idea is for them. Notably what's the simplest version of it I could pull off, what can be done in Twine.
+
+So
+- each terrorist encounter should be separate from each other
+- not more than one per location (avoid stacking, avoid worries about whether they need to be interrelated textually)
+- not in every location (e.g. not in the pit, possibly not in a location if they just came from a location that could see it [actually you could have a set of disqualifying locations])
+- should probably ideally _not_ rely on the nature of the space heavily, needs to be abstracted?
+  - This is one of the big problems - it seems kind of wrong not to have the shooting and certainly the resulting description be specific? So much of the existing spatial texts is about kind of precise locations...
+  - A weird solution could be to have templating stuff so that you could have various substitutions for, say, what they fall back against, fall across? And you could use those and save them into the description?
+  - It kind of feels like a certain degree of verisimilitude is warranted to be in keeping with the rest of the writing of the scenes...
+  - Maybe part of the solution, though, is just to write these things straight up in the Twine (without worrying terribly about where they're situated) and to see what kind of language shows up.
+
+---
+
+# Saturday, 10 November 2018, 15:01PM
+
+In fact, jumping off from the writing I did above I did a bunch of Twine (the previous commit) to at least just try to work through some of it. I continue to believe that the Hawlowe programming is probably still useful as a way of working out various structural ideas that will end up being in the "real" version as well anyway.
+
+It's feeling pretty weird just how divorced from the core spoken word idea this has all ended up being - I'm spending a bunch of time in Twine and Harlowe's code to make stuff happen.
+
+Also very noticeable how unrelated this all feels to violence while I'm testing the game. Rapidly clicking through a set of links that detail killing a terrorist to test things. Classic. Dissociation.
+
+SO, the state of design now is that I have the most basic framework for implementing these things and the new big question is (as I mentioned above) around the spatial nature of the killing. It's weird to have spatially ambiguous death (and corpses) in a text that is otherwise very focused on spatiality. (Not to mention that I suppose in the real game CS:GO the location of enemies and even their dead bodies is super important?)
+
+Thus the next step is that it's important to spatialise things. I think that should be pretty plausible even in Twine because you could specify things a person can fall back against (and spray with blood). And indeed they could be standing near to that thing so that you get a sense of where they are.
+
+I just realised, while typing that, that there could be an awkwardness involved in seeing a terrorist, running away, and seeing them immediately in the next location - e.g. they teleported? Don't really want that to happen. One option is to have some kind of cool-down so that you never see a T again for two screens, say, giving them enough time to have conceivably have gone around. Mmhmm. Is that the simplest version?
+
+Separate from the whole spatialisation is the question of whether I want to have the T potentially run elsewhere? I think probably not... feels like it complicates things in a way I can't be bothered with?
+
+SO. Spatialise.
