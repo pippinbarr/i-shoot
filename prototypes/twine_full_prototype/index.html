@@ -21,7 +21,9 @@
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
@@ -35,96 +37,128 @@
 
 (if: $spawning)[The rest of the Counter Terrorist squad has already deployed to the east toward the reported location of the terrorist group.(set: $spawning to false)]
 
-[[&quot;I run up the slope&quot;-&gt;Cross]]
-[[&quot;I run into the open area&quot;-&gt;CT Mid]]</tw-passagedata><tw-passagedata pid="2" name="Cross" tags="" position="1367,276.3333333333333" size="100,100">A three-way intersection beneath a bright sky. A dusty blue car is parked up on the sidewalk to the east next to a residential complex. Opposite it, to the west, a slope leads down beneath an overbridge. A street runs north and south, with the southern part passing by a series of closed and disused-looking stores such as a pharmacy, and the northern part running up a ramp toward the Hotel Aurore.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run up the slope\&quot;-&gt;Cross]]
+[[\&quot;I run into the open area\&quot;-&gt;CT Mid]]
+&quot;)
+</tw-passagedata><tw-passagedata pid="2" name="Cross" tags="" position="1367,274.3333333333333" size="100,100">A three-way intersection beneath a bright sky. A dusty blue car is parked up on the sidewalk to the east next to a residential complex. Opposite it, to the west, a slope leads down beneath an overbridge. A street runs north and south, with the southern part passing by a series of closed and disused-looking stores such as a pharmacy, and the northern part running up a ramp toward the Hotel Aurore.
 
-(if:$killSites contains (passage:)&#39;s name)[There be a dead terrorist here.](else:)[(display: 1st of $alive)]
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run down the slope\&quot;-&gt;CT Spawn]]
+[[\&quot;I run up to the hotel\&quot;-&gt;Bombsite A]]
+[[\&quot;I run down the street\&quot;-&gt;Long Corner]]
+&quot;)</tw-passagedata><tw-passagedata pid="3" name="CT Mid" tags="" position="843,235" size="100,100">A large space in front of a building under contruction, scaffolding climbing its southern wall and a white truck with a load of stones parked outside it. The area slopes upward from east to west. At the top, a set of heavy doors open into a courtyard to the west. At the bottom, a similar set of doors lead north, while a wide passage large enough to admit a car passes beneath a building to the east.
 
-[[&quot;I run down the slope&quot;-&gt;CT Spawn]]
-[[&quot;I run up to the hotel&quot;-&gt;Bombsite A]]
-[[&quot;I run down the street&quot;-&gt;Long Corner]]</tw-passagedata><tw-passagedata pid="3" name="CT Mid" tags="" position="843,235" size="100,100">A large space in front of a building under contruction, scaffolding climbing its southern wall and a white truck with a load of stones parked outside it. The area slopes upward from east to west. At the top, a set of heavy doors open into a courtyard to the west. At the bottom, a similar set of doors lead north, while a wide passage large enough to admit a car passes beneath a building to the east.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run through the upper doors\&quot;-&gt;Bombsite B]]
+[[\&quot;I run through the lower doors\&quot;-&gt;Mid Doors]]
+[[\&quot;I run into the passage\&quot;-&gt;CT Spawn]]
+&quot;)</tw-passagedata><tw-passagedata pid="4" name="Long Corner" tags="" position="1315,463" size="100,100">A street that runs north-south, with the southern end terminating in a slope that leads to a closed gate. To the north you can see an intersection. A set of heavy double doors with a curving mosaic above it is ajar, leading into a squat building. A spindly palm tree stands in a corner.
 
-[[&quot;I run through the upper doors&quot;-&gt;Bombsite B]]
-[[&quot;I run through the lower doors&quot;-&gt;Mid Doors]]
-[[&quot;I run into the passage&quot;-&gt;CT Spawn]]
-</tw-passagedata><tw-passagedata pid="4" name="Long Corner" tags="" position="1315,463" size="100,100">A street that runs north-south, with the southern end terminating in a slope that leads to a closed gate. To the north you can see an intersection. A set of heavy double doors with a curving mosaic above it is ajar, leading into a squat building. A spindly palm tree stands in a corner.
-
-[[&quot;I run up the street&quot;-&gt;Cross]]
-[[&quot;I run down the slope&quot;-&gt;Pit]]
-[[&quot;I run through the doors&quot;-&gt;Outside Long]]
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run up the street\&quot;-&gt;Cross]]
+[[\&quot;I run down the slope\&quot;-&gt;Pit]]
+[[\&quot;I run through the doors\&quot;-&gt;Outside Long]]
+&quot;)
 </tw-passagedata><tw-passagedata pid="5" name="Bombsite A" tags="" position="1138,122" size="100,100">A small courtyard in front of the the Hotel Aurore. The hotel itself looms stolidly to the south with no obvious way to enter its official grounds. In the south-east corner, an overbridge extends between buildings and disappears. An slope leads down to the south into a dusty intersection. Several large packing crates are positioned against walls and even in the middle of the courtyard. Someone has spraypainted an orange X in a circle on the ground, perhaps for a construction project.
 
-[[&quot;I run down the incline.&quot;-&gt;Cross]]
-[[&quot;I run across the overbridge.&quot;-&gt;Short Stairs]]</tw-passagedata><tw-passagedata pid="6" name="Terrorist 1" tags="" position="1597.3333333333335,292.3333333333333" size="100,100">A man in a light yellow jersey is standing nearby. As you arrive he spins and levels his pistol at you. His face is hidden behind a low beanie, sunglasses, and a bandana across his mouth.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run down the incline.\&quot;-&gt;Cross]]
+[[\&quot;I run across the overbridge.\&quot;-&gt;Short Stairs]]
+&quot;)</tw-passagedata><tw-passagedata pid="6" name="Terrorist 1" tags="" position="1597,292" size="100,100">A man in a light yellow jersey is standing nearby. As you arrive he spins and levels his pistol at you. His face is hidden behind a low beanie, sunglasses, and a bandana across his mouth.
 
-(display: &quot;Complete Encounter&quot;)
-
-&lt;!--
-(link-reveal: &quot;I fire three shots.&quot;)[
-
-(link-reveal: &quot;The bullets strikes his chest.&quot;)[
-
-(link-reveal: &quot;His blood sprays out.&quot;)[
-
-(link-reveal: &quot;He falls backward.&quot;)[
-
-(link-reveal: &quot;He hits the ground.&quot;)[
-
-(link-reveal: &quot;He lies there lifeless.&quot;)[
-] ] ] ] ] ]
---&gt;</tw-passagedata><tw-passagedata pid="7" name="Startup" tags="startup" position="33.666666666666664,36" size="100,100">(set: $spawning to true)
+(set: $navigation to $navigation + &quot;
+(link-reveal: \&quot;I fire three shots.\&quot;)[
+(link-reveal: \&quot;The bullets strikes his chest.\&quot;)[
+(link-reveal: \&quot;His blood sprays out.\&quot;)[
+(link-reveal: \&quot;He falls backward.\&quot;)[
+(link-reveal: \&quot;He hits the ground.\&quot;)[
+(link-reveal: \&quot;He lies there lifeless.\&quot;)[
+(display: \&quot;Complete Encounter\&quot;)
+] ] ] ] ] ]&quot;)</tw-passagedata><tw-passagedata pid="7" name="Startup" tags="startup" position="33,36" size="100,100">(set: $spawning to true)
 (set: $alive to (shuffled: &quot;Terrorist 1&quot;, &quot;Terrorist 1&quot;,&quot;Terrorist 1&quot;))
 (set: $dead to (a:))
 (set: $killSites to (a:))</tw-passagedata><tw-passagedata pid="8" name="Short Stairs" tags="" position="1051,410" size="100,100">At the foot of a short set of stairs, surrounded closely by buildings. A colorful ad for a cyber café is painted directly on a wall above, all the doors leading into the buildings are covered with metal grills. Up the stairs in the distance to the south is the Hotel Aurore, while a walkway leads west and then south around a corner.
 
-[[&quot;I run up the stairs&quot;-&gt;Bombsite A]]
-[[&quot;I run around the corner&quot;-&gt;Top Mid]]</tw-passagedata><tw-passagedata pid="9" name="Top Mid" tags="" position="803,622" size="100,100">A large paved area amongst buildings with fading paint and crumbling plaster. Another open area is to the east. An alleyway leads between buildings to the south. Down a slope to the north is an impressively large and heavy-looking set of doors, while running alongside is a catwalk that hugs a building and then turns east. 
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run up the stairs\&quot;-&gt;Bombsite A]]
+[[\&quot;I run around the corner\&quot;-&gt;Top Mid]]
+&quot;)</tw-passagedata><tw-passagedata pid="9" name="Top Mid" tags="" position="803,622" size="100,100">A large paved area amongst buildings with fading paint and crumbling plaster. Another open area is to the east. An alleyway leads between buildings to the south. Down a slope to the north is an impressively large and heavy-looking set of doors, while running alongside is a catwalk that hugs a building and then turns east. 
 
 (Randomized flavour?) A small two-wheeled cart is tipped up against a wall next to a garage marked with a painting of a smile.
 
-[[&quot;I run along the catwalk&quot;-&gt;Short Stairs]]
-[[&quot;I run down the slope&quot;-&gt;Mid Doors]]
-[[&quot;I run into the alleyway&quot;-&gt;Suicide]]
-[[&quot;I run to the east&quot;-&gt;Outside Long]]</tw-passagedata><tw-passagedata pid="10" name="Mid Doors" tags="" position="841,411" size="100,100">A small area in front of weighty double doors reinforced with iron on the northern side. The doors are both ajar, offering a narrow view of the space through them. To the west, the open entrance to a building leads into a short hallway. To the south, a slope leads up between low buildings, a tall, thin palm tree at its top. A large packing crate covered with a green tarp sits near the eastern wall.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run along the catwalk\&quot;-&gt;Short Stairs]]
+[[\&quot;I run down the slope\&quot;-&gt;Mid Doors]]
+[[\&quot;I run into the alleyway\&quot;-&gt;Suicide]]
+[[\&quot;I run to the east\&quot;-&gt;Outside Long]]
+&quot;)</tw-passagedata><tw-passagedata pid="10" name="Mid Doors" tags="" position="841,411" size="100,100">A small area in front of weighty double doors reinforced with iron on the northern side. The doors are both ajar, offering a narrow view of the space through them. To the west, the open entrance to a building leads into a short hallway. To the south, a slope leads up between low buildings, a tall, thin palm tree at its top. A large packing crate covered with a green tarp sits near the eastern wall.
 
-[[&quot;I run into the hallway&quot;-&gt;Lower Tunnels]]
-[[&quot;I run up the slope&quot;-&gt;Top Mid]]
-[[&quot;I run through the heavy doors&quot;-&gt;CT Mid]]</tw-passagedata><tw-passagedata pid="11" name="Suicide" tags="" position="798,762" size="100,100">The darkened corner of an paved alleyway that leads both north and east toward open, well-lit areas of the town. In the northern part a large stack of boxes are piled against one wall and structural supports bridge the two buildings alley&#39;s sides to stop them collapsing onto each other.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run into the hallway\&quot;-&gt;Lower Tunnels]]
+[[\&quot;I run up the slope\&quot;-&gt;Top Mid]]
+[[\&quot;I run through the heavy doors\&quot;-&gt;CT Mid]]
+&quot;)</tw-passagedata><tw-passagedata pid="11" name="Suicide" tags="" position="798,762" size="100,100">The darkened corner of an paved alleyway that leads both north and east toward open, well-lit areas of the town. In the northern part a large stack of boxes are piled against one wall and structural supports bridge the two buildings alley&#39;s sides to stop them collapsing onto each other.
 
-[[&quot;I run out of the alley to the north&quot;-&gt;Top Mid]] 
-[[&quot;I run out of the alley to the east&quot;-&gt;Outside Long]]</tw-passagedata><tw-passagedata pid="12" name="Outside Long" tags="" position="1162,730" size="100,100">A large open area in full sunlight. A yellow car is parked near elaborately decorated double doors that lead off to the north. A set of three garage doors create a wall to the west. An alleyway bends around their southern side, while a cobbled road follows around to their north. A sloped street leads up and to the west, climbing past apartment buildings. A column of nicely stacked tires sits against the wall of another garage.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run out of the alley to the north\&quot;-&gt;Top Mid]] 
+[[\&quot;I run out of the alley to the east\&quot;-&gt;Outside Long]]
+&quot;)</tw-passagedata><tw-passagedata pid="12" name="Outside Long" tags="" position="1162,730" size="100,100">A large open area in full sunlight. A yellow car is parked near elaborately decorated double doors that lead off to the north. A set of three garage doors create a wall to the west. An alleyway bends around their southern side, while a cobbled road follows around to their north. A sloped street leads up and to the west, climbing past apartment buildings. A column of nicely stacked tires sits against the wall of another garage.
 
-[[&quot;I run through the double doors.&quot;-&gt;Long Corner]]
-[[&quot;I run along the cobbled road.&quot;-&gt;Top Mid]]
-[[&quot;I run into the alleyway&quot;-&gt;Suicide]]
-[[&quot;I run up the slope&quot;-&gt;T Spawn]]</tw-passagedata><tw-passagedata pid="13" name="Bombsite B" tags="" position="532,227" size="100,100">A courtyard of the Kasbah complex, now a protected archeological site. The western part of the space is home to myriade large packing crates and barrels presumably connected with the archeological work here. The Kasbah itself is closed. To the north, a closed set of reinforced doors would have provided access to Rue de la Kasbah. An open set of similar doors lead south through a wall, and a hallway leads into a white, plastered building. An abandoned car slumps in the south-east corner.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run through the double doors.\&quot;-&gt;Long Corner]]
+[[\&quot;I run along the cobbled road.\&quot;-&gt;Top Mid]]
+[[\&quot;I run into the alleyway\&quot;-&gt;Suicide]]
+[[\&quot;I run up the slope\&quot;-&gt;T Spawn]]
+&quot;)</tw-passagedata><tw-passagedata pid="13" name="Bombsite B" tags="" position="532,227" size="100,100">A courtyard of the Kasbah complex, now a protected archeological site. The western part of the space is home to myriade large packing crates and barrels presumably connected with the archeological work here. The Kasbah itself is closed. To the north, a closed set of reinforced doors would have provided access to Rue de la Kasbah. An open set of similar doors lead south through a wall, and a hallway leads into a white, plastered building. An abandoned car slumps in the south-east corner.
 
-[[&quot;I run through the open doors&quot;-&gt;CT Mid]]
-[[&quot;I run into the hallway&quot;-&gt;Upper Tunnels]]</tw-passagedata><tw-passagedata pid="14" name="Upper Tunnels" tags="" position="524,406" size="100,100">An transitional area that provides access to a set of stairs leading down to the east, a hallway leading north, and a larger set of doors leading out into a courtyard to the south. The space is well-lit as its ceiling has been replaced by rough scaffolding that leaves room for the sunlight to enter. The walls and arches over the space are worn, with brick showing through the plaster here and there.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run through the open doors\&quot;-&gt;CT Mid]]
+[[\&quot;I run into the hallway\&quot;-&gt;Upper Tunnels]]
+&quot;)</tw-passagedata><tw-passagedata pid="14" name="Upper Tunnels" tags="" position="524,406" size="100,100">An transitional area that provides access to a set of stairs leading down to the east, a hallway leading north, and a larger set of doors leading out into a courtyard to the south. The space is well-lit as its ceiling has been replaced by rough scaffolding that leaves room for the sunlight to enter. The walls and arches over the space are worn, with brick showing through the plaster here and there.
 
-[[&quot;I run down the hallway&quot;-&gt;Bombsite B]]
-[[&quot;I run down the stairs&quot;-&gt;Lower Tunnels]]
-[[&quot;I run through the doorway&quot;-&gt;Outside Tunnels]]</tw-passagedata><tw-passagedata pid="15" name="Lower Tunnels" tags="" position="688,406" size="100,100">An east-west hallway lit by a bulb hanging from the dark ceiling. Reinforced packing crates are stacked against the walls, possibly linked to the archeological site nearby. A curving set of stairs leads upward at the west end of the hall beneath a crenulated arch, while a doorway leads out into the daylight to the east.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run down the hallway\&quot;-&gt;Bombsite B]]
+[[\&quot;I run down the stairs\&quot;-&gt;Lower Tunnels]]
+[[\&quot;I run through the doorway\&quot;-&gt;Outside Tunnels]]
+&quot;)</tw-passagedata><tw-passagedata pid="15" name="Lower Tunnels" tags="" position="688,406" size="100,100">An east-west hallway lit by a bulb hanging from the dark ceiling. Reinforced packing crates are stacked against the walls, possibly linked to the archeological site nearby. A curving set of stairs leads upward at the west end of the hall beneath a crenulated arch, while a doorway leads out into the daylight to the east.
 
-[[&quot;I run up the stairs&quot;-&gt;Upper Tunnels]] 
-[[&quot;I run through the doorway&quot;-&gt;Mid Doors]]</tw-passagedata><tw-passagedata pid="16" name="Outside Tunnels" tags="" position="522,651" size="100,100">A courtyard in front of an elegant entrance into an old building complex which stands to the north. Beautiful mosaic work fills in arches above a large central doorway. To the east and west are dusty-looking residential buildings, while a sloped road leads up to an elevated area to the south. A set of dumpsters are pushed against a decrepit wall, covered with trash bags.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run up the stairs\&quot;-&gt;Upper Tunnels]] 
+[[\&quot;I run through the doorway\&quot;-&gt;Mid Doors]]
+&quot;)</tw-passagedata><tw-passagedata pid="16" name="Outside Tunnels" tags="" position="522,651" size="100,100">A courtyard in front of an elegant entrance into an old building complex which stands to the north. Beautiful mosaic work fills in arches above a large central doorway. To the east and west are dusty-looking residential buildings, while a sloped road leads up to an elevated area to the south. A set of dumpsters are pushed against a decrepit wall, covered with trash bags.
 
-[[&quot;I run into the old building&quot;-&gt;Upper Tunnels]]
-[[&quot;I run up the road&quot;-&gt;T Ramp]]</tw-passagedata><tw-passagedata pid="17" name="T Ramp" tags="" position="522,892" size="100,100">A parking lot for a small auto repair shop, poised above an courtyard. A sloped road leads down into the courtyard, with pedestrian steps on its western side. The shell of an under-construction building faces the parking lot from the south. The street runs east-west here. To the east, past the garage, is the location the terrorists were reported to be in. To the west, expensive-looking apartments and houses are protected by a fence that runs across the street, preventing acccess. 
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run into the old building\&quot;-&gt;Upper Tunnels]]
+[[\&quot;I run up the road\&quot;-&gt;T Ramp]]
+&quot;)</tw-passagedata><tw-passagedata pid="17" name="T Ramp" tags="" position="522,892" size="100,100">A parking lot for a small auto repair shop, poised above an courtyard. A sloped road leads down into the courtyard, with pedestrian steps on its western side. The shell of an under-construction building faces the parking lot from the south. The street runs east-west here. To the east, past the garage, is the location the terrorists were reported to be in. To the west, expensive-looking apartments and houses are protected by a fence that runs across the street, preventing acccess. 
 
-[[&quot;I run down to the courtyard&quot;-&gt;Outside Tunnels]] 
-[[&quot;I run east along the street&quot;-&gt;T Spawn]]</tw-passagedata><tw-passagedata pid="18" name="T Spawn" tags="" position="804,907" size="100,100">This is the reported location of the terrorist group. A street with its curb painted red leads down a gentle hill to the east, terminating at a chainlink fence, but providing access to an open area among low buildings. To the west you can see the beginning of a parking lot. Sturdy palm trees stand in somebody&#39;s walled-off back yard. Signs tell you that the Hotel Aurore is to the east and the Kasbah is to the west.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run down to the courtyard\&quot;-&gt;Outside Tunnels]] 
+[[\&quot;I run east along the street\&quot;-&gt;T Spawn]]
+&quot;)</tw-passagedata><tw-passagedata pid="18" name="T Spawn" tags="" position="804,907" size="100,100">This is the reported location of the terrorist group. A street with its curb painted red leads down a gentle hill to the east, terminating at a chainlink fence, but providing access to an open area among low buildings. To the west you can see the beginning of a parking lot. Sturdy palm trees stand in somebody&#39;s walled-off back yard. Signs tell you that the Hotel Aurore is to the east and the Kasbah is to the west.
 
-[[&quot;I run to the parking lot&quot;-&gt;T Ramp]]
-[[&quot;I run down the hill&quot;-&gt;Outside Long]] </tw-passagedata><tw-passagedata pid="19" name="Pit" tags="" position="1367,612" size="100,100">An overhanging building throws shade over the street here, with the sun shining brightly back up the slope to the north. A sign indicates that the Hotel Aurore is up that way. The large double doors that would provide further passage to the south are closed and locked.
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run to the parking lot\&quot;-&gt;T Ramp]]
+[[\&quot;I run down the hill\&quot;-&gt;Outside Long]] 
+&quot;)</tw-passagedata><tw-passagedata pid="19" name="Pit" tags="no_encounters" position="1367,612" size="100,100">An overhanging building throws shade over the street here, with the sun shining brightly back up the slope to the north. A sign indicates that the Hotel Aurore is up that way. The large double doors that would provide further passage to the south are closed and locked.
 
-[[&quot;I run up the slope&quot;-&gt;Long Corner]] </tw-passagedata><tw-passagedata pid="20" name="Terrorist 2" tags="" position="1798.3333333333335,292.5" size="100,100">Peek-a-boo, I see you too!
+(set: $navigation to $navigation + &quot;
+[[\&quot;I run up the slope\&quot;-&gt;Long Corner]] 
+&quot;)</tw-passagedata><tw-passagedata pid="20" name="Terrorist 2" tags="" position="1798,292" size="100,100">Peek-a-boo, I see you too!
 
-(display: &quot;Complete Encounter&quot;)</tw-passagedata><tw-passagedata pid="21" name="Complete Encounter" tags="" position="2191.666666666667,295.8333333333333" size="100,100">(move: $alive&#39;s 1st into $dead)
+(display: &quot;Complete Encounter&quot;)</tw-passagedata><tw-passagedata pid="21" name="Complete Encounter" tags="" position="2191,295" size="100,100">(move: $alive&#39;s 1st into $dead)
 (set: $killSites to $killSites + (a: (passage:)&#39;s name))
-(if: $alive&#39;s length is 0)[GAME OVER]</tw-passagedata><tw-passagedata pid="22" name="Terrorist 3" tags="" position="1990,299.16666666666663" size="100,100">Hello there.
+(if: $alive&#39;s length is 0)[GAME OVER]</tw-passagedata><tw-passagedata pid="22" name="Terrorist 3" tags="" position="1990,299" size="100,100">Hello there.
 
-(display: &quot;Complete Encounter&quot;)</tw-passagedata></tw-storydata>
+(display: &quot;Complete Encounter&quot;)</tw-passagedata><tw-passagedata pid="23" name="Footer" tags="footer" position="35,174.16666666666663" size="100,100">(if:$killSites contains (passage:)&#39;s name)[There is a dead terrorist here.]
+(else:)[
+(if: (passage:)&#39;s tags contains &quot;no_encounters&quot;)[](else:)[
+(if: (random:1,2) &lt;= 2 and $alive&#39;s length is not 0)[
+(display: 1st of $alive)
+]]]	
+
+(print: $navigation)</tw-passagedata><tw-passagedata pid="24" name="Header" tags="header" position="43.33333333333326,315.8333333333333" size="100,100">(set: $navigation to &quot;&quot;)</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
