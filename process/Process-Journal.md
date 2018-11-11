@@ -663,7 +663,7 @@ So
 
 # Saturday, 10 November 2018, 15:01PM
 
-In fact, jumping off from the writing I did above I did a bunch of Twine (the previous commit) to at least just try to work through some of it. I continue to believe that the Hawlowe programming is probably still useful as a way of working out various structural ideas that will end up being in the "real" version as well anyway.
+In fact, jumping off from the writing I did above I did a bunch of Twine (the previous commit) to at least just try to work through some of it. I continue to believe that the Harlowe programming is probably still useful as a way of working out various structural ideas that will end up being in the "real" version as well anyway.
 
 It's feeling pretty weird just how divorced from the core spoken word idea this has all ended up being - I'm spending a bunch of time in Twine and Harlowe's code to make stuff happen.
 
@@ -678,3 +678,19 @@ I just realised, while typing that, that there could be an awkwardness involved 
 Separate from the whole spatialisation is the question of whether I want to have the T potentially run elsewhere? I think probably not... feels like it complicates things in a way I can't be bothered with?
 
 SO. Spatialise.
+
+---
+
+# Sunday, 11 November 2018, 15:55PM -- Having spatialised the corpses, feeling bored, looking forward to testing and moving on
+
+Have successfully implemented a primitive idea of terrorist corpses remembering where they died, being spatialised into the location. I'm at a bit of a crossroads in terms of how deep I want to go into spatial text generation though? Currently they're all objects you could be "stand near" (when alive) and be "thrown back against" (when shot) and be "leaned against" (when dead). It would be possible to get "more sophisticated" I suppose, without too much drama? Like specify those three verbs+objects in datamaps?
+
+Sigh.
+
+I've probably worked "too much" on this thing this weekend, leading to a bit of a bland feeling about it. That said, it's really pretty close to a testable version of the "narrative" of the thing. At this point I probably just need an ending, tweaking the ability of terrorists appearing before the first three turns (say?), limiting the ability of finding a terrorist in a place that in the line of site of another place?, and some other stuff like that.
+
+Then I could at least show it to Rilla and Jim and Mary - though I do wish it were possible to have the scrolling page thing. I probably could figure it out, but I think it's a waste of my time.
+
+Anyway, I guess the idea right now is to push for a working narrative version in Twine, that I can then "just implement" in code with annyang and some extra UI stuff, and then be fucking done with it.
+
+Maybe once this Twine is fully done I can sit down and reflect on some of the writing, spatial, structural stuff that's all related to the project, even though the central "selling point" has always been about vocalising violence.
