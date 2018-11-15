@@ -706,3 +706,19 @@ The starkness of seeing the shooting sequence isolated on the page is interestin
 Revisiting what I wrote last entry (because at that point I was effectively where I finally got back to now), I can see that I was pretty over it, which is fine. However I also thought I was pretty close. And it's true that now you can run around in the game and "finish" it. I do need some sense of game over? I don't think I want a version where you just continue to run around the space. So I guess just some "the terrorist threat has been eliminated" or whatever, and then "THE END" at the bottom so it's clear? (Will have to think about some of this stuff tonally of course.)
 
 For now I don't think I'll worry about line of sight - easier to test without it and see if anyone even notices? I think it's totally plausible it's no big deal. Again this constant tension between simulation and fiction. So, I'll go and implement final touches, and then come back to reflect a bit on this work I've been doing if there's time this morning.
+
+---
+
+# Thursday, 15 November 2018, 7:35AM -- Having put in all three terrorists and a game over
+
+I think the Twine prototype is now pretty much feature complete, or as much as I think I can bear. Importantly I think I've fixed all the weird line-break crap you get with Twine which would have made it just slightly less playable. So I think the only remaining thing before asking for a playtest is probably styling the visuals of it a bit more and thinking about whether there are any other bits and pieces that might make sense?
+
+I suddenly thought just then about whether one would have gunshot sounds as the only audio? Could be stark and interesting... could be stupid. Who's to say? Me I suppose. I think right now I think no.
+
+So at this point there's an actual game. It's very, very primitive in terms of the underlying systems in that it just has random spawning of the terrorists, they are doing the exact same thing whenever you meet them so you could run into situations such as seeing one crouched and unaware, running out a door, and then seeing the same one crouched and unaware in the next space. That's so world-breaking I probably have to do something about it, but I think a benefit of the prototype is that it represents more or less the simplest version of this, and I can tune it up from there, rather than worry about a realistic simulation of spaces from the beginning.
+
+Working a bit with the visuals is now important I think. I've wondered about using a texture from de_dust2, perhaps very zoomed and pixelized as a background, to give it that kind of flavour. And perhaps using courier as a more neutral "reporting" typeface. The colour scheme could be worked on (purple is a weird link colour for this?). And then whether there should be any special link colouring and highlighting depending on context, or whether all actions are "equal"?
+
+So, next session (Friday) will be visual aesthetics with the aim that I can send this thing to Jim and Mary and Rilla and get some feedback on how well (or not) it hangs together just as a narrative experience. From that I can maybe fix some things, or just take notes that I'll implement in the Real Thing™ later on.
+
+Overall I think this Twine deep dive has been worthwhile and has allowed me to confront a whole bunch of narrative/hypertext level issues and thoughts around the game without being at the same time literally implementing them and editing JSON or similar to try to work out how to do stuff. So I think it's been a worthy prototyping process.
