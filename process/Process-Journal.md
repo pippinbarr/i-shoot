@@ -694,3 +694,15 @@ Then I could at least show it to Rilla and Jim and Mary - though I do wish it we
 Anyway, I guess the idea right now is to push for a working narrative version in Twine, that I can then "just implement" in code with annyang and some extra UI stuff, and then be fucking done with it.
 
 Maybe once this Twine is fully done I can sit down and reflect on some of the writing, spatial, structural stuff that's all related to the project, even though the central "selling point" has always been about vocalising violence.
+
+---
+
+# Thursday, 15 November 2018, 6:28AM -- Having repaired the broken Twine to allow corpses to appear again, reflecting on what to do to finish the Twine narrative prototype
+
+In the final hour or so of GAMERella I managed to break the Twine by trying to move the shooting sequence to a new passage to declutter its appearance. The problem was the way that starting a shooting sequence would leave the previous navigation elements visible (and clickable). It just muddied everything. It turned out that a fix Rilla suggested did the trick (reassigning things into variables and then checking equality - a bit unclear why as of now, but I will 100% take it).
+
+The starkness of seeing the shooting sequence isolated on the page is interesting and is something I'd potentially lose if I move to the scrolling model I've been assuming I'd use for the game. If it's continuous it perhaps feels too much just part of things, just like navigation? On the other hand, part of the idea here is not to highlight or otherwise play up the things of shooting - it's meant to be impactful on its own (specifically because of the voice aspect). So I don't _need_ to manipulate things visually, but it does make me wonder whether past text should be slightly dimmed all the time so you know where you are more clearly? That might be a reasonable usability tweak to make, and it would capture something of the newness of each moment, including shooting.
+
+Revisiting what I wrote last entry (because at that point I was effectively where I finally got back to now), I can see that I was pretty over it, which is fine. However I also thought I was pretty close. And it's true that now you can run around in the game and "finish" it. I do need some sense of game over? I don't think I want a version where you just continue to run around the space. So I guess just some "the terrorist threat has been eliminated" or whatever, and then "THE END" at the bottom so it's clear? (Will have to think about some of this stuff tonally of course.)
+
+For now I don't think I'll worry about line of sight - easier to test without it and see if anyone even notices? I think it's totally plausible it's no big deal. Again this constant tension between simulation and fiction. So, I'll go and implement final touches, and then come back to reflect a bit on this work I've been doing if there's time this morning.

@@ -54,8 +54,8 @@
 - Three fails turns the "say it" options into links instead (with a pop up?)
 - Consider pausing/starting annyang between passages as a way to conceivably avoid the shutdowns it does sometimes when it gets confuse? (Can you unconfuse it?)
 - Improve the transition on a successful phrase
-- Improve the overall typography, margins, colours
-- Recording the voice input and allowing them to download it? (Would be an amazing sound file... don't know about the storage issues.)
+- Improve the overall typography, margins, colours (dim prior texts and highlight current?)
+- __THIS SEEMS GIMMICKY?__ ~~Recording the voice input and allowing them to download it? (Would be an amazing sound file... don't know about the storage issues.)~~
 
 # Game design
 
