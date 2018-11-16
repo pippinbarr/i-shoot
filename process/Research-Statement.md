@@ -22,3 +22,14 @@
 - To support this question/hypothesis, the objective will be to focus on a neutral writing approach to avoid colouring or suggesting reactions/valences to the player
 - To support the parallels to the reference game (CS:GO) I will attempt to bring the textual version sufficiently close to it (random encounters with enemies, ability to move through space, chance of being killed yourself, etc.) that the potential issue of the textual version simply being too dissimilar to draw a fair comparison is at least partly addressed
 - THe game is a spiritual successor to _A Series of Gunshots_, coming from a new angle
+
+---
+
+# Research Statement v3.0 / Friday, 16 November 2018, 7:08AM
+
+- _"I shoot"_ exists to test a different representation of conventional videogame violence
+- The objective is to have violent actions "land" affectively rather than be abstracted into game-think
+- The form has two key elements
+- First, the game is played with the voice, with the idea that speaking violent actions is less susceptible to dismissal as just play (perhaps for novelty reasons, but perhaps also with the idea that speaking the actions takes ownership and genuinely enacts the first person)
+- Second, the game is a translation of _Counter-Strike: Global Offensive_'s de_dust2 map into a text adventure, with the idea (similar to _A Series of Gunshots_) of reducing visual, auditory, interface, etc. reward structures in favour of a (deeply flawed of course) "neutrality"
+- Thus, the game is intended to create the "opportunity" to perform violent actions with the voice and, ideally, to have those actions register with more emotional agency than point-and-click shooting

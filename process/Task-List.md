@@ -45,9 +45,9 @@
 - ~~Implement characteristic walls/shapes for terrorist encounters~~
 - ~~Use a single variable to track terrorists killed and use that to denote game over~~
 - __DOESN'T SEEM TO BE A THING?__ ~~Find a one-page Twine theme?~~
-- Implement some basic CSS/visual styling for presentation of the prototype
-- Different typography for terrorist texts?
-- Do final testing of the robustness of this thing
+- __COLOURS AND FONT__ ~~Implement some basic CSS/visual styling for presentation of the prototype~~
+- __ITALICS WHEN YOU SEE THEM__ ~~Different typography for terrorist texts?~~
+- ~~Do final testing of the robustness of this thing~~
 - Send to testers
 
 # Vertical slice UI prototype
