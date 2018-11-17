@@ -736,3 +736,11 @@ __Terrorist movement__. I had a semi-amazing idea with the terrorist movement/lo
 __Testing__. For right now I think it's still important to get this format out to testing so that the basic idea of the spatiality of the game, the three encounters, and the finishing of the game are looked at, so I'll be sending that out today I imagine.
 
 Overall good progress is being made in terms of just having something robust that I can then implement with the voice stuff, work out the kinks in the interactions, and then put out there for better or worse. Hopefully for better.
+
+---
+
+# Saturday, 17 November 2018, 13:01PM - Image of Twine map
+
+Forgot to add this in on Friday. Just to have a view of the spatial mapping in Twine of the de_dust2 layout, which I find satisfying, alongside the extra elements.
+
+![](images/testable-twine-prototype.png)
