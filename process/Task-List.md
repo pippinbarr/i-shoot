@@ -48,7 +48,7 @@
 - __COLOURS AND FONT__ ~~Implement some basic CSS/visual styling for presentation of the prototype~~
 - __ITALICS WHEN YOU SEE THEM__ ~~Different typography for terrorist texts?~~
 - ~~Do final testing of the robustness of this thing~~
-- Send to testers
+- __DID THIS ON FRIDAY 16th__ ~~Send to testers~~
 
 # Vertical slice UI prototype
 
