@@ -17,7 +17,7 @@ let attempts = 0;
 // For a reference to the game text
 let $text;
 
-const PASSAGE_FADE_IN_TIME = 1000;
+const PASSAGE_FADE_IN_TIME = 500;
 const COMMAND_FADE_OUT_TIME = 500;
 const COMMAND_SLIDE_UP_TIME = 500;
 
@@ -66,15 +66,19 @@ function displayCurrentPassage() {
   // Reset annyang's commands
   annyang.removeCommands();
 
+  $passage = $('<div></div>');
+
   // Go through the description paragraph by paragraph and add to the page
   for (let i = 0; i < data[currentPlace].description.length; i++) {
     if (!eval(data[currentPlace].description[i].test)) continue;
     let $p = $('<p></p>');
     $p.addClass('passage' + passage);
-    $p.addClass('text' + passage);
+    $p.addClass('text-' + passage);
     $p.append(data[currentPlace].description[i].text);
-    $text.append($p);
+    $passage.append($p);
   }
+
+  $text.append($passage);
 
   // Build our annyang commands and the display version
   let annyangCommands = {};
@@ -106,17 +110,33 @@ function displayCurrentPassage() {
   // Add the commands to the page
   $text.append($commands);
 
-  $('html, body').animate({
-    scrollTop: $('.text' + passage).offset().top
-  },500);
+  $passage.css('opacity',0);
+  $commands.css('opacity',0);
+
+  if ($commands.offset().top + $commands.height() > $(window).height()) {
+    scrollToPassage();
+  }
+  else {
+    fadeInPassage();
+  }
+
+  function scrollToPassage() {
+    $('html, body').animate({
+      scrollTop: $commands.offset().top + $commands.height()
+    },1000,fadeInPassage);
+  }
+
+  function fadeInPassage() {
+    $passage.animate({opacity:1},PASSAGE_FADE_IN_TIME,function() {
+      $commands.animate({opacity:1},PASSAGE_FADE_IN_TIME,function() {
+      });
+    });
+
+  }
 
   // Fade this passage in
-  $('.command-' + passage).hide();
-  $('.text' + passage).hide().fadeIn(PASSAGE_FADE_IN_TIME,function() {
-    $('.command-' + passage).fadeIn(PASSAGE_FADE_IN_TIME,function() {
 
-    });
-  });
+
 
   // Now we've defined the commands we give them to annyang
   // by using its .addCommands() function.
@@ -184,7 +204,7 @@ function makeCommandsClickable() {
     $('#' + destination).on('click', function () {
       executeCommand(destination,description);
       $(this).off('click');
-      $(this).removeClass('clickable',1000);
+      $(this).removeClass('clickable');
     });
   }
 }
