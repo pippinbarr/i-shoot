@@ -11,7 +11,7 @@ body {
 }
 
 #game {
-
+  margin-top: 5em;
 }
 
 #text {
@@ -20,6 +20,10 @@ body {
 
 .command {
   color: rgb(153, 51, 51);
+}
+
+.commanded {
+  font-weight: bold;
 }
 
 .clickable {

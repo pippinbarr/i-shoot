@@ -70,11 +70,19 @@ function displayCurrentPassage() {
 
   // Go through the description paragraph by paragraph and add to the page
   for (let i = 0; i < data[currentPlace].description.length; i++) {
-    if (!eval(data[currentPlace].description[i].test)) continue;
     let $p = $('<p></p>');
-    $p.addClass('passage' + passage);
-    $p.addClass('text-' + passage);
+    $p.addClass(`passage-${passage}`);
+    $p.addClass(`text-${passage}`);
     $p.append(data[currentPlace].description[i].text);
+    $passage.append($p);
+  }
+
+  // Add any dynamic text this location has if the test expression is true
+  if (data[currentPlace].hasOwnProperty('dynamic') && eval(data[currentPlace].dynamic.test)) {
+    let $p = $('<p></p>');
+    $p.addClass(`passage-${passage}`);
+    $p.addClass(`text-${passage}`);
+    $p.append(data[currentPlace].dynamic.text);
     $passage.append($p);
   }
 
@@ -87,20 +95,20 @@ function displayCurrentPassage() {
   // Go through all the commands
   for (let i = 0; i < data[currentPlace].commands.length; i++) {
     // Store the components nicely
-    let command = data[currentPlace].commands[i].command;
+    let command = data[currentPlace].commands[i].command.toLowerCase();
     let destination = data[currentPlace].commands[i].destination;
-    let display = data[currentPlace].commands[i].display;
+    let display = data[currentPlace].commands[i].command;
 
     // Add each command to our object
     annyangCommands[command] = function () {
       // Handler function should know destination and description of command
       // for moving through story and for jQuery effects
-      executeCommand(destination,text);
+      executeCommand(display,destination,text);
     }
 
     // Build the display version of the commands
     let $command = $('<p></p>');
-    $command.addClass('command-' + passage);
+    $command.addClass(`command-${passage}`);
     $command.addClass('command');
     $command.attr('id',destination);
     $command.append(`"${display}."`);
@@ -145,6 +153,7 @@ function displayCurrentPassage() {
   // Set up for mishearings
   annyang.addCallback('resultNoMatch', handleMishearing);
 
+  // For testing for now (always make commands clickable)
   makeCommandsClickable();
 }
 
@@ -152,30 +161,54 @@ function displayCurrentPassage() {
 //
 // Does some nice jQuery animation to transition
 // and moves to the requested passage based on the command
-function executeCommand(destination,description) {
-  console.log('>>> Executing command to: ' + destination);
+function executeCommand(display,destination,description) {
+  console.log('>>> Executing:' + destination);
 
   // Update current place
   currentPlace = destination;
 
-  // Fade out and slide up all the commands that weren't the one issued
-  $('.command').not('#' + destination).animate({
-    opacity: 0
-  }, COMMAND_FADE_OUT_TIME, function () {
-    $(this).slideUp(COMMAND_SLIDE_UP_TIME, function () {
-      $(this).remove();
-    });
-  });
+  // Transform the chosen command to remove the quote-marks (it has become an action)
+  $selected = $(`#${destination}`);
+  // $selected.animate({opacity:0},function() {
+    display = display.replace('"','');
+    $selected.text(`${display}.`);
+    // $selected.animate({opacity:1});
+  // });
 
-  // Change the text of the command issues to be regular text
-  // and stop it being a command for that destination
+  // Fade out and slide up all the commands that weren't the one issued
+  $unselected = $('.command').not(`#${destination}`);
+
+  if ($unselected.length !== 0) {
+    let goneToNext = false;
+    $unselected.animate({
+      opacity: 0
+    }, COMMAND_FADE_OUT_TIME, function () {
+      $(this).slideUp(COMMAND_SLIDE_UP_TIME, function () {
+        if (!goneToNext) {
+          goneToNext = true;
+          goToNext();
+        }
+        $(this).remove();
+      });
+    });
+  }
+  else {
+    goToNext();
+  }
+
   $('#' + destination).removeClass('command');
+  $('#' + destination).addClass('commanded');
   $('#' + destination).removeAttr('id');
 
-  // Reset attempts now that we've successfully issued a command
-  attempts = 0;
 
-  setTimeout(displayCurrentPassage,COMMAND_FADE_OUT_TIME + COMMAND_SLIDE_UP_TIME + 100);
+  function goToNext() {
+
+    // Reset attempts now that we've successfully issued a command
+    attempts = 0;
+
+    setTimeout(displayCurrentPassage,COMMAND_FADE_OUT_TIME + COMMAND_SLIDE_UP_TIME + 100);
+  }
+
 }
 
 function handleMishearing(possibles) {
@@ -202,7 +235,7 @@ function makeCommandsClickable() {
     $('#' + destination).addClass('clickable');
     // Add a click event that executes its command and makes it unclickable
     $('#' + destination).on('click', function () {
-      executeCommand(destination,description);
+      executeCommand(command,destination,description);
       $(this).off('click');
       $(this).removeClass('clickable');
     });

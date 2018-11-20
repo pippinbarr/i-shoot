@@ -3,18 +3,17 @@
     "name": "CT_Spawn",
     "description": [
       {
-        "test": "true",
         "text": "A dim space below an overbridge lit by a single hanging bulb and the light filtering in from the outside. A large, locked metal gate leads into a storage area to the north. There are exits to either side, with signs indicating that the Hotel Aurore is to the east, while the Kasbah is to the west. The eastern path climbs up a slope into the daylight. The western path is flanked by packing crates of various sizes and leads into a sunny, open area. A short ladder and a tire lie forgotten on the ground against the eastern wall."
-      },
-      {
-        "test": "passage === 1",
-        "text": "The rest of the Counter-Terrorist squad has already deployed to the east toward the reported location of the terrorist group."
       }
     ],
+    "dynamic":
+    {
+      "test": "passage === 1",
+      "text": "The rest of the Counter-Terrorist squad has already deployed to the east toward the reported location of the terrorist group."
+    },
     "commands": [
       {
-        "command": "i run up the slope",
-        "display": "I run up the slope",
+        "command": "I run up the slope",
         "destination": "Cross"
       }
     ]
@@ -24,19 +23,45 @@
     "name": "Cross",
     "description": [
       {
-        "test": "true",
         "text": "A three-way intersection beneath a bright sky. A dusty blue car is parked up on the sidewalk to the east next to a residential complex. Opposite it, to the west, a slope leads down beneath an overbridge. A street runs north and south, with the southern part passing by a series of closed and disused-looking stores such as a pharmacy, and the northern part running up a ramp toward the Hotel Aurore."
+      }
+    ],
+    "dynamic":
+    {
+      "test": "passage === 2",
+      "text": "You hear gunshots up the street to the south."
+    },
+    "commands": [
+      {
+        "command": "I run down the slope",
+        "destination": "CT_Spawn"
       },
       {
-        "test": "passage === 2",
-        "text": "You hear gunshots up the street to the south."
+        "command": "I run up to the hotel",
+        "destination": "Bombsite_A"
+      },
+      {
+        "command": "I run down the street",
+        "destination": "Long_Corner"
+      }
+    ]
+  },
+
+  "Bombsite_A": {
+    "name": "Bombsite_A",
+    "description": [
+      {
+        "text": "A small courtyard in front of the the Hotel Aurore. The hotel itself looms stolidly to the south with no obvious way to enter its official grounds. In the south-east corner, an overbridge extends between buildings and disappears. A slope leads down to the south into a dusty intersection. Several large packing crates are positioned against walls and even in the middle of the courtyard. Someone has spraypainted an orange X in a circle on the ground, perhaps for a construction project."
       }
     ],
     "commands": [
       {
-        "command": "i run down the slope",
-        "display": "I run down the slope",
-        "destination": "CT_Spawn"
+        "command": "I run down the incline",
+        "destination": "Cross"
+      },
+      {
+        "command": "I run across the overbridge",
+        "destination": "Short_Stairs"
       }
     ]
   }
