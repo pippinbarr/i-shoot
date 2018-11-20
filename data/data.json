@@ -1,86 +1,42 @@
 {
-  "longCorner": {
-    "name": "longCorner",
+  "CT_Spawn": {
+    "name": "CT_Spawn",
     "description": [
-      "The four bodies of the other counter-terrorist operatives are strewn around the area alongside two terrorist corpses. Blood spatters the dusty ground and walls and pistols litter the area.",
-      "A terrorist, bandanas masking his entire face, stands near the doors, a pistol levelled at my head."
-    ],
-    "commands": [
       {
-        "command": "i run down the street to the north",
-        "description": "I run down the street to the north.",
-        "destination": "longCorner"
+        "test": "true",
+        "text": "A dim space below an overbridge lit by a single hanging bulb and the light filtering in from the outside. A large, locked metal gate leads into a storage area to the north. There are exits to either side, with signs indicating that the Hotel Aurore is to the east, while the Kasbah is to the west. The eastern path climbs up a slope into the daylight. The western path is flanked by packing crates of various sizes and leads into a sunny, open area. A short ladder and a tire lie forgotten on the ground against the eastern wall."
       },
       {
-        "command": "i shoot at him",
-        "description": "I shoot at him.",
-        "destination": "shooting1"
+        "test": "passage === 1",
+        "text": "The rest of the Counter-Terrorist squad has already deployed to the east toward the reported location of the terrorist group."
+      }
+    ],
+    "commands": [
+      {
+        "command": "i run up the slope",
+        "display": "I run up the slope",
+        "destination": "Cross"
       }
     ]
   },
 
-  "shooting1": {
+  "Cross": {
+    "name": "Cross",
     "description": [
-      ""
-    ],
-    "commands": [
       {
-        "command": "i fire two quick shots",
-        "description": "I fire two quick shots.",
-        "destination": "shooting2"
+        "test": "true",
+        "text": "A three-way intersection beneath a bright sky. A dusty blue car is parked up on the sidewalk to the east next to a residential complex. Opposite it, to the west, a slope leads down beneath an overbridge. A street runs north and south, with the southern part passing by a series of closed and disused-looking stores such as a pharmacy, and the northern part running up a ramp toward the Hotel Aurore."
+      },
+      {
+        "test": "passage === 2",
+        "text": "You hear gunshots up the street to the south."
       }
-    ]
-  },
-
-  "shooting2": {
-    "description": [
-      ""
     ],
     "commands": [
       {
-        "command": "both hit him in the head",
-        "description": "Both hit him in the head.",
-        "destination": "shooting3"
-      }
-    ]
-  },
-
-  "shooting3": {
-    "description": [
-      ""
-    ],
-    "commands": [
-      {
-        "command": "blood splashes back against the wall",
-        "description": "Blood splashes back against the wall.",
-        "destination": "shooting4"
-      }
-    ]
-  },
-
-  "shooting4": {
-    "description": [
-      ""
-    ],
-    "commands": [
-      {
-        "command": "he drops lifeless to the ground",
-        "description": "He drops lifeless to the ground.",
-        "destination": "longCorner2"
-      }
-    ]
-  },
-
-  "longCorner2": {
-    "description": [
-      "The four bodies of the other counter-terrorist operatives are strewn around the area alongside three terrorist corpses. Blood spatters the dusty ground and walls and pistols litter the area.",
-      "The terrorist I killed lies flat on his back, eyes seeing nothing."
-    ],
-    "commands": [
-      {
-        "command": "i run down the street to the north",
-        "description": "I run down the street to the north",
-        "destination": "longCorner2"
+        "command": "i run down the slope",
+        "display": "I run down the slope",
+        "destination": "CT_Spawn"
       }
     ]
   }
