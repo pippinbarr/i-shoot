@@ -175,6 +175,11 @@ function executeCommand(display,destination,description) {
     // $selected.animate({opacity:1});
   // });
 
+  $selected.removeClass('command');
+  $selected.addClass('commanded');
+  $selected.removeAttr('id');
+  $selected.removeClass('clickable');
+
   // Fade out and slide up all the commands that weren't the one issued
   $unselected = $('.command').not(`#${destination}`);
 
@@ -195,11 +200,6 @@ function executeCommand(display,destination,description) {
   else {
     goToNext();
   }
-
-  $('#' + destination).removeClass('command');
-  $('#' + destination).addClass('commanded');
-  $('#' + destination).removeAttr('id');
-
 
   function goToNext() {
 
