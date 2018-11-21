@@ -50,20 +50,25 @@
 - ~~Do final testing of the robustness of this thing~~
 - __DID THIS ON FRIDAY 16th__ ~~Send to testers~~
 
-# Vertical slice UI prototype
+# Failure UI
 
-- Start with annyang prototype and start figuring out nicer UI stuff
 - Add "failed" indicator
 - Three fails turns the "say it" options into links instead (with a pop up?)
-- Consider pausing/starting annyang between passages as a way to conceivably avoid the shutdowns it does sometimes when it gets confuse? (Can you unconfuse it?)
-- Improve the transition on a successful phrase
+- __SEEMS KIND OF ROBUST?__ ~~Consider pausing/starting annyang between passages as a way to conceivably avoid the shutdowns it does sometimes when it gets confuse? (Can you unconfuse it?)~~
+- ~~Improve the transition on a successful phrase~~
 - Improve the overall typography, margins, colours (dim prior texts and highlight current?)
 - __THIS SEEMS GIMMICKY?__ ~~Recording the voice input and allowing them to download it? (Would be an amazing sound file... don't know about the storage issues.)~~
+- ~~Start with annyang prototype and start figuring out nicer UI stuff~~
 
 # Game design
 
-- Attempt a more formal writing of the system's dynamics (e.g. terrorist spawning, movement, stealth, cover, etc.)
+- __NO LONGER SEEMS NEEDED__ ~~Attempt a more formal writing of the system's dynamics (e.g. terrorist spawning, movement, stealth, cover, etc.)~~
 
 # Implementation
 
-- Create every area and allow transitions between them (no descriptions for now)
+- ~~Create every area and allow transitions between them (no descriptions for now)~~
+- ~~Translate Twine areas and commands into JSON for my version~~
+- Create a version that has separate pages with fades (or something) between them, but tracks the full story as well
+- Implement short descriptions (e.g. every area has a short description + a visited tag + an "I look around" command if visited that shows the full description)
+- Implement encounters (separate JSON, add text to location at the end)
+- Remember the idea of locations with tagging for no encounters

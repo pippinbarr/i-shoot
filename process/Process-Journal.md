@@ -775,3 +775,25 @@ I need to return to thinking about usability tweaks (e.g. dialog boxes that pop 
 Niceties like "a" terrorist at first followed by "the" after you've seen them once (and possibly killed them).
 
 But this is the week of implementation basically, sounds ok to me.
+
+---
+
+# Wednesday, 21 November 2018, 7:08AM -- Having implemented the spaces in JSON, thoughts about person, presentation, encounters
+
+I've now got the implementation and JSON in place such that you can roam around the map using voice commands. In a small test run (slightly sotto voce because it was early and Rilla's sleeping upstairs) I managed to move around without any trouble whatsoever which kind of amazed me.
+
+A couple of thoughts while I'm here:
+
+- __Second Person?__ Should I transform the text reported from a command to the second-person once it's locked in? "I run up the slope" becomes "You run up the slope" when spoken? So that the reported story is second person? It would make life slightly easier in terms of the descriptions - I could add a little bit of flavour and just different sentence structures if I could write "you" and not have it clash with the "I"?
+
+- __Single passages?__ Navigating the herky jerky of the scrolling and infinite page I'm wondering now whether the story is better told in individual passage displays, in part because it's kind of exhausting to see all the mountain of text before you, including the potential identical repetition of where you just were? I might also make a case that it conveys more of the immediacy that goes with the situation and with the game itself? On the flip side, the full narrative thing is quite powerful as an outcome. A "compromise" could be to save the full narrative and offer the ability to save it at the end as a story you told, a downloadable plain text file? Very achieveable too. I guess the good thing is that this is "just" a structural thing, not hard to implement. Probably the answer is that I should test both.
+
+- __Short descriptions__ Should I have short descriptions of every location so you don't re-encounter all the same text every time, but I guess give the opportunity to "look" again if you want the full description? Are the long descriptions tedious or am I just not confident? It would correspond to the way adventure games have traditionally operated, which suggests it's a kind of "best practice" to consider following. There does kind of feel the a possibility of "text fatigue"
+
+- __Boredom__ I guess what I'm trying to say is that when I'm navigating the story myself (like just now for example) I don't read anything at all and it feels boring navigating the space. But is that just the effect of making the thing for eons now and being fully over it, or is it in fact boring? Both? I guess there's no way for me to tell.
+
+- __Encounters__ The big remaining task is to implement the actual encounters, which I think I'm moderately afraid of because, well, what if they don't work? Then this entire thing is a framework for a failed experiment. Which is fine, which is fine, but it would hurt my feelings. However, still has to be done. Here, too, I think we can ask questions about whether one line per screen versus the encounter on its own screen versus the encounter as part of the flow of text are the "right" way to present the text. I guess again it would be nice to have all the options. In terms of representing them I suppose the simplest thing is just to treat them as other "locations"? Or is it in fact better to have separate JSON? Could be.
+
+Overall we're making progress. I think the next step is clearly to through in the encounters in the most basic way - separate JSON, a sequence of commands (which you're locked into while following) which then spit you back out into your location and add a descriptive element to the location when you're finished to save that data. Shouldn't be so complex. Once I have that in I can at least get a feeling for the basic sequence of movement followed by killing.
+
+After that it would chiefly be about sprucing the encounters up with the location-specific idea and other things like that I image? (Also if there were to be short descriptions I think you would still always report bodies regardless - probably this should be true even of the CT corpses, they should be in a different data structure there)
