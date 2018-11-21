@@ -206,16 +206,17 @@ function executeCommand(display,destination,description) {
     // Reset attempts now that we've successfully issued a command
     attempts = 0;
 
-    setTimeout(displayCurrentPassage,COMMAND_FADE_OUT_TIME + COMMAND_SLIDE_UP_TIME + 100);
+    // setTimeout(displayCurrentPassage,COMMAND_FADE_OUT_TIME + COMMAND_SLIDE_UP_TIME + 100);
+    displayCurrentPassage();
   }
 
 }
 
 function handleMishearing(possibles) {
-  console.log("==================================================");
-  console.log("Didn't understand. Here's what I might have heard:");
-  console.log(possibles);
-  console.log("==================================================");
+  // console.log("==================================================");
+  // console.log("Didn't understand. Here's what I might have heard:");
+  // console.log(possibles);
+  // console.log("==================================================");
 
   attempts++;
 
