@@ -1,0 +1,13 @@
+{
+  "T1": {
+    "description": "A man in a light yellow jersey is standing near to the (print: $object). As you arrive he spins and levels his pistol at you. His face is hidden behind sunglasses and a bandana across his mouth.",
+    "commands": [
+      "I level my gun at him",
+      "I fire three shots",
+      "The bullets strike his chest",
+      "He falls backward against the $object",
+      "He hits the ground",
+      "He is dead"
+    ]
+  }
+}
