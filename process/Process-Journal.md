@@ -797,3 +797,11 @@ A couple of thoughts while I'm here:
 Overall we're making progress. I think the next step is clearly to through in the encounters in the most basic way - separate JSON, a sequence of commands (which you're locked into while following) which then spit you back out into your location and add a descriptive element to the location when you're finished to save that data. Shouldn't be so complex. Once I have that in I can at least get a feeling for the basic sequence of movement followed by killing.
 
 After that it would chiefly be about sprucing the encounters up with the location-specific idea and other things like that I image? (Also if there were to be short descriptions I think you would still always report bodies regardless - probably this should be true even of the CT corpses, they should be in a different data structure there)
+
+---
+
+# Wednesday, 21 November 2018, 14:43PM -- Having implemented the basics of kill sequence
+
+I now have the ability to spawn a terrorist encounter (probability 100%) and then read through the sequence of actions (or click) and ending up back in the original location. Thus far it all seems to be holding together, though I'm getting a little fretful about the quality of code at this point, particularly in terms of elegant structures for displaying this stuff as it really feels like there's a big amount of code doubling which is gross.
+
+Still, progress being made.
