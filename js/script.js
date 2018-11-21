@@ -317,6 +317,16 @@ function kill(data) {
     annyangCommands[nextCommand.toLowerCase()] = function () {
       execute($command,kill,{steps:killCommands,index:killIndex});
     }
+
+    // Reset annyang's commands
+    annyang.removeCommands();
+
+    // Now we've defined the commands we give them to annyang
+    // by using its .addCommands() function.
+    annyang.addCommands(annyangCommands);
+
+    // Set up for mishearings
+    annyang.addCallback('resultNoMatch', handleMishearing);
   }
 }
 
