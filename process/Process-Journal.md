@@ -805,3 +805,17 @@ After that it would chiefly be about sprucing the encounters up with the locatio
 I now have the ability to spawn a terrorist encounter (probability 100%) and then read through the sequence of actions (or click) and ending up back in the original location. Thus far it all seems to be holding together, though I'm getting a little fretful about the quality of code at this point, particularly in terms of elegant structures for displaying this stuff as it really feels like there's a big amount of code doubling which is gross.
 
 Still, progress being made.
+
+---
+
+# Thursday, 22 November 2018, 7:21AM -- Post refactoring the codebase
+
+Haha, "refactoring the codebase" as if I'm some kind of developer. I don't know if it makes sense to write these entries every single day, but for now I'll operate on the assumption that if I do it something might click or I might realise something or... something.
+
+Anyway this morning I got obsessed with trying to make the code more efficient in terms of reuse, so jiggled things around, wrote more generic functions etc., so that there was less redundancy going on. In the end it wasn't as satisfying as I might have liked (after all at a certain level all you end up doing is moving code around), but it's probably a little bit more robust now? Maybe not, with all the weird mini data-structures being passed around.
+
+Anyway, with that little bit of cleaning done I suppose I'm in a position to think about things like short descriptions (and actually this will solve my current "issue" of displaying the full description after killing a terrorist), actually randomising encounters, and so on. That being the case I suppose it's still conceivably to get this close to done in the next days if I'm lucky. Still feel like the scrolling stuff is a bit lurchy, so should probably also remember to implement the single-page version of things. Given that a killing sequence is set up differently from a move sequence, that shouldn't be a big problem I don't think.
+
+Overall the project at least feels like it's ticking along without obvious roadblocks at this point. I'm mostly at peace with the design, it's as good as it's going to be.
+
+Onward, ever onward.
