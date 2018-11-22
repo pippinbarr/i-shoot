@@ -277,25 +277,6 @@ function handleMishearing(possibles) {
   attempts++;
 
   if (attempts === MAX_ATTEMPTS) {
-    makeCommandsClickable();
-  }
-}
-
-function makeCommandsClickable() {
-  let commands = map[currentPlace].commands;
-
-  for (let i = 0; i < commands.length; i++) {
-    // Store the components nicely
-    let command = commands[i].command;
-    let destination = commands[i].destination;
-
-    // Style the element as clickable
-    $('#' + destination).addClass('clickable');
-    // Add a click event that executes its command and makes it unclickable
-    $('#' + destination).on('click', function () {
-      moveTo(destination,$('#' + destination));
-      $(this).off('click');
-      $(this).removeClass('clickable');
-    });
+    makeClickable = true;
   }
 }
