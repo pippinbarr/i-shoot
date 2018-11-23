@@ -22,6 +22,8 @@ const PASSAGE_FADE_IN_TIME = 500;
 const COMMAND_FADE_OUT_TIME = 500;
 const COMMAND_SLIDE_UP_TIME = 500;
 const PASSAGE_SCROLL_TIME = 1000;
+const SINGLE_PAGES = false;
+const SINGLE_KILL_PAGES = true;
 
 let makeClickable = true;
 
@@ -116,7 +118,8 @@ function move(data) {
     let destination = commands[i].destination;
     let moveData = {
       destination: destination,
-      long: (map[destination].visited == undefined)
+      long: (map[destination].visited == undefined),
+      clear:SINGLE_PAGES
     };
     let $command = buildCommand({command:command,id:destination},move,moveData);
     $commands.append($command);
@@ -132,15 +135,21 @@ function move(data) {
   // If we're displaying the short version we need to offer the option of the long version
   if (!data.long) {
     let commandText = "I look around";
-    let $command = buildCommand({command:commandText,id:currentPlace},move,{destination: currentPlace,long: true});
+    let moveData = {
+      destination:currentPlace,
+      long:true,
+      clear:SINGLE_PAGES
+    };
+    let $command = buildCommand({command:commandText,id:currentPlace},move,moveData);
     $commands.append($command);
     // Add the command to our object
     annyangCommands[commandText.toLowerCase()] = function () {
       // Handler function should know destination and description of command
       // for moving through story and for jQuery effects
       let moveData = {
-        destination: destination,
-        long: true
+        destination: currentPlace,
+        long: true,
+        clear: SINGLE_PAGES
       };
       execute($command,move,moveData);
     }
@@ -151,11 +160,7 @@ function move(data) {
     addTerroristEncounter($passage,$commands,annyangCommands);
   }
 
-  // Add everything to the page
-  $text.append($passage);
-  $text.append($commands);
-
-  scrollToCommands($passage,$commands);
+  showPassage($passage,$commands,data.clear);
   setAnnyangCommands(annyangCommands);
 }
 
@@ -178,8 +183,9 @@ function addTerroristEncounter($passage,$commands,annyangCommands) {
   let commandText = encounters["T1"].commands[0];
   let data = {
     commands: encounters["T1"].commands,
-    index: 0
+    index: 0,
   };
+  data.clear = SINGLE_PAGES;
   // Build the jQuery object for the command (and set up clicking)
   let $command = buildCommand({
     id: id,
@@ -191,7 +197,7 @@ function addTerroristEncounter($passage,$commands,annyangCommands) {
 
   // Add the annyang command to annyang with appropriate data
   annyangCommands[commandText.toLowerCase()] = function () {
-    execute($command,kill,{commands:encounters["T1"].commands,index:0});
+    execute($command,kill,data);
   }
 }
 
@@ -201,6 +207,7 @@ function addTerroristEncounter($passage,$commands,annyangCommands) {
 // array and index passed through in the data. This amounts to creating a
 // new command, adding to annyang, scrolling, etc.
 function kill(data) {
+  console.log("clear=",data.clear);
   // Increase passage counter
   passage++;
   // Increase index of kill command so we get the next one
@@ -211,7 +218,7 @@ function kill(data) {
   // Check if we're at the end of the kill commands
   if (data.index === data.commands.length) {
     // If so "move" to the current location
-    move({ destination:currentPlace });
+    move({ destination:currentPlace, long:false, clear: SINGLE_PAGES });
   }
   else {
     // Otherwise, build the next command
@@ -219,14 +226,15 @@ function kill(data) {
     let command = { command: data.commands[data.index], id: "T1-"+passage };
     let $passage = $('<div></div>');
     let $commands = $('<div></div>');
+    data.clear = SINGLE_KILL_PAGES;
     let $command = buildCommand(command,kill,data);
     $commands.append($command);
     annyangCommands[$command.text().toLowerCase()] = function () {
       execute($command,kill,data);
     }
-    $text.append($commands);
+    // $text.append($commands);
     setAnnyangCommands(annyangCommands);
-    scrollToCommands($passage,$commands);
+    showPassage($passage,$commands,SINGLE_PAGES && (SINGLE_KILL_PAGES || data.index===1));
   }
 }
 
@@ -273,21 +281,39 @@ function buildCommand(command,handler,data) {
   return $command;
 }
 
-// scrollToCommands()
+// showPassage()
 //
 // Handles scrolling to the next passage/commands and fading them in
-function scrollToCommands($passage,$commands) {
+function showPassage($passage,$commands,clear) {
   // Make the new passage and commands invisible
   $passage.css('opacity',0);
   $commands.css('opacity',0);
 
-  // If the commands are off screen, scroll
-  if ($commands.offset().top + $commands.height() > $(window).height()) {
-    scrollToNext();
+  console.log("Clear is ",clear);
+
+  if (clear) {
+    $text.animate({opacity:0},function () {
+      if (clear) {
+        $text.text('');
+      }
+      $text.append($passage);
+      $text.append($commands);
+      $text.css('opacity',1);
+      fadeInNext();
+    });
   }
   else {
-    // Otherwise just fade in
-    fadeInNext();
+    $text.append($passage);
+    $text.append($commands);
+
+    // If the commands are off screen, scroll
+    if ($commands.offset().top + $commands.height() > $(window).height()) {
+      scrollToNext();
+    }
+    else {
+      // Otherwise just fade in
+      fadeInNext();
+    }
   }
 
   // Animate scrolling to the location of the new set of commands

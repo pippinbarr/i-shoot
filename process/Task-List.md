@@ -68,8 +68,9 @@
 
 - ~~Create every area and allow transitions between them (no descriptions for now)~~
 - ~~Translate Twine areas and commands into JSON for my version~~
-- Create a version that has separate pages with fades (or something) between them, but tracks the full story as well
 - ~~Implement short descriptions (e.g. every area has a short description + a visited tag + an "I look around" command if visited that shows the full description)~~
 - ~~Remember the idea of locations with tagging for no encounters~~
+- ~~Create a version that has separate pages with fades (or something) between them, but tracks the full story as well~~
+- ~~Add ability to display shootings either in-line, all on a new page, or each on a new page~~
 - Need to maintain encounter if it happened and then they look!
 - Implement encounters (separate JSON, add text to location at the end)
