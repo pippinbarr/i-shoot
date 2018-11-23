@@ -194,7 +194,8 @@
         "command": "I run down the slope",
         "destination": "Pit"
       }
-    ]
+    ],
+    "no_encounters": true
   },
 
   "Pit": {

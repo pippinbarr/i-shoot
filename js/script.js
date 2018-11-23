@@ -147,7 +147,7 @@ function move(data) {
   }
 
   // Add an encounter if necessary
-  if (Math.random() < 1.0) {
+  if (Math.random() < 1.0 && map[currentPlace].no_encounters == undefined) {
     addTerroristEncounter($passage,$commands,annyangCommands);
   }
 

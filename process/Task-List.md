@@ -70,6 +70,6 @@
 - ~~Translate Twine areas and commands into JSON for my version~~
 - Create a version that has separate pages with fades (or something) between them, but tracks the full story as well
 - ~~Implement short descriptions (e.g. every area has a short description + a visited tag + an "I look around" command if visited that shows the full description)~~
+- ~~Remember the idea of locations with tagging for no encounters~~
 - Need to maintain encounter if it happened and then they look!
 - Implement encounters (separate JSON, add text to location at the end)
-- Remember the idea of locations with tagging for no encounters
