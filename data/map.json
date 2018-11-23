@@ -3,7 +3,8 @@
     "name": "CT_Spawn",
     "description": [
       {
-        "text": "A dim space below an overbridge lit by a single hanging bulb and the light filtering in from the outside. A large, locked metal gate leads into a storage area to the north. There are exits to either side, with signs indicating that the Hotel Aurore is to the east, while the Kasbah is to the west. The eastern path climbs up a slope into the daylight. The western path is flanked by packing crates of various sizes and leads into a sunny, open area. A short ladder and a tire lie forgotten on the ground against the eastern wall."
+        "long": "A dim space below an overbridge lit by a single hanging bulb and the light filtering in from the outside. A large, locked metal gate leads into a storage area to the north. There are exits to either side, with signs indicating that the Hotel Aurore is to the east, while the Kasbah is to the west. The eastern path climbs up a slope into the daylight. The western path is flanked by packing crates of various sizes and leads into a sunny, open area. A short ladder and a tire lie forgotten on the ground against the eastern wall.",
+        "short": "Under the overbridge."
       }
     ],
     "dynamic":
@@ -27,7 +28,8 @@
     "name": "Cross",
     "description": [
       {
-        "text": "A three-way intersection beneath a bright sky. A dusty blue car is parked up on the sidewalk to the east next to a residential complex. Opposite it, to the west, a slope leads down beneath an overbridge. A street runs north and south, with the southern part passing by a series of closed and disused-looking stores such as a pharmacy, and the northern part running up a ramp toward the Hotel Aurore."
+        "long": "A three-way intersection beneath a bright sky. A dusty blue car is parked up on the sidewalk to the east next to a residential complex. Opposite it, to the west, a slope leads down beneath an overbridge. A street runs north and south, with the southern part passing by a series of closed and disused-looking stores such as a pharmacy, and the northern part running up a ramp toward the Hotel Aurore.",
+        "short": "At the intersection."
       }
     ],
     "dynamic":
@@ -55,7 +57,8 @@
     "name": "Bombsite_A",
     "description": [
       {
-        "text": "A small courtyard in front of the the Hotel Aurore. The hotel itself looms stolidly to the south with no obvious way to enter its official grounds. In the south-east corner, an overbridge extends between buildings and disappears. A slope leads down to the south into a dusty intersection. Several large packing crates are positioned against walls and even in the middle of the courtyard. Someone has spraypainted an orange X in a circle on the ground, perhaps for a construction project."
+        "long": "A small courtyard in front of the the Hotel Aurore. The hotel itself looms stolidly to the south with no obvious way to enter its official grounds. In the south-east corner, an overbridge extends between buildings and disappears. A slope leads down to the south into a dusty intersection. Several large packing crates are positioned against walls and even in the middle of the courtyard. Someone has spraypainted an orange X in a circle on the ground, perhaps for a construction project.",
+        "short": "In front of the hotel."
       }
     ],
     "commands": [
@@ -74,7 +77,8 @@
     "name": "Short_Stairs",
     "description": [
       {
-        "text": "At the foot of a short set of stairs, surrounded closely by buildings. A colorful ad for a cyber café is painted directly on a wall above, all the doors leading into the buildings are covered with metal grills. Up the stairs in the distance to the south is the Hotel Aurore, while a walkway leads west and then south around a corner."
+        "long": "At the foot of a short set of stairs, surrounded closely by buildings. A colorful ad for a cyber café is painted directly on a wall above, all the doors leading into the buildings are covered with metal grills. Up the stairs in the distance to the south is the Hotel Aurore, while a walkway leads west and then south around a corner.",
+        "short": "A short set of stairs."
       }
     ],
     "commands": [
@@ -93,7 +97,8 @@
     "name": "Top_Mid",
     "description": [
       {
-        "text": "A large paved area amongst buildings with fading paint and crumbling plaster. Another open area is to the east. An alleyway leads between buildings to the south. Down a slope to the north is an impressively large and heavy-looking set of doors, while running alongside is a catwalk that hugs a building and then turns east. A small two-wheeled cart is tipped up against a wall next to a garage marked with a painting of a smile."
+        "long": "A large paved area amongst buildings with fading paint and crumbling plaster. Another open area is to the east. An alleyway leads between buildings to the south. Down a slope to the north is an impressively large and heavy-looking set of doors, while running alongside is a catwalk that hugs a building and then turns east. A small two-wheeled cart is tipped up against a wall next to a garage marked with a painting of a smile.",
+        "short": "A paved area."
       }
     ],
     "commands": [
@@ -120,7 +125,8 @@
     "name": "Suicide",
     "description": [
       {
-        "text": "The darkened corner of an paved alleyway that leads both north and east toward open, well-lit areas of the town. In the northern part a large stack of boxes are piled against one wall and structural supports bridge the two buildings alley's sides to stop them collapsing onto each other."
+        "long": "The darkened corner of an paved alleyway that leads both north and east toward open, well-lit areas of the town. In the northern part a large stack of boxes are piled against one wall and structural supports bridge the two buildings alley's sides to stop them collapsing onto each other.",
+        "short": "An alleyway."
       }
     ],
     "commands": [
@@ -139,7 +145,8 @@
     "name": "Outside_Long",
     "description": [
       {
-        "text": "A large open area in full sunlight. A yellow car is parked near elaborately decorated double doors that lead off to the north. A set of three garage doors create a wall to the west. An alleyway bends around their southern side, while a cobbled road follows around to their north. A sloped street leads up and to the west, climbing past apartment buildings. A column of nicely stacked tires sits against the wall of another garage."
+        "long": "A large open area in full sunlight. A yellow car is parked near elaborately decorated double doors that lead off to the north. A set of three garage doors create a wall to the west. An alleyway bends around their southern side, while a cobbled road follows around to their north. A sloped street leads up and to the west, climbing past apartment buildings. A column of nicely stacked tires sits against the wall of another garage.",
+        "short": "An open area in the sun."
       }
     ],
     "commands": [
@@ -166,10 +173,12 @@
     "name": "Long_Corner",
     "description": [
       {
-        "text": "A street that runs north-south, with the southern end terminating in a slope that leads to a closed gate. To the north you can see an intersection. A set of heavy double doors with a curving mosaic above it is ajar, leading into a squat building. A spindly palm tree stands in a corner."
+        "long": "A street that runs north-south, with the southern end terminating in a slope that leads to a closed gate. To the north you can see an intersection. A set of heavy double doors with a curving mosaic above it is ajar, leading into a squat building. A spindly palm tree stands in a corner.",
+        "short": "At the end of the street."
       },
       {
-        "text": "The bodies of your four Counter-Terrorist team members lie in disarray on the cobbled street. Blood coats walls and ground, and pistols are strewn about like leaves. Mixed among them are the bodies of two of the terrorists you've been sent to eliminate."
+        "long": "The bodies of your four Counter-Terrorist team members lie in disarray on the cobbled street. Blood coats walls and ground, and pistols are strewn about like leaves. Mixed among them are the bodies of two of the terrorists you've been sent to eliminate.",
+        "short": "The bodies of your four Counter-Terrorist team members lie in disarray on the cobbled street. Blood coats walls and ground, and pistols are strewn about like leaves. Mixed among them are the bodies of two of the terrorists you've been sent to eliminate."
       }
     ],
     "commands": [
@@ -192,7 +201,8 @@
     "name": "Pit",
     "description": [
       {
-        "text": "An overhanging building throws shade over the street here, with the sun shining brightly back up the slope to the north. A sign indicates that the Hotel Aurore is up that way. The large double doors that would provide further passage to the south are closed and locked."
+        "long": "An overhanging building throws shade over the street here, with the sun shining brightly back up the slope to the north. A sign indicates that the Hotel Aurore is up that way. The large double doors that would provide further passage to the south are closed and locked.",
+        "short": "At the bottom of the slope."
       }
     ],
     "commands": [
@@ -207,7 +217,8 @@
     "name": "T_Spawn",
     "description": [
       {
-        "text": "This is the reported location of the terrorist group. A street with its curb painted red leads down a gentle hill to the east, terminating at a chainlink fence, but providing access to an open area among low buildings. To the west you can see the beginning of a parking lot. Sturdy palm trees stand in somebody's walled-off back yard. Signs tell you that the Hotel Aurore is to the east and the Kasbah is to the west."
+        "long": "This is the reported location of the terrorist group. A street with its curb painted red leads down a gentle hill to the east, terminating at a chainlink fence, but providing access to an open area among low buildings. To the west you can see the beginning of a parking lot. Sturdy palm trees stand in somebody's walled-off back yard. Signs tell you that the Hotel Aurore is to the east and the Kasbah is to the west.",
+        "short": "At the terrorists' initially reported location."
       }
     ],
     "commands": [
@@ -226,7 +237,8 @@
     "name": "T_Ramp",
     "description": [
       {
-        "text": "A parking lot for a small auto repair shop, poised above an courtyard. A sloped road leads down into the courtyard, with pedestrian steps on its western side. The shell of an under-construction building faces the parking lot from the south. The street runs east-west here. To the east, past the garage, is the location the terrorists were reported to be in. To the west, expensive-looking apartments and houses are protected by a fence that runs across the street, preventing acccess."
+        "long": "A parking lot for a small auto repair shop, poised above an courtyard. A sloped road leads down into the courtyard, with pedestrian steps on its western side. The shell of an under-construction building faces the parking lot from the south. The street runs east-west here. To the east, past the garage, is the location the terrorists were reported to be in. To the west, expensive-looking apartments and houses are protected by a fence that runs across the street, preventing acccess.",
+        "short": "A parking lot."
       }
     ],
     "commands": [
@@ -245,7 +257,8 @@
     "name": "Outside_Tunnels",
     "description": [
       {
-        "text": "A courtyard in front of an elegant entrance into an old building complex which stands to the north. Beautiful mosaic work fills in arches above a large central doorway. To the east and west are dusty-looking residential buildings, while a sloped road leads up to an elevated area to the south. A set of dumpsters are pushed against a decrepit wall, covered with trash bags."
+        "long": "A courtyard in front of an elegant entrance into an old building complex which stands to the north. Beautiful mosaic work fills in arches above a large central doorway. To the east and west are dusty-looking residential buildings, while a sloped road leads up to an elevated area to the south. A set of dumpsters are pushed against a decrepit wall, covered with trash bags.",
+        "short": "A courtyard"
       }
     ],
     "commands": [
@@ -264,7 +277,8 @@
     "name": "Upper_Tunnels",
     "description": [
       {
-        "text": "An transitional area that provides access to a set of stairs leading down to the east, a hallway leading north, and a larger set of doors leading out into a courtyard to the south. The space is well-lit as its ceiling has been replaced by rough scaffolding that leaves room for the sunlight to enter. The walls and arches over the space are worn, with brick showing through the plaster here and there."
+        "long": "An transitional area that provides access to a set of stairs leading down to the east, a hallway leading north, and a larger set of doors leading out into a courtyard to the south. The space is well-lit as its ceiling has been replaced by rough scaffolding that leaves room for the sunlight to enter. The walls and arches over the space are worn, with brick showing through the plaster here and there.",
+        "short": "In the building with no roof"
       }
     ],
     "commands": [
@@ -287,7 +301,8 @@
     "name": "Bombsite_B",
     "description": [
       {
-        "text": "A courtyard of the Kasbah complex, now a protected archeological site. The western part of the space is home to myriade large packing crates and barrels presumably connected with the archeological work here. The Kasbah itself is closed. To the north, a closed set of reinforced doors would have provided access to Rue de la Kasbah. An open set of similar doors lead south through a wall, and a hallway leads into a white, plastered building. An abandoned car slumps in the south-east corner."
+        "long": "A courtyard of the Kasbah complex, now a protected archeological site. The western part of the space is home to myriade large packing crates and barrels presumably connected with the archeological work here. The Kasbah itself is closed. To the north, a closed set of reinforced doors would have provided access to Rue de la Kasbah. An open set of similar doors lead south through a wall, and a hallway leads into a white, plastered building. An abandoned car slumps in the south-east corner.",
+        "short": "In the courtyard of the Kasbah complex."
       }
     ],
     "commands": [
@@ -306,7 +321,8 @@
     "name": "CT_Mid",
     "description": [
       {
-        "text": "A large space in front of a building under contruction, scaffolding climbing its southern wall and a white truck with a load of stones parked outside it. The area slopes upward from east to west. At the top, a set of heavy doors open into a courtyard to the west. At the bottom, a similar set of doors lead north, while a wide passage large enough to admit a car passes beneath a building to the east."
+        "long": "A large space in front of a building under contruction, scaffolding climbing its southern wall and a white truck with a load of stones parked outside it. The area slopes upward from east to west. At the top, a set of heavy doors open into a courtyard to the west. At the bottom, a similar set of doors lead north, while a wide passage large enough to admit a car passes beneath a building to the east.",
+        "short": "Near the scaffolded building."
       }
     ],
     "commands": [
@@ -329,7 +345,8 @@
     "name": "Mid_Doors",
     "description": [
       {
-        "text": "A small area in front of weighty double doors reinforced with iron on the northern side. The doors are both ajar, offering a narrow view of the space through them. To the west, the open entrance to a building leads into a short hallway. To the south, a slope leads up between low buildings, a tall, thin palm tree at its top. A large packing crate covered with a green tarp sits near the eastern wall."
+        "long": "A small area in front of weighty double doors reinforced with iron on the northern side. The doors are both ajar, offering a narrow view of the space through them. To the west, the open entrance to a building leads into a short hallway. To the south, a slope leads up between low buildings, a tall, thin palm tree at its top. A large packing crate covered with a green tarp sits near the eastern wall.",
+        "short": "At the large doors."
       }
     ],
     "commands": [
@@ -352,7 +369,8 @@
     "name": "Lower_Tunnels",
     "description": [
       {
-        "text": "An east-west hallway lit by a bulb hanging from the dark ceiling. Reinforced packing crates are stacked against the walls, possibly linked to the archeological site nearby. A curving set of stairs leads upward at the west end of the hall beneath a crenulated arch, while a doorway leads out into the daylight to the east."
+        "long": "An east-west hallway lit by a bulb hanging from the dark ceiling. Reinforced packing crates are stacked against the walls, possibly linked to the archeological site nearby. A curving set of stairs leads upward at the west end of the hall beneath a crenulated arch, while a doorway leads out into the daylight to the east.",
+        "short": "In the hallway with the stairs."
       }
     ],
     "commands": [

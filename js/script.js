@@ -58,7 +58,7 @@ function onDataFailed() {
 //
 // Move to the initial location
 function startGame() {
-  move({destination: currentPlace});
+  move({destination: currentPlace, long: true});
 }
 
 // move()
@@ -66,8 +66,11 @@ function startGame() {
 // Sets up and displays the passage associated with the place being moved to
 // as well as potentially creates a terrorist encounter
 function move(data) {
+  console.log(`>>> Moving to ${data.destination} with long=${data.long}`);
   // Update current place
   currentPlace = data.destination;
+  // Mark this location visited
+  map[currentPlace].visited = true;
 
   // Reset attempts now that we've successfully issued a command
   attempts = 0;
@@ -83,7 +86,12 @@ function move(data) {
     let $p = $('<p></p>');
     $p.addClass(`passage-${passage}`);
     $p.addClass(`text-${passage}`);
-    $p.append(map[currentPlace].description[i].text);
+    if (data.long) {
+      $p.append(map[currentPlace].description[i].long);
+    }
+    else {
+      $p.append(map[currentPlace].description[i].short);
+    }
     $passage.append($p);
   }
 
@@ -106,14 +114,35 @@ function move(data) {
     // Store the components nicely
     let command = commands[i].command;
     let destination = commands[i].destination;
-    let $command = buildCommand({command:command,id:destination},move,{destination: destination});
+    let moveData = {
+      destination: destination,
+      long: (map[destination].visited == undefined)
+    };
+    let $command = buildCommand({command:command,id:destination},move,moveData);
     $commands.append($command);
 
     // Add the command to our object
     annyangCommands[command.toLowerCase()] = function () {
       // Handler function should know destination and description of command
       // for moving through story and for jQuery effects
-      execute($command,move,{destination: destination});
+      execute($command,move,moveData);
+    }
+  }
+
+  // If we're displaying the short version we need to offer the option of the long version
+  if (!data.long) {
+    let commandText = "I look around";
+    let $command = buildCommand({command:commandText,id:currentPlace},move,{destination: currentPlace,long: true});
+    $commands.append($command);
+    // Add the command to our object
+    annyangCommands[commandText.toLowerCase()] = function () {
+      // Handler function should know destination and description of command
+      // for moving through story and for jQuery effects
+      let moveData = {
+        destination: destination,
+        long: true
+      };
+      execute($command,move,moveData);
     }
   }
 
