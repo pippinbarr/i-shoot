@@ -72,5 +72,11 @@
 - ~~Remember the idea of locations with tagging for no encounters~~
 - ~~Create a version that has separate pages with fades (or something) between them, but tracks the full story as well~~
 - ~~Add ability to display shootings either in-line, all on a new page, or each on a new page~~
-- Need to maintain encounter if it happened and then they look!
-- Implement encounters (separate JSON, add text to location at the end)
+- ~~Implement encounters (separate JSON, add text to location at the end)~~
+- Improve encounters
+  - Make all three possible
+  - Add idea of physical object templated in (just make a custom one of my own? [[object]]?)
+  - Add corpse description to the location and add no_encounters property to it too
+  - Figure out and implement probabilities (including spatial awareness if needed)
+  - Need to maintain current encounter if it happened and then they "look"!
+  - Change from "a" to "the" after first viewing of a terrorist?

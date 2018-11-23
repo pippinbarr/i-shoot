@@ -819,3 +819,13 @@ Anyway, with that little bit of cleaning done I suppose I'm in a position to thi
 Overall the project at least feels like it's ticking along without obvious roadblocks at this point. I'm mostly at peace with the design, it's as good as it's going to be.
 
 Onward, ever onward.
+
+---
+
+# Friday, 23 November 2018, 9:37AM --- Thinking about short description and single versus multipage
+
+Added a couple of UI things this morning.
+
+__Short descriptions.__ If you've been to a location before you just see a short one line description of the place, and have the option to "look around" to get the full description again. Especially in the version that's on a single scrolling page it was seeming kind of overwhelming and unnecessary to have the full description every time. Writing the initial versions of the short descriptions did reveal to me, though, that it's bloody hard to characterise some of the spaces. And it's hard to do so while trying to stay at least a little ambiguous about where in the space you're standing. It makes me thinking that perhaps every long description should start with the short description as its first sentence, and then looking around expands with the rest of the long passage. That's structurally useful and gives people an immediate hook to remembering the larger space? Overall I think it's a good thing to have just because I don't want people drowning in texts.
+
+__Single page versus multipage.__ Having prototyped in Twine I've been wondering whether there's some kind of power to having the project display as a series of individual pages instead of one long page. It feels like maybe it's a contrast between the continuity/storytelling/on-the-record nature of the one long page versus the immediacy/focus/nowness of the individual pages? They both have a certain something. One compromise I've mentioned before is the idea of breaking it into a sequence of individual pages, but maintaining the full story and offering it as something you can save to a text file at the end, so keeping that idea of continuous agency and impact. (Though of course undoubtedly almost nobody will choose to do so? In which case, does it have power?)
