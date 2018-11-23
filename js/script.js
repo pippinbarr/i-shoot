@@ -21,6 +21,7 @@ let $text;
 const PASSAGE_FADE_IN_TIME = 500;
 const COMMAND_FADE_OUT_TIME = 500;
 const COMMAND_SLIDE_UP_TIME = 500;
+const PASSAGE_SCROLL_TIME = 1000;
 
 let makeClickable = true;
 
@@ -34,12 +35,12 @@ $(document).ready(function() {
     // Tell annyang to start listening
     annyang.start();
 
-    // Load the data
+    // Load the data (the map and the encounters)
     $.getJSON('data/map.json','',function (loadedData) {
       map = loadedData;
       $.getJSON('data/encounters.json','',function (loadedData) {
         encounters = loadedData;
-        move({destination: currentPlace});
+        startGame();
       }).fail(onDataFailed);
     })
     .fail(onDataFailed);
@@ -53,47 +54,17 @@ function onDataFailed() {
   console.log('Shitcakes.');
 }
 
-// execute()
+// startGame()
 //
-// Does some nice jQuery animation to transition
-// and moves to the requested passage based on the command
-function execute($command,handler,data) {
-  console.log('>>> Executing:' + $command.text());
-
-  $selected = $command;
-
-  // Transform the chosen command to remove the quote-marks (it has become an action)
-  let display = $selected.text();
-  display = display.replace(/\"/g,'');
-
-  $selected.text(`${display}`);
-  $selected.removeClass('command');
-  $selected.addClass('commanded');
-  $selected.removeAttr('id');
-  $selected.removeClass('clickable');
-
-  // Fade out and slide up all the commands that weren't the one issued
-  $unselected = $('.command').not($selected);
-
-  if ($unselected.length !== 0) {
-    let handled = false;
-    $unselected.animate({
-      opacity: 0
-    }, COMMAND_FADE_OUT_TIME, function () {
-      $(this).slideUp(COMMAND_SLIDE_UP_TIME, function () {
-        if (!handled) {
-          handled = true;
-          handler(data);
-        }
-        $(this).remove();
-      });
-    });
-  }
-  else {
-    handler(data);
-  }
+// Move to the initial location
+function startGame() {
+  move({destination: currentPlace});
 }
 
+// move()
+//
+// Sets up and displays the passage associated with the place being moved to
+// as well as potentially creates a terrorist encounter
 function move(data) {
   // Update current place
   currentPlace = data.destination;
@@ -159,40 +130,62 @@ function move(data) {
   setAnnyangCommands(annyangCommands);
 }
 
+// addTerroristEncounter()
+//
+// Adds the descriptive text of an encounter and adds
+// the command for shooting from the start of that encounter's
+// command list as well as annyang stuff, starts the chain
+// of calling kill() instead of move() for this command
 function addTerroristEncounter($passage,$commands,annyangCommands) {
+  // Create the passage with the encounter text
   let $p = $('<p></p>');
   $p.addClass(`passage-${passage}`);
   $p.addClass(`text-${passage}`);
   $p.append(encounters["T1"].description);
   $passage.append($p);
 
+  // Create necessary variables to represent the data of the command
   let id = "T1-0"
-
   let commandText = encounters["T1"].commands[0];
   let data = {
     commands: encounters["T1"].commands,
     index: 0
   };
+  // Build the jQuery object for the command (and set up clicking)
   let $command = buildCommand({
     id: id,
     command: commandText
   },kill,data);
 
+  // Add to the existing set of commands being constructed
   $commands.append($command);
 
+  // Add the annyang command to annyang with appropriate data
   annyangCommands[commandText.toLowerCase()] = function () {
     execute($command,kill,{commands:encounters["T1"].commands,index:0});
   }
 }
 
+// kill()
+//
+// Handles generating the next command in a kill sequence based on the
+// array and index passed through in the data. This amounts to creating a
+// new command, adding to annyang, scrolling, etc.
 function kill(data) {
+  // Increase passage counter
   passage++;
+  // Increase index of kill command so we get the next one
   data.index++;
+  // Reset attempts now that we've successfully issued a command
+  attempts = 0;
 
+  // Check if we're at the end of the kill commands
   if (data.index === data.commands.length) {
+    // If so "move" to the current location
     move({ destination:currentPlace });
   }
   else {
+    // Otherwise, build the next command
     let annyangCommands = {};
     let command = { command: data.commands[data.index], id: "T1-"+passage };
     let $passage = $('<div></div>');
@@ -208,6 +201,10 @@ function kill(data) {
   }
 }
 
+// setAnnyangCommands()
+//
+// Adds specified commands to annyang by removing the existing commands
+// adding the new ones. Unsurprisingly.
 function setAnnyangCommands(annyangCommands) {
   // Reset annyang's commands
   annyang.removeCommands();
@@ -220,13 +217,17 @@ function setAnnyangCommands(annyangCommands) {
   annyang.addCallback('resultNoMatch', handleMishearing);
 }
 
+// buildCommand()
+//
+// Creates a jQuery object representing a command with its text, appropriate classes
+// and id, also makes it clickable if necessary
 function buildCommand(command,handler,data) {
-  console.log(`Building ${command.id}: ${command.command}`)
+  console.log(`>>> Building ${command.id}: ${command.command}`)
+
   let $command = $('<p></p>');
   $command.addClass(`command-${passage}`);
   $command.addClass('command');
   $command.attr('id',command.id);
-
   $command.append(`"${command.command}."`);
 
   if (makeClickable) {
@@ -243,23 +244,32 @@ function buildCommand(command,handler,data) {
   return $command;
 }
 
+// scrollToCommands()
+//
+// Handles scrolling to the next passage/commands and fading them in
 function scrollToCommands($passage,$commands) {
+  // Make the new passage and commands invisible
   $passage.css('opacity',0);
   $commands.css('opacity',0);
 
+  // If the commands are off screen, scroll
   if ($commands.offset().top + $commands.height() > $(window).height()) {
     scrollToNext();
   }
   else {
+    // Otherwise just fade in
     fadeInNext();
   }
 
+  // Animate scrolling to the location of the new set of commands
+  // and then fading them in
   function scrollToNext() {
     $('html, body').animate({
       scrollTop: $commands.offset().top + $commands.height()
-    },1000,fadeInNext);
+    },PASSAGE_SCROLL_TIME,fadeInNext);
   }
 
+  // Animate fading in the passage and commands
   function fadeInNext() {
     $passage.animate({opacity:1},PASSAGE_FADE_IN_TIME,function() {
       $commands.animate({opacity:1},PASSAGE_FADE_IN_TIME,function() {
@@ -268,6 +278,52 @@ function scrollToCommands($passage,$commands) {
   }
 }
 
+// execute()
+//
+// Does some jQuery animation to transition
+// and moves to the requested passage based on the command
+function execute($command,handler,data) {
+  console.log('>>> Executing:' + $command.text());
+
+  // Transform the chosen command to remove the quote-marks (it has become an action)
+  let display = $command.text();
+  display = display.replace(/\"/g,'');
+
+  $command.text(`${display}`);
+  $command.removeClass('command');
+  $command.addClass('commanded');
+  $command.removeAttr('id');
+  $command.removeClass('clickable');
+
+  // Fade out and slide up all the commands that weren't the one issued
+  $unselected = $('.command').not($command);
+  if ($unselected.length !== 0) {
+    let handled = false;
+    $unselected.animate({
+      opacity: 0
+    }, COMMAND_FADE_OUT_TIME, function () {
+      $(this).slideUp(COMMAND_SLIDE_UP_TIME, function () {
+        // Just once, call the handler with the data to actually execute the command
+        // Doing it here so it happens after the animations
+        if (!handled) {
+          handled = true;
+          handler(data);
+        }
+        // Remove this command from the page
+        $(this).remove();
+      });
+    });
+  }
+  else {
+    // If there aren't other commands we can immediately move on
+    handler(data);
+  }
+}
+
+// handleMishearing()
+//
+// Called if annyang can't work out what was said, allows me to track
+// attempts and thus react to problems.
 function handleMishearing(possibles) {
   // console.log("==================================================");
   // console.log("Didn't understand. Here's what I might have heard:");
