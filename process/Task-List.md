@@ -8,7 +8,6 @@
 - ~~Language pass to get some feeling into it?~~ (Not sure this is wise?)
 - ~~Another writing pass based on current understanding of the game~~
 - ~~Do a performance to get a sense of what the feeling of play might actually be~~
-
 - ~~Rewrite scenes based on minimising text, minimising link length (in conversation with testbed work below in terms of the link texts).~~ (Didn't do this - honestly I think I miiiight be done with the Twine prototyping now? Need to start working out my own UI.)
 
 # annyang prototype
@@ -73,11 +72,19 @@
 - ~~Create a version that has separate pages with fades (or something) between them, but tracks the full story as well~~
 - ~~Add ability to display shootings either in-line, all on a new page, or each on a new page~~
 - ~~Implement encounters (separate JSON, add text to location at the end)~~
-- Improve encounters
+- Encounters
   - ~~Make all three possible~~
   - ~~Add idea of physical object templated in (just make a custom one of my own? [[object]]?)~~
   - ~~Add corpse description to the location and add no_encounters property to it too~~
   - ~~Need to maintain current encounter if it happened and then they "look"!~~
-  - Figure out and implement probabilities (including spatial awareness if needed)
-  - Change from "a" to "the" after first viewing of a terrorist?
+  - ~~Change from "a" to "the" after first viewing of a terrorist?~~
+  - ~~Figure out probabilities (including spatial awareness if needed)~~
+  - Implement basic probability stuff for terrorists
   - Make dynamic gun description stuff (e.g. pistol pointed at you or not, saw you or not, etc.)
+- Implement mishearing shake
+- Implement clickable after three attempts (then remove it after the click)
+- Implement some kind of "let's give up" after three clickables
+
+# Bugs
+
+- Weird delay seems to start appearing the deeper you go especially in kill sequences?

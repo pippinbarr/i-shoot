@@ -829,3 +829,21 @@ Added a couple of UI things this morning.
 __Short descriptions.__ If you've been to a location before you just see a short one line description of the place, and have the option to "look around" to get the full description again. Especially in the version that's on a single scrolling page it was seeming kind of overwhelming and unnecessary to have the full description every time. Writing the initial versions of the short descriptions did reveal to me, though, that it's bloody hard to characterise some of the spaces. And it's hard to do so while trying to stay at least a little ambiguous about where in the space you're standing. It makes me thinking that perhaps every long description should start with the short description as its first sentence, and then looking around expands with the rest of the long passage. That's structurally useful and gives people an immediate hook to remembering the larger space? Overall I think it's a good thing to have just because I don't want people drowning in texts.
 
 __Single page versus multipage.__ Having prototyped in Twine I've been wondering whether there's some kind of power to having the project display as a series of individual pages instead of one long page. It feels like maybe it's a contrast between the continuity/storytelling/on-the-record nature of the one long page versus the immediacy/focus/nowness of the individual pages? They both have a certain something. One compromise I've mentioned before is the idea of breaking it into a sequence of individual pages, but maintaining the full story and offering it as something you can save to a text file at the end, so keeping that idea of continuous agency and impact. (Though of course undoubtedly almost nobody will choose to do so? In which case, does it have power?)
+
+---
+
+# Monday, 26 November 2018, 14:26PM --- To do: Encounter chances and mishearings
+
+Seems like the game at this point is basically at the level of what the Twine is/was except with voice controls. Which obviously doesn't feel like the biggest victory I can imagine, but it's at least true.
+
+Remaining big things are getting the probabilities of terrorists showing up to be a bit less insane than 100%, and to think about whether or how much spatial accuracy is needed. So if you see bald guy and then run to the next place, you shouldn't see bald guy again. Which would mean that either you should see nobody or one of the others. Which is reasonable. And then the question starts to be how long after seeing someone should you be able to see them again? Particularly problematic I suppose if there's only one left and you run away from them and then don't see them for a while - could be boring.
+
+(And let's be honest, I _am_ bored of this project.)
+
+Anyway, I just don't want the most obvious thing of running away and then having someone suddenly appear. I suppose a minimum of 3 moves should be enough? It's not technically enough, but we could imagine them just moving faster than you or whatever. That's fine.
+
+The next question is whether this should at all pay attention to actual geography. Such that if you ran away and then back, they might still be there? And then alternately, as discussed, we could make them move around on their own. They shouldn't ever follow you, I suppose, just because that would entail new kinds of descriptions for that event? Sounds more complex than I want?
+
+Also I don't want to get too hung up on the specific version of a person playing this by constantly running away from the terrorists and thus noticing they don't behave quite right spatially? That sounds reaaaaally pointless. So it could be that the right thing is just to have a set delay per terrorist during which they cannot be seen if you've seen them (and run away), and that's it. So if you really want to jog around, you can, and you just won't see anyone every three moves by the end. FINE.
+
+Other than that the key thing is just the usability of the voice commands, notably how to indicate it didn't understand what you said. Maybe just "shake" the commands to indicate it heard you but it didn't take? That might be enough. I feel myself sliding down the slippery slope of least resistance and laziness. But really this project has to end. Has to end.
