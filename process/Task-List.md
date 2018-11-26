@@ -77,6 +77,7 @@
   - ~~Make all three possible~~
   - ~~Add idea of physical object templated in (just make a custom one of my own? [[object]]?)~~
   - ~~Add corpse description to the location and add no_encounters property to it too~~
+  - ~~Need to maintain current encounter if it happened and then they "look"!~~
   - Figure out and implement probabilities (including spatial awareness if needed)
-  - Need to maintain current encounter if it happened and then they "look"!
   - Change from "a" to "the" after first viewing of a terrorist?
+  - Make dynamic gun description stuff (e.g. pistol pointed at you or not, saw you or not, etc.)

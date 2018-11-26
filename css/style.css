@@ -18,6 +18,10 @@ body {
 
 }
 
+.t-description {
+  font-style: italic;
+}
+
 .command {
   color: rgb(153, 51, 51);
 }

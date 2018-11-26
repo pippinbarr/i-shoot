@@ -1,7 +1,7 @@
 [
   {
     "id": "T1",
-    "description": "A man in a light yellow jersey is standing near to the [[object]]. As you arrive he spins and levels his pistol at you. His face is hidden behind sunglasses and a bandana across his mouth.",
+    "description": "man in a light yellow jersey is standing near to the [[object]]. His pistol is levelled at you. His face is hidden behind sunglasses and a bandana across his mouth.",
     "commands": [
       "I level my gun at him",
       "I fire three shots",
@@ -14,10 +14,10 @@
   },
   {
     "id": "T2",
-    "description": "A handsome man with a side-part and sunglasses is poised beside the [[object]]. He hasn't seen you yet. He's wearing a long-sleeved orange t-shirt with the sleeves rolled up his forearms, blue jeans, and a brown backpack.",
+    "description": "handsome man with a side-part and sunglasses is poised beside the [[object]]. He's wearing a long-sleeved orange t-shirt with the sleeves rolled up his forearms, blue jeans, and a brown backpack. He is holding a gun.",
     "commands": [
       "I aim my gun at his head",
-      "I pull the trigger twice",
+      "I fire twice",
       "Blood hits the [[object]]",
       "He staggers back",
       "He crumples down",
@@ -27,7 +27,7 @@
   },
   {
     "id": "T3",
-    "description": "An older man with grey in his beard and a bald head is crouching beside the [[object]]. He has a kerchief tied around his neck and an emblem of a yellow star on a red background on his shoulder. He's wearing leather fingerless gloves. In his hands he is holding a pistol. It's pointed at you.",
+    "description": "bald, older man with grey in his beard is crouching beside the [[object]]. He has a kerchief tied around his neck and an emblem of a yellow star on a red background on his shoulder. He's wearing leather fingerless gloves. In his hands he is holding a pistol. It's pointed at you.",
     "commands": [
       "I take aim at him",
       "I shoot",

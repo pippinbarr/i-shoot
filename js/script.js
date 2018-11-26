@@ -10,11 +10,14 @@ let currentPlace = 'CT_Spawn';
 // To store the map data and encounters data that comes from JSON
 let map;
 let encounters;
+let currentEncounter;
+let currentObject;
 // To number passages as we display them for jQuery effects
 let passage = 0;
 // Attempts made at the current command set
 const MAX_ATTEMPTS = 1;
 let attempts = 0;
+let annyangCommands;
 // For a reference to the game text
 let $text;
 
@@ -68,7 +71,7 @@ function startGame() {
 // Sets up and displays the passage associated with the place being moved to
 // as well as potentially creates a terrorist encounter
 function move(data) {
-  console.log(`>>> Moving to ${data.destination} with long=${data.long}`);
+  // console.log(`>>> Moving to ${data.destination} with long=${data.long}`);
   // Update current place
   currentPlace = data.destination;
   // Mark this location visited
@@ -79,6 +82,11 @@ function move(data) {
 
   // Increment passage counter
   passage++;
+
+  if (data.resetEncounter) {
+    currentEncounter = undefined;
+    currentObject = undefined;
+  }
 
   // Create the overall passage
   $passage = $('<div></div>');
@@ -111,12 +119,13 @@ function move(data) {
     let $p = $('<p></p>');
     $p.addClass(`passage-${passage}`);
     $p.addClass(`text-${passage}`);
+    $p.addClass("t-description");
     $p.append(map[currentPlace].corpse);
     $passage.append($p);
   }
 
   // Build our annyang commands and the display version
-  let annyangCommands = {};
+  annyangCommands = {};
   let $commands = $('<div></div>');
 
   // Go through all the commands
@@ -128,7 +137,8 @@ function move(data) {
     let moveData = {
       destination: destination,
       long: (map[destination].visited == undefined),
-      clear:SINGLE_PAGES
+      clear:SINGLE_PAGES,
+      resetEncounter: true
     };
     let $command = buildCommand({command:command,id:destination},move,moveData);
     $commands.append($command);
@@ -147,7 +157,8 @@ function move(data) {
     let moveData = {
       destination:currentPlace,
       long:true,
-      clear:SINGLE_PAGES
+      clear:SINGLE_PAGES,
+      resetEncounter:false
     };
     let $command = buildCommand({command:commandText,id:currentPlace},move,moveData);
     $commands.append($command);
@@ -155,17 +166,12 @@ function move(data) {
     annyangCommands[commandText.toLowerCase()] = function () {
       // Handler function should know destination and description of command
       // for moving through story and for jQuery effects
-      let moveData = {
-        destination: currentPlace,
-        long: true,
-        clear: SINGLE_PAGES
-      };
       execute($command,move,moveData);
     }
   }
 
   // Add an encounter if necessary
-  if (Math.random() < 1.0 && map[currentPlace].no_encounters === undefined) {
+  if (currentEncounter !== undefined || (Math.random() < 1.0 && map[currentPlace].no_encounters === undefined)) {
     addTerroristEncounter($passage,$commands,annyangCommands);
   }
 
@@ -180,32 +186,43 @@ function move(data) {
 // command list as well as annyang stuff, starts the chain
 // of calling kill() instead of move() for this command
 function addTerroristEncounter($passage,$commands,annyangCommands) {
-  // Choose the encounter
-  let encounter = encounters[Math.floor(Math.random()*encounters.length)];
+
+  if (currentEncounter === undefined) {
+    currentEncounter = encounters[Math.floor(Math.random()*encounters.length)];
+    let objects = map[currentPlace].objects;
+    currentObject = objects[Math.floor(Math.random()*objects.length)];
+  }
 
   // Create the passage with the encounter text
-  let description = encounter.description;
-  let objects = map[currentPlace].objects;
-  let object = objects[Math.floor(Math.random()*objects.length)];
-  description = description.replace('[[object]]',object);
-  map["currentObject"] = object;
+  let description = currentEncounter.description;
+  description = description.replace('[[object]]',currentObject);
+  if (currentEncounter.seen === undefined) {
+    description = "A " + description;
+    currentEncounter.seen = true;
+    encounters[encounters.indexOf(currentEncounter)].seen = true;
+  }
+  else {
+    description = "The " + description;
+  }
+  map["currentObject"] = currentObject;
   let $p = $('<p></p>');
   $p.addClass(`passage-${passage}`);
   $p.addClass(`text-${passage}`);
+  $p.addClass("t-description");
   $p.append(description);
   $passage.append($p);
 
   // Create necessary variables to represent the data of the command
-  let commandText = encounter.commands[0].replace('[[object]]',object);
+  let commandText = currentEncounter.commands[0].replace('[[object]]',currentObject);
   let data = {
-    encounter: encounter,
+    encounter: currentEncounter,
     index: 0,
-    object: object
+    object: currentObject
   };
   data.clear = SINGLE_PAGES;
   // Build the jQuery object for the command (and set up clicking)
   let $command = buildCommand({
-    id: encounter.id,
+    id: currentEncounter.id,
     command: commandText
   },kill,data);
 
@@ -237,13 +254,17 @@ function kill(data) {
     map[currentPlace]["corpse"] = data.encounter.corpse.replace('[[object]]',data.object);
     map[currentPlace]["no_encounters"] = true;
 
+    // Reset encounter state
+    currentEncounter = undefined;
+    currentObject = undefined;
+
     // Remove him from the encounters list
     let encounterIndex = encounters.indexOf(data.encounter);
     if (encounterIndex !== -1) {
-      console.log("Removing ",encounterIndex);
+      // console.log("Removing ",encounterIndex);
       // encounters = encounters.slice(encounterIndex,encounterIndex+1);
       encounters.splice(encounterIndex,1);
-      console.log(encounters);
+      // console.log(encounters);
     }
 
     if (encounters.length === 0) {
@@ -252,12 +273,12 @@ function kill(data) {
     }
     else {
       // If so "move" to the current location
-      move({ destination:currentPlace, long:false, clear: SINGLE_PAGES });
+      move({ destination:currentPlace, long:false, clear: SINGLE_PAGES, resetEncounter: true });
     }
   }
   else {
     // Otherwise, build the next command
-    let annyangCommands = {};
+    annyangCommands = {};
     let command = { command: data.encounter.commands[data.index], id: "T1-"+passage };
     command.command = command.command.replace('[[object]]',map["currentObject"]);
 
@@ -267,7 +288,7 @@ function kill(data) {
 
     let $command = buildCommand(command,kill,data);
     $commands.append($command);
-    annyangCommands[$command.text().toLowerCase()] = function () {
+    annyangCommands[command.command] = function () {
       execute($command,kill,data);
     }
     // $text.append($commands);
@@ -290,6 +311,7 @@ function setAnnyangCommands(annyangCommands) {
 
   // Set up for mishearings
   annyang.addCallback('resultNoMatch', handleMishearing);
+  annyang.addCallback('resultMatch', handleHearing);
 }
 
 // buildCommand()
@@ -297,7 +319,7 @@ function setAnnyangCommands(annyangCommands) {
 // Creates a jQuery object representing a command with its text, appropriate classes
 // and id, also makes it clickable if necessary
 function buildCommand(command,handler,data) {
-  console.log(`>>> Building ${command.id}: ${command.command}`)
+  // console.log(`>>> Building ${command.id}: ${command.command}`)
 
   let $command = $('<p></p>');
   $command.addClass(`command-${passage}`);
@@ -327,7 +349,7 @@ function showPassage($passage,$commands,clear) {
   $passage.css('opacity',0);
   $commands.css('opacity',0);
 
-  console.log("Clear is ",clear);
+  // console.log("Clear is ",clear);
 
   if (clear) {
     $text.animate({opacity:0},function () {
@@ -376,7 +398,7 @@ function showPassage($passage,$commands,clear) {
 // Does some jQuery animation to transition
 // and moves to the requested passage based on the command
 function execute($command,handler,data) {
-  console.log('>>> Executing:' + $command.text());
+  // console.log('>>> Executing:' + $command.text());
 
   // Transform the chosen command to remove the quote-marks (it has become an action)
   let display = $command.text();
@@ -418,10 +440,27 @@ function execute($command,handler,data) {
 // Called if annyang can't work out what was said, allows me to track
 // attempts and thus react to problems.
 function handleMishearing(possibles) {
-  // console.log("==================================================");
-  // console.log("Didn't understand. Here's what I might have heard:");
-  // console.log(possibles);
-  // console.log("==================================================");
+  console.log("==================================================");
+  console.log("Didn't understand. Here's what I might have heard:");
+  console.log(possibles);
+  console.log("Current commands are:");
+  console.log(annyangCommands);
+  console.log("==================================================");
+
+  attempts++;
+
+  if (attempts === MAX_ATTEMPTS) {
+    makeClickable = true;
+  }
+}
+
+function handleHearing(heard,command,possibles) {
+  console.log("==================================================");
+  console.log("Heard: " + heard);
+  console.log("Matches: " + command);
+  console.log("Could have been:");
+  console.log(possibles);
+  console.log("==================================================");
 
   attempts++;
 
