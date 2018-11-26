@@ -79,7 +79,7 @@
   - ~~Need to maintain current encounter if it happened and then they "look"!~~
   - ~~Change from "a" to "the" after first viewing of a terrorist?~~
   - ~~Figure out probabilities (including spatial awareness if needed)~~
-  - Implement basic probability stuff for terrorists
+  - ~~Implement basic probability stuff for terrorists~~
   - Make dynamic gun description stuff (e.g. pistol pointed at you or not, saw you or not, etc.)
 - Implement mishearing shake
 - Implement clickable after three attempts (then remove it after the click)
@@ -87,4 +87,4 @@
 
 # Bugs
 
-- Weird delay seems to start appearing the deeper you go especially in kill sequences?
+- __IT WAS TO DO WITH SCROLLING__ ~~Weird delay seems to start appearing the deeper you go especially in kill sequences?~~

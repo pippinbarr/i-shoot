@@ -10,6 +10,7 @@
       "He hits the ground",
       "He is dead"
     ],
+    "last_seen": 100,
     "corpse": "The man in the light yellow jersey is propped up against the [[object]], his pistol close to hand but always out of reach. His blood coats the ground around him."
   },
   {
@@ -23,6 +24,7 @@
       "He crumples down",
       "He is dead"
     ],
+    "last_seen": 100,
     "corpse": "The handsome man is bent over double, leaned against the bloody [[object]]."
   },
   {
@@ -36,6 +38,7 @@
       "He lies on his back",
       "He is dead"
     ],
+    "last_seen": 100,
     "corpse": "The dead older man with the greying beard you killed is flat on his back beside the blood-splattered [[object]]."
   }
 ]

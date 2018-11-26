@@ -22,11 +22,16 @@ let annyangCommands;
 let $text;
 
 const PASSAGE_FADE_IN_TIME = 500;
-const COMMAND_FADE_OUT_TIME = 500;
-const COMMAND_SLIDE_UP_TIME = 500;
-const PASSAGE_SCROLL_TIME = 1000;
+const COMMAND_FADE_OUT_TIME = 250;
+const COMMAND_SLIDE_UP_TIME = 250;
+const SCROLL_PER_PIXEL = 3;
 const SINGLE_PAGES = false;
 const SINGLE_KILL_PAGES = true;
+const MIN_LAST_SEEN = 3;
+const BASE_ENCOUNTER_PROBABILITY = 0.2;
+
+let encounterProbability = BASE_ENCOUNTER_PROBABILITY;
+let stepsSinceEncounter = 0;
 
 let makeClickable = true;
 
@@ -83,9 +88,16 @@ function move(data) {
   // Increment passage counter
   passage++;
 
+  encounterProbability += (stepsSinceEncounter * 0.1);
+  console.log("encounterProbability: " + encounterProbability)
+
+
   if (data.resetEncounter) {
     currentEncounter = undefined;
     currentObject = undefined;
+    encounters.forEach(function(e) {
+      e.last_seen++;
+    });
   }
 
   // Create the overall passage
@@ -170,10 +182,7 @@ function move(data) {
     }
   }
 
-  // Add an encounter if necessary
-  if (currentEncounter !== undefined || (Math.random() < 1.0 && map[currentPlace].no_encounters === undefined)) {
-    addTerroristEncounter($passage,$commands,annyangCommands);
-  }
+  addTerroristEncounter($passage,$commands,annyangCommands);
 
   showPassage($passage,$commands,data.clear);
   setAnnyangCommands(annyangCommands);
@@ -187,10 +196,34 @@ function move(data) {
 // of calling kill() instead of move() for this command
 function addTerroristEncounter($passage,$commands,annyangCommands) {
 
+  stepsSinceEncounter++;
+
   if (currentEncounter === undefined) {
-    currentEncounter = encounters[Math.floor(Math.random()*encounters.length)];
+    if (passage < 3) {
+      stepsSinceEncounter = 0;
+      return;
+    }
+    if (map[currentPlace].no_encounters !== undefined) return;
+    if (Math.random() > encounterProbability) return;
+
+    encounters.sort(function(a,b) {
+      return b.last_seen - a.last_seen;
+    });
+    let elligible = [];
+    encounters.forEach(function (e) {
+      if (e.last_seen >= MIN_LAST_SEEN) {
+        elligible.push(e);
+      }
+    });
+    if (elligible.length === 0) return;
+    currentEncounter = elligible[Math.floor(Math.random() * elligible.length)];
+    currentEncounter.last_seen = 0;
+
     let objects = map[currentPlace].objects;
     currentObject = objects[Math.floor(Math.random()*objects.length)];
+
+    stepsSinceEncounter = 0;
+    encounterProbability = BASE_ENCOUNTER_PROBABILITY;
   }
 
   // Create the passage with the encounter text
@@ -199,7 +232,6 @@ function addTerroristEncounter($passage,$commands,annyangCommands) {
   if (currentEncounter.seen === undefined) {
     description = "A " + description;
     currentEncounter.seen = true;
-    encounters[encounters.indexOf(currentEncounter)].seen = true;
   }
   else {
     description = "The " + description;
@@ -293,7 +325,7 @@ function kill(data) {
     }
     // $text.append($commands);
     setAnnyangCommands(annyangCommands);
-    showPassage($passage,$commands,SINGLE_PAGES && (SINGLE_KILL_PAGES || data.index===1));
+    showPassage(undefined,$commands,SINGLE_PAGES && (SINGLE_KILL_PAGES || data.index===1));
   }
 }
 
@@ -346,7 +378,7 @@ function buildCommand(command,handler,data) {
 // Handles scrolling to the next passage/commands and fading them in
 function showPassage($passage,$commands,clear) {
   // Make the new passage and commands invisible
-  $passage.css('opacity',0);
+  if ($passage) $passage.css('opacity',0);
   $commands.css('opacity',0);
 
   // console.log("Clear is ",clear);
@@ -360,14 +392,15 @@ function showPassage($passage,$commands,clear) {
       $text.append($commands);
       $text.css('opacity',1);
       fadeInNext();
-    });
+    },PASSAGE_FADE_IN_TIME);
   }
   else {
     $text.append($passage);
     $text.append($commands);
 
     // If the commands are off screen, scroll
-    if ($commands.offset().top + $commands.height() > $(window).height()) {
+    let pixels = ($commands.offset().top + $commands.height()) - ($('html').scrollTop() + $(window).height());
+    if (pixels > 0) {
       scrollToNext();
     }
     else {
@@ -379,17 +412,22 @@ function showPassage($passage,$commands,clear) {
   // Animate scrolling to the location of the new set of commands
   // and then fading them in
   function scrollToNext() {
+    let pixels = ($commands.offset().top + $commands.height()) - ($('html').scrollTop() + $(window).height());
     $('html, body').animate({
       scrollTop: $commands.offset().top + $commands.height()
-    },PASSAGE_SCROLL_TIME,fadeInNext);
+    },SCROLL_PER_PIXEL * pixels,fadeInNext);
   }
 
   // Animate fading in the passage and commands
   function fadeInNext() {
-    $passage.animate({opacity:1},PASSAGE_FADE_IN_TIME,function() {
-      $commands.animate({opacity:1},PASSAGE_FADE_IN_TIME,function() {
+    if ($passage !== undefined) {
+      $passage.animate({opacity:1},PASSAGE_FADE_IN_TIME,function() {
+        $commands.animate({opacity:1},PASSAGE_FADE_IN_TIME);
       });
-    });
+    }
+    else {
+      $commands.animate({opacity:1},PASSAGE_FADE_IN_TIME);
+    }
   }
 }
 
