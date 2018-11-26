@@ -106,6 +106,15 @@ function move(data) {
     $passage.append($p);
   }
 
+  // Add any dynamic text this location has if the test expression is true
+  if (map[currentPlace].hasOwnProperty('corpse')) {
+    let $p = $('<p></p>');
+    $p.addClass(`passage-${passage}`);
+    $p.addClass(`text-${passage}`);
+    $p.append(map[currentPlace].corpse);
+    $passage.append($p);
+  }
+
   // Build our annyang commands and the display version
   let annyangCommands = {};
   let $commands = $('<div></div>');
@@ -156,7 +165,7 @@ function move(data) {
   }
 
   // Add an encounter if necessary
-  if (Math.random() < 1.0 && map[currentPlace].no_encounters == undefined) {
+  if (Math.random() < 1.0 && map[currentPlace].no_encounters === undefined) {
     addTerroristEncounter($passage,$commands,annyangCommands);
   }
 
@@ -171,24 +180,32 @@ function move(data) {
 // command list as well as annyang stuff, starts the chain
 // of calling kill() instead of move() for this command
 function addTerroristEncounter($passage,$commands,annyangCommands) {
+  // Choose the encounter
+  let encounter = encounters[Math.floor(Math.random()*encounters.length)];
+
   // Create the passage with the encounter text
+  let description = encounter.description;
+  let objects = map[currentPlace].objects;
+  let object = objects[Math.floor(Math.random()*objects.length)];
+  description = description.replace('[[object]]',object);
+  map["currentObject"] = object;
   let $p = $('<p></p>');
   $p.addClass(`passage-${passage}`);
   $p.addClass(`text-${passage}`);
-  $p.append(encounters["T1"].description);
+  $p.append(description);
   $passage.append($p);
 
   // Create necessary variables to represent the data of the command
-  let id = "T1-0"
-  let commandText = encounters["T1"].commands[0];
+  let commandText = encounter.commands[0].replace('[[object]]',object);
   let data = {
-    commands: encounters["T1"].commands,
+    encounter: encounter,
     index: 0,
+    object: object
   };
   data.clear = SINGLE_PAGES;
   // Build the jQuery object for the command (and set up clicking)
   let $command = buildCommand({
-    id: id,
+    id: encounter.id,
     command: commandText
   },kill,data);
 
@@ -207,7 +224,6 @@ function addTerroristEncounter($passage,$commands,annyangCommands) {
 // array and index passed through in the data. This amounts to creating a
 // new command, adding to annyang, scrolling, etc.
 function kill(data) {
-  console.log("clear=",data.clear);
   // Increase passage counter
   passage++;
   // Increase index of kill command so we get the next one
@@ -216,17 +232,39 @@ function kill(data) {
   attempts = 0;
 
   // Check if we're at the end of the kill commands
-  if (data.index === data.commands.length) {
-    // If so "move" to the current location
-    move({ destination:currentPlace, long:false, clear: SINGLE_PAGES });
+  if (data.index === data.encounter.commands.length) {
+    // He's dead! So add corpse text to the location
+    map[currentPlace]["corpse"] = data.encounter.corpse.replace('[[object]]',data.object);
+    map[currentPlace]["no_encounters"] = true;
+
+    // Remove him from the encounters list
+    let encounterIndex = encounters.indexOf(data.encounter);
+    if (encounterIndex !== -1) {
+      console.log("Removing ",encounterIndex);
+      // encounters = encounters.slice(encounterIndex,encounterIndex+1);
+      encounters.splice(encounterIndex,1);
+      console.log(encounters);
+    }
+
+    if (encounters.length === 0) {
+      let $gameOver = $('<div><p>Having eliminated the final terrorist agent, you holster your pistol and lean against a wall.</p><p>Over your radio, a distant yet close voice says, "Counter-Terrorists win."</p><p style="font-weight:bold">GAME OVER.</p></div>');
+      showPassage($('<div></div>'),$gameOver,SINGLE_PAGES);
+    }
+    else {
+      // If so "move" to the current location
+      move({ destination:currentPlace, long:false, clear: SINGLE_PAGES });
+    }
   }
   else {
     // Otherwise, build the next command
     let annyangCommands = {};
-    let command = { command: data.commands[data.index], id: "T1-"+passage };
+    let command = { command: data.encounter.commands[data.index], id: "T1-"+passage };
+    command.command = command.command.replace('[[object]]',map["currentObject"]);
+
     let $passage = $('<div></div>');
     let $commands = $('<div></div>');
     data.clear = SINGLE_KILL_PAGES;
+
     let $command = buildCommand(command,kill,data);
     $commands.append($command);
     annyangCommands[$command.text().toLowerCase()] = function () {

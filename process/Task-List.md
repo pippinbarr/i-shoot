@@ -74,9 +74,9 @@
 - ~~Add ability to display shootings either in-line, all on a new page, or each on a new page~~
 - ~~Implement encounters (separate JSON, add text to location at the end)~~
 - Improve encounters
-  - Make all three possible
-  - Add idea of physical object templated in (just make a custom one of my own? [[object]]?)
-  - Add corpse description to the location and add no_encounters property to it too
+  - ~~Make all three possible~~
+  - ~~Add idea of physical object templated in (just make a custom one of my own? [[object]]?)~~
+  - ~~Add corpse description to the location and add no_encounters property to it too~~
   - Figure out and implement probabilities (including spatial awareness if needed)
   - Need to maintain current encounter if it happened and then they "look"!
   - Change from "a" to "the" after first viewing of a terrorist?

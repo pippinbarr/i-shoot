@@ -1,13 +1,41 @@
-{
-  "T1": {
-    "description": "A man in a light yellow jersey is standing near to the (print: $object). As you arrive he spins and levels his pistol at you. His face is hidden behind sunglasses and a bandana across his mouth.",
+[
+  {
+    "id": "T1",
+    "description": "A man in a light yellow jersey is standing near to the [[object]]. As you arrive he spins and levels his pistol at you. His face is hidden behind sunglasses and a bandana across his mouth.",
     "commands": [
       "I level my gun at him",
       "I fire three shots",
       "The bullets strike his chest",
-      "He falls backward against the $object",
+      "He falls backward against the [[object]]",
       "He hits the ground",
       "He is dead"
-    ]
+    ],
+    "corpse": "The man in the light yellow jersey is propped up against the [[object]], his pistol close to hand but always out of reach. His blood coats the ground around him."
+  },
+  {
+    "id": "T2",
+    "description": "A handsome man with a side-part and sunglasses is poised beside the [[object]]. He hasn't seen you yet. He's wearing a long-sleeved orange t-shirt with the sleeves rolled up his forearms, blue jeans, and a brown backpack.",
+    "commands": [
+      "I aim my gun at his head",
+      "I pull the trigger twice",
+      "Blood hits the [[object]]",
+      "He staggers back",
+      "He crumples down",
+      "He is dead"
+    ],
+    "corpse": "The handsome man is bent over double, leaned against the bloody [[object]]."
+  },
+  {
+    "id": "T3",
+    "description": "An older man with grey in his beard and a bald head is crouching beside the [[object]]. He has a kerchief tied around his neck and an emblem of a yellow star on a red background on his shoulder. He's wearing leather fingerless gloves. In his hands he is holding a pistol. It's pointed at you.",
+    "commands": [
+      "I take aim at him",
+      "I shoot",
+      "He drops to the ground",
+      "His blood coats the [[object]]",
+      "He lies on his back",
+      "He is dead"
+    ],
+    "corpse": "The dead older man with the greying beard you killed is flat on his back beside the blood-splattered [[object]]."
   }
-}
+]
