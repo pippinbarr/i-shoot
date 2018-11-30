@@ -51,8 +51,6 @@
 
 # Failure UI
 
-- Add "failed" indicator
-- Three fails turns the "say it" options into links instead (with a pop up?)
 - __SEEMS KIND OF ROBUST?__ ~~Consider pausing/starting annyang between passages as a way to conceivably avoid the shutdowns it does sometimes when it gets confuse? (Can you unconfuse it?)~~
 - ~~Improve the transition on a successful phrase~~
 - Improve the overall typography, margins, colours (dim prior texts and highlight current?)
@@ -80,10 +78,12 @@
   - ~~Change from "a" to "the" after first viewing of a terrorist?~~
   - ~~Figure out probabilities (including spatial awareness if needed)~~
   - ~~Implement basic probability stuff for terrorists~~
-  - Make dynamic gun description stuff (e.g. pistol pointed at you or not, saw you or not, etc.)
-- Implement mishearing shake
-- Implement clickable after three attempts (then remove it after the click)
-- Implement some kind of "let's give up" after three clickables
+  - __WHY BOTHER?__ ~~Make dynamic gun description stuff (e.g. pistol pointed at you or not, saw you or not, etc.)~~
+- ~~Implement mishearing shake~~
+- ~~Implement clickable after three attempts (then remove it after the click)~~
+- __NO, THEY CAN GIVE UP IF THEY WANT TO GIVE UP__ ~~Implement some kind of "let's give up?" after three clickables?~~
+
+- Add a start passage which is an explanation of the game, with a single command that takes you to the opening scene. (It would be nice to make this a special case that fades out and then into the game so it's not visible at the top of the screen)
 
 # Bugs
 

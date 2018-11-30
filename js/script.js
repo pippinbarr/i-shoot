@@ -15,7 +15,7 @@ let currentObject;
 // To number passages as we display them for jQuery effects
 let passage = 0;
 // Attempts made at the current command set
-const MAX_ATTEMPTS = 1;
+const MAX_ATTEMPTS = 3;
 let attempts = 0;
 let annyangCommands;
 // For a reference to the game text
@@ -41,6 +41,38 @@ $(document).ready(function() {
   if (annyang) {
     // Save a reference to the game text
     $text = $('#text');
+
+    // Create the mishearing dialog
+    $dialog = $('<div></div>');
+    $dialog.attr('title',"Problem");
+    $dialogText = $('<p></p>');
+    $dialogText.append("It seems like the speech recognizer isn't hearing you very well. Do you want to enable clickable links for this single action?");
+    $dialog.append($dialogText);
+    $dialog.dialog({
+      autoOpen: false,
+      resizable: false,
+      height: "auto",
+      // width: 400,
+      modal: true,
+      buttons: {
+        "Yes": function() {
+          makeCommandsClickable();
+          $(this).dialog( "close" );
+        },
+        "Keep trying": function() {
+          $(this).dialog("close");
+        }
+      },
+      close: function () {
+        annyang.addCommands(annyangCommands);
+        attempts = 0;
+      }
+    });
+    // $dialog.dialog()
+
+    // Set up for mishearings
+    annyang.addCallback('resultNoMatch', handleMishearing);
+    annyang.addCallback('resultMatch', handleHearing);
 
     // Tell annyang to start listening
     annyang.start();
@@ -340,10 +372,6 @@ function setAnnyangCommands(annyangCommands) {
   // Now we've defined the commands we give them to annyang
   // by using its .addCommands() function.
   annyang.addCommands(annyangCommands);
-
-  // Set up for mishearings
-  annyang.addCallback('resultNoMatch', handleMishearing);
-  annyang.addCallback('resultMatch', handleHearing);
 }
 
 // buildCommand()
@@ -359,16 +387,8 @@ function buildCommand(command,handler,data) {
   $command.attr('id',command.id);
   $command.append(`"${command.command}."`);
 
-  if (makeClickable) {
-    // Style the element as clickable
-    $command.addClass('clickable');
-    // Add a click event that executes its command and makes it unclickable
-    $command.on('click', function () {
-      execute($command,handler,data);
-      $(this).off('click');
-      $(this).removeClass('clickable');
-    });
-  }
+  $command.data('handler',handler);
+  $command.data('data',data);
 
   return $command;
 }
@@ -473,11 +493,27 @@ function execute($command,handler,data) {
   }
 }
 
+function makeCommandsClickable() {
+  $('.command').each(function () {
+    // Style the element as clickable
+    $(this).addClass('clickable');
+    // Add a click event that executes its command and makes it unclickable
+    $(this).on('click', function () {
+      execute($(this),$(this).data('handler'),$(this).data('data'));
+      $(this).off('click');
+      $(this).removeClass('clickable');
+    });
+  });
+}
+
 // handleMishearing()
 //
 // Called if annyang can't work out what was said, allows me to track
 // attempts and thus react to problems.
 function handleMishearing(possibles) {
+  if ($dialog.dialog('isOpen')) {
+    return;
+  }
   console.log("==================================================");
   console.log("Didn't understand. Here's what I might have heard:");
   console.log(possibles);
@@ -486,9 +522,18 @@ function handleMishearing(possibles) {
   console.log("==================================================");
 
   attempts++;
+  console.log(`${attempts} attempts.`);
+
+  $('.command').effect('shake',{
+    direction: 'left',
+    distance: 5,
+    times: 3
+  });
 
   if (attempts === MAX_ATTEMPTS) {
-    makeClickable = true;
+    annyang.removeCommands();
+    $dialog.dialog('open');
+    attempts = 0;
   }
 }
 
@@ -500,9 +545,5 @@ function handleHearing(heard,command,possibles) {
   console.log(possibles);
   console.log("==================================================");
 
-  attempts++;
-
-  if (attempts === MAX_ATTEMPTS) {
-    makeClickable = true;
-  }
+  console.log(`${attempts} attempts.`);
 }
