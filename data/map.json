@@ -1,4 +1,24 @@
 {
+  "Introduction": {
+    "name": "Introduction",
+    "description": [
+      {
+        "long": "<b>\"I shoot\"</b> is a game that uses voice recognition. Throughout, you will be asked to choose from commands listed with quote-marks around them, you should speak your chosen command to choose it.",
+        "short": "YOU SHOULDN'T BE SEEING THIS! LOOK AWAY!"
+      }
+    ],
+    "objects": [
+      "<error>"
+    ],
+    "commands": [
+      {
+        "command": "Start",
+        "destination": "CT_Spawn"
+      }
+    ],
+    "single_page": true
+  },
+
   "CT_Spawn": {
     "name": "CT_Spawn",
     "description": [

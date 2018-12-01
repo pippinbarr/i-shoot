@@ -6,14 +6,14 @@ Pippin Barr
 */
 
 // Track current location (in world and in JSON)
-let currentPlace = 'CT_Spawn';
+let currentPlace = 'Introduction';
 // To store the map data and encounters data that comes from JSON
 let map;
 let encounters;
 let currentEncounter;
 let currentObject;
 // To number passages as we display them for jQuery effects
-let passage = 0;
+let passage = -1;
 // Attempts made at the current command set
 const MAX_ATTEMPTS = 3;
 let attempts = 0;
@@ -32,8 +32,6 @@ const BASE_ENCOUNTER_PROBABILITY = 0.2;
 
 let encounterProbability = BASE_ENCOUNTER_PROBABILITY;
 let stepsSinceEncounter = 0;
-
-let makeClickable = true;
 
 // Start annyang and load the game data
 $(document).ready(function() {
@@ -68,7 +66,6 @@ $(document).ready(function() {
         attempts = 0;
       }
     });
-    // $dialog.dialog()
 
     // Set up for mishearings
     annyang.addCallback('resultNoMatch', handleMishearing);
@@ -100,7 +97,7 @@ function onDataFailed() {
 //
 // Move to the initial location
 function startGame() {
-  move({destination: currentPlace, long: true});
+  move({destination: currentPlace, long: true, clear: true });
 }
 
 // move()
@@ -108,7 +105,7 @@ function startGame() {
 // Sets up and displays the passage associated with the place being moved to
 // as well as potentially creates a terrorist encounter
 function move(data) {
-  // console.log(`>>> Moving to ${data.destination} with long=${data.long}`);
+  console.log(`>>> Moving to ${data.destination} with long=${data.long} and clear=${data.clear}`);
   // Update current place
   currentPlace = data.destination;
   // Mark this location visited
@@ -121,7 +118,7 @@ function move(data) {
   passage++;
 
   encounterProbability += (stepsSinceEncounter * 0.1);
-  console.log("encounterProbability: " + encounterProbability)
+  // console.log("encounterProbability: " + encounterProbability)
 
 
   if (data.resetEncounter) {
@@ -181,7 +178,7 @@ function move(data) {
     let moveData = {
       destination: destination,
       long: (map[destination].visited == undefined),
-      clear:SINGLE_PAGES,
+      clear: (SINGLE_PAGES || map[currentPlace].single_page),
       resetEncounter: true
     };
     let $command = buildCommand({command:command,id:destination},move,moveData);
@@ -216,6 +213,7 @@ function move(data) {
 
   addTerroristEncounter($passage,$commands,annyangCommands);
 
+  console.log("showPassage with " + data.clear);
   showPassage($passage,$commands,data.clear);
   setAnnyangCommands(annyangCommands);
 }
@@ -397,14 +395,13 @@ function buildCommand(command,handler,data) {
 //
 // Handles scrolling to the next passage/commands and fading them in
 function showPassage($passage,$commands,clear) {
+
   // Make the new passage and commands invisible
   if ($passage) $passage.css('opacity',0);
   $commands.css('opacity',0);
 
-  // console.log("Clear is ",clear);
-
   if (clear) {
-    $text.animate({opacity:0},function () {
+    $text.animate({opacity:0},PASSAGE_FADE_IN_TIME,function () {
       if (clear) {
         $text.text('');
       }
@@ -412,7 +409,7 @@ function showPassage($passage,$commands,clear) {
       $text.append($commands);
       $text.css('opacity',1);
       fadeInNext();
-    },PASSAGE_FADE_IN_TIME);
+    });
   }
   else {
     $text.append($passage);
@@ -456,7 +453,7 @@ function showPassage($passage,$commands,clear) {
 // Does some jQuery animation to transition
 // and moves to the requested passage based on the command
 function execute($command,handler,data) {
-  // console.log('>>> Executing:' + $command.text());
+  console.log('>>> Executing:' + $command.text());
 
   // Transform the chosen command to remove the quote-marks (it has become an action)
   let display = $command.text();
