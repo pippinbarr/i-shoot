@@ -847,3 +847,11 @@ The next question is whether this should at all pay attention to actual geograph
 Also I don't want to get too hung up on the specific version of a person playing this by constantly running away from the terrorists and thus noticing they don't behave quite right spatially? That sounds reaaaaally pointless. So it could be that the right thing is just to have a set delay per terrorist during which they cannot be seen if you've seen them (and run away), and that's it. So if you really want to jog around, you can, and you just won't see anyone every three moves by the end. FINE.
 
 Other than that the key thing is just the usability of the voice commands, notably how to indicate it didn't understand what you said. Maybe just "shake" the commands to indicate it heard you but it didn't take? That might be enough. I feel myself sliding down the slippery slope of least resistance and laziness. But really this project has to end. Has to end.
+
+---
+
+# Friday, 30 November 2018, 19:29PM
+
+Managed to work more on the game today to get it to a point where I believe it's testable in its "final" state. I think it now does all the stuff it needs to do in terms of voice, usability, etc. The big questions are around the writing, whether there's text recognition bullshit, and how much I want to fiddle with realism of space etc.
+
+Really I just want to get it OUT THAT DOOR, but I'll see how testers respond to it for now. I'm relatively pleased with the state of it. I should probably style the dialog boxes since they look fucking awful right now. I'll do that before I send to testing. Juuuuust about there?
