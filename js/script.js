@@ -112,7 +112,10 @@ function onDataFailed() {
 //
 // Move to the initial location
 function startGame() {
-  if (annyangError) return;
+  console.log('startGame()');
+  if (annyangError) {
+    return;
+  }
 
   move({destination: currentPlace, long: true, clear: true });
 }
@@ -563,6 +566,7 @@ function handleHearing(heard,command,possibles) {
 }
 
 function handlePermissionDenied(error) {
+  console.log("!!! Microphone permission denied.")
   $text.text("");
   $p = $('<p></p>');
   $p.append("<b>\"I shoot\" should be played on a desktop or laptop computer with a microphone. You need to give permission to use the microphone to play.");
@@ -571,6 +575,7 @@ function handlePermissionDenied(error) {
 }
 
 function handlePermissionBlocked(error) {
+  console.log("!!! Microphone permission blocked.")
   $text.text("");
   $p = $('<p></p>');
   $p.append("<b>\"I shoot\" should be played on a desktop or laptop computer with a microphone. You need to give permission to use the microphone to play.");
