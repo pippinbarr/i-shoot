@@ -18,6 +18,8 @@ let passage = -1;
 const MAX_ATTEMPTS = 3;
 let attempts = 0;
 let annyangCommands;
+let annyangError = false;
+let textRecognitionStarted = false;
 // For a reference to the game text
 let $text;
 
@@ -35,41 +37,22 @@ let stepsSinceEncounter = 0;
 
 // Start annyang and load the game data
 $(document).ready(function() {
+  // Save a reference to the game text
+  $text = $('#text');
+
   // We need annyang to be loaded or we're screwed
   if (annyang) {
-    // Save a reference to the game text
-    $text = $('#text');
 
-    // Create the mishearing dialog
-    $dialog = $('<div></div>');
-    $dialog.attr('title',"Problem");
-    $dialogText = $('<p></p>');
-    $dialogText.append("It seems like the speech recognizer isn't hearing you very well. Do you want to enable clickable links for this single action?");
-    $dialog.append($dialogText);
-    $dialog.dialog({
-      autoOpen: false,
-      resizable: false,
-      height: "auto",
-      // width: 400,
-      modal: true,
-      buttons: {
-        "Yes": function() {
-          makeCommandsClickable();
-          $(this).dialog( "close" );
-        },
-        "Keep trying": function() {
-          $(this).dialog("close");
-        }
-      },
-      close: function () {
-        annyang.addCommands(annyangCommands);
-        attempts = 0;
-      }
-    });
+    createMishearingDialog();
 
     // Set up for mishearings
     annyang.addCallback('resultNoMatch', handleMishearing);
     annyang.addCallback('resultMatch', handleHearing);
+    annyang.addCallback('errorPermissionDenied', handlePermissionDenied);
+    annyang.addCallback('errorPermissionBlocked', handlePermissionBlocked);
+    annyang.addCallback('start', function() {
+      textRecognitionStarted = true;
+    });
 
     // Tell annyang to start listening
     annyang.start();
@@ -84,7 +67,39 @@ $(document).ready(function() {
     })
     .fail(onDataFailed);
   }
+  else {
+    handlePermissionDenied();
+  }
 });
+
+function createMishearingDialog() {
+  // Create the mishearing dialog
+  $dialog = $('<div></div>');
+  $dialog.attr('title',"Problem");
+  $dialogText = $('<p></p>');
+  $dialogText.append("It seems like the speech recognizer isn't hearing you very well. Do you want to enable clickable links for this single action?");
+  $dialog.append($dialogText);
+  $dialog.dialog({
+    autoOpen: false,
+    resizable: false,
+    height: "auto",
+    // width: 400,
+    modal: true,
+    buttons: {
+      "Yes": function() {
+        makeCommandsClickable();
+        $(this).dialog( "close" );
+      },
+      "Keep trying": function() {
+        $(this).dialog("close");
+      }
+    },
+    close: function () {
+      annyang.addCommands(annyangCommands);
+      attempts = 0;
+    }
+  });
+}
 
 // onDataFailed()
 //
@@ -97,6 +112,8 @@ function onDataFailed() {
 //
 // Move to the initial location
 function startGame() {
+  if (annyangError) return;
+
   move({destination: currentPlace, long: true, clear: true });
 }
 
@@ -543,4 +560,20 @@ function handleHearing(heard,command,possibles) {
   console.log("==================================================");
 
   console.log(`${attempts} attempts.`);
+}
+
+function handlePermissionDenied(error) {
+  $text.text("");
+  $p = $('<p></p>');
+  $p.append("<b>\"I shoot\" should be played on a desktop or laptop computer with a microphone. You need to give permission to use the microphone to play.");
+  $text.append($p);
+  annyangError = true;
+}
+
+function handlePermissionBlocked(error) {
+  $text.text("");
+  $p = $('<p></p>');
+  $p.append("<b>\"I shoot\" should be played on a desktop or laptop computer with a microphone. You need to give permission to use the microphone to play.");
+  $text.append($p);
+  annyangError = true;
 }

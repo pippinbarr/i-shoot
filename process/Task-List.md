@@ -83,6 +83,7 @@
 - ~~Implement clickable after three attempts (then remove it after the click)~~
 - __NO, THEY CAN GIVE UP IF THEY WANT TO GIVE UP__ ~~Implement some kind of "let's give up?" after three clickables?~~
 - ~~Add a start passage which is an explanation of the game, with a single command that takes you to the opening scene. (It would be nice to make this a special case that fades out and then into the game so it's not visible at the top of the screen)~~
+- Add basic error handling for permission denied, browser denied, no speech available...
 
 # Bugs
 

@@ -3,7 +3,7 @@
     "name": "Introduction",
     "description": [
       {
-        "long": "<b>\"I shoot\"</b> is a game that uses voice recognition. Throughout, you will be asked to choose from commands listed with quote-marks around them, you should speak your chosen command to choose it.",
+        "long": "<b>\"I shoot\"</b> is a game that uses voice recognition, so you'll need to give permission to use the microphone and should be playing on a desktop or laptop computer.</p><p>Throughout, you will be asked to choose from commands listed with quote-marks around them, you should speak your chosen command to choose it.</p>When you're ready to begin, say:",
         "short": "YOU SHOULDN'T BE SEEING THIS! LOOK AWAY!"
       }
     ],
