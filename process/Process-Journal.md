@@ -855,3 +855,19 @@ Other than that the key thing is just the usability of the voice commands, notab
 Managed to work more on the game today to get it to a point where I believe it's testable in its "final" state. I think it now does all the stuff it needs to do in terms of voice, usability, etc. The big questions are around the writing, whether there's text recognition bullshit, and how much I want to fiddle with realism of space etc.
 
 Really I just want to get it OUT THAT DOOR, but I'll see how testers respond to it for now. I'm relatively pleased with the state of it. I should probably style the dialog boxes since they look fucking awful right now. I'll do that before I send to testing. Juuuuust about there?
+
+---
+
+# Saturday, 1 December 2018, 19:36PM --- Thinking about final rewrites for kill sequences
+
+Spent time today pulling together final bits and pieces. I guess I think it's done now? I styled the dialogs. I added some usability stuff around detecting microphone access...
+
+It's officially testable. Like I've been indicating, I'm no longer quite so convinced that this "works" as a game in terms of foregrounding the violence of violence through speech, but I'm glad to have put it together. And it does make me want to think more about voice recognition stuff as a "platform" or "technology" or whatever.
+
+Why doesn't it quite feel like it works? Well, part of it could of course be that I'm just feeling dissociated from the project personally and so it doesn't land with me. But alongside that I suspect that the violence is... just as banal this way as any other. We're adapted to not give much of a shit about doing violent things in virtual settings or in fictions?
+
+I suspect something I might need to work on is just the encounter texts. In particular I think it'd be possible to make them more evocative/dark without pushing into emotional language or descriptions that wouldn't correspond to scene in counterstrike? Like perhaps talking about one of them trying to run away but being gunned down while running? That's something that happens. The idea of shooting one of them unawares is interesting and dark, though there I'd need to be careful because I think seeing the same person unaware in the same way would be a real detraction if that happened. (Although maybe it would be kind of amazing to have one of them who just never moves? Then you could always catch him unawares because, let's say, the player playing him is afk? And so you can always just murder him without any drama. That would be pretty interesting?)
+
+At any rate, writing this makes me think I can lean harder on the language of killing more than anything. The rest of it... well I think it works fine, no big deal. But the killing has to hit at least a little harder than it is right now. The possibility of knifing one of them would also be kind of interesting I suppose, but that's getting pretty fiddly? I should also let them get off a shot or two, even if it hits, that would be fine.
+
+More focus on that, then it's good to go, let's say.
