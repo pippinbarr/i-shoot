@@ -871,3 +871,9 @@ I suspect something I might need to work on is just the encounter texts. In part
 At any rate, writing this makes me think I can lean harder on the language of killing more than anything. The rest of it... well I think it works fine, no big deal. But the killing has to hit at least a little harder than it is right now. The possibility of knifing one of them would also be kind of interesting I suppose, but that's getting pretty fiddly? I should also let them get off a shot or two, even if it hits, that would be fine.
 
 More focus on that, then it's good to go, let's say.
+
+---
+
+# Saturday, 8 December 2018, 9:51AM --- This project is a failure?
+
+Conversation yesterday with J+M about failure of "I shoot". Led to thought in the bath about radical reshaping of it. Abandon entirely the Counter-Strike element. Abandon the spatial realism. Turn it into a game in which you just voice a sequence of horrible actions. Maybe even generative at that point. Neverending.  Maybe somehow with just enough suggestion of narrative that you'd keep going for quite a while before realising it won't end? How would you do that? Maybe craft the first three or so and then drop into generation after that? I need to think about it, but maybe this saves the project? More thought later.
