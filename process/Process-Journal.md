@@ -877,3 +877,35 @@ More focus on that, then it's good to go, let's say.
 # Saturday, 8 December 2018, 9:51AM --- This project is a failure?
 
 Conversation yesterday with J+M about failure of "I shoot". Led to thought in the bath about radical reshaping of it. Abandon entirely the Counter-Strike element. Abandon the spatial realism. Turn it into a game in which you just voice a sequence of horrible actions. Maybe even generative at that point. Neverending.  Maybe somehow with just enough suggestion of narrative that you'd keep going for quite a while before realising it won't end? How would you do that? Maybe craft the first three or so and then drop into generation after that? I need to think about it, but maybe this saves the project? More thought later.
+
+---
+
+# Saturday, 8 December 2018, 10:11AM --- The streamlining approach
+
+Okay, couldn't stay away from this, should just trying and get my thinking down now.
+
+So, as above, I was talking to J+M after they tried out the current prototype and the general consensus was, unfortunately, that it's pretty damn unaffecting. Which was my experience too, of course, but I'd been holding out a pseudo-hope that it would work for others. There's still another pseudo-hope that J+M have just experienced it too many times and so are similarly inured, but I don't think that's it, really. It's just that it doesn't actually work they way I thought/wanted.
+
+The central problem seems to be the game-ness of it. Even though the experience is essentially "linear", it still has certain affordances of gameness.
+
+__Choosing actions__. You get to choose what to do, so there's some level of focus on trying to optimise, do it well, etc. Even though that's kind of meaningless in this game. It still signifies the idea of a game and a game detracts from affective connection (I reckon).
+
+__Voice recognition is like a game__. More significantly, it's pretty clear that the novelty and challenge of voicing the commands makes the act of voicing them into more of a distraction. It's not very disturbing because you're busy trying to get it right.
+
+I actually think these two things work together as well? Like the voicing is diminished because it's in service of a chosen action in a game environment? At any rate, the end result is that it doesn't feel like anything, it just feels like a boring version of Counter-Strike in text. So: shit.
+
+__Solutions?__ However, also as above, I'm thinking that maybe the way to at least partially "save" this experience is to go all in on the basic concept of voicing killing. In essence what I think I mean is stripping the game down to _only_ the killing bits, extending on them a bit possibly, and allowing for other scenarios (stabbing becomes plausible). The game would become a sequence of those killing scenarios. Maybe without even any context, just a sequence of things to say, acknowledged by the game.
+
+It could still be the case this doesn't feel like much, but I think it has a greater chance at a cumulative effect. It still technically reproduces moments from games that we do traditionally enact, so it's not dishonest or moving too far away from the principle of this game. It's just highly targeted?
+
+Can make the interface more stark this way which I think is a good thing too. Can still maintain a bunch of codebase I suppose? Or maybe I kind of start again but take a bunch of code from the previous version? Might be cleaner given this is a significant change. Use Tracery for generating encounters.
+
+I think the thing for now is probably to make the base version of this: encounters basically the same as already exist, but in isolation, with different typography presentation etc. And see if that feels different.
+
+Then need to think about:
+- System acknowledgment of success/failure (should it be like "Good", or do a tick, or be flatter than that?)
+- Generation versus custom written encounters
+- Context versus no-context for each encounter (leaning no-context)
+- What level of description is fair?
+
+I mean, hilariously this is going to be not dissimilar to the annyang testing prototype I made early on. But the truth is that that _was_ kind of freaky? That's what I'll try to capture. It's simple and perhaps more effective. And then I can move on!
