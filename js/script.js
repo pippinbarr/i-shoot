@@ -5,6 +5,26 @@ Pippin Barr
 
 */
 
+let encounter = [
+  "I point my gun at him",
+  "I fire three times",
+  "Bang",
+  "The bullet hits his chest",
+  "Bang",
+  "The bullet goes through his shoulder",
+  "Bang",
+  "The bullet strikes his face",
+  "He falls back against the car",
+  "His blood patterns the passenger door",
+  "He crumples to the ground",
+  "He stares sightless into the blue sky"
+];
+let current = 0;
+let attempts = 0;
+let MAX_ATTEMPTS = 3;
+let annyangCommands = {};
+
+let permissionErrorText = "<b>\"I shoot\" should be played on a desktop or laptop computer with a microphone in the Chrome browser. You need to give permission to use the microphone to play.";
 
 // Start annyang and load the game data
 $(document).ready(function() {
@@ -13,7 +33,6 @@ $(document).ready(function() {
 
   // We need annyang to be loaded or we're screwed
   if (annyang) {
-
     createMishearingDialog();
 
     // Set up for mishearings
@@ -27,58 +46,35 @@ $(document).ready(function() {
 
     // Tell annyang to start listening
     annyang.start();
+
+    startGame();
   }
   else {
     handlePermissionDenied();
   }
 });
 
-function createMishearingDialog() {
-  // Create the mishearing dialog
-  $dialog = $('<div></div>');
-  $dialog.attr('title',"Problem");
-  $dialogText = $('<p></p>');
-  $dialogText.append("It seems like the speech recognizer isn't hearing you very well. Do you want to enable clickable links for this single action?");
-  $dialog.append($dialogText);
-  $dialog.dialog({
-    autoOpen: false,
-    resizable: false,
-    height: "auto",
-    // width: 400,
-    modal: true,
-    buttons: {
-      "Yes": function() {
-        makeCommandsClickable();
-        $(this).dialog( "close" );
-      },
-      "Keep trying": function() {
-        $(this).dialog("close");
-      }
-    },
-    close: function () {
-      annyang.addCommands(annyangCommands);
-      attempts = 0;
-    }
-  });
-}
-
-// onDataFailed()
-//
-// Shit.
-function onDataFailed() {
-  console.log('Shitcakes.');
-}
-
 // startGame()
 //
 // Move to the initial location
 function startGame() {
   console.log('startGame()');
-  if (annyangError) {
-    return;
-  }
+  addNextCommand();
+}
 
-  move({destination: currentPlace, long: true, clear: true });
+function addNextCommand() {
+  $('.command').addClass('commanded').removeClass('command');
+  attempts = 0;
+  let command = encounter[current];
+  $p = $('<p></p>');
+  $p.append(command + '.');
+  $p.addClass('command');
+  $text.append($p);
+  current++;
+
+  annyangCommands = {};
+  annyangCommands[command.toLowerCase()] = addNextCommand;
+  setAnnyangCommands(annyangCommands);
 }
 
 // setAnnyangCommands()
@@ -100,7 +96,7 @@ function makeCommandsClickable() {
     $(this).addClass('clickable');
     // Add a click event that executes its command and makes it unclickable
     $(this).on('click', function () {
-      // execute($(this),$(this).data('handler'),$(this).data('data'));
+      addNextCommand();
       $(this).off('click');
       $(this).removeClass('clickable');
     });
@@ -150,19 +146,46 @@ function handleHearing(heard,command,possibles) {
 }
 
 function handlePermissionDenied(error) {
-  console.log("!!! Microphone permission denied.")
   $text.text("");
   $p = $('<p></p>');
-  $p.append("<b>\"I shoot\" should be played on a desktop or laptop computer with a microphone. You need to give permission to use the microphone to play.");
+  $p.append(permissionErrorText);
   $text.append($p);
   annyangError = true;
 }
 
 function handlePermissionBlocked(error) {
-  console.log("!!! Microphone permission blocked.")
   $text.text("");
   $p = $('<p></p>');
-  $p.append("<b>\"I shoot\" should be played on a desktop or laptop computer with a microphone. You need to give permission to use the microphone to play.");
+  $p.append(permissionErrorText);
   $text.append($p);
   annyangError = true;
+}
+
+function createMishearingDialog() {
+  // Create the mishearing dialog
+  $dialog = $('<div></div>');
+  $dialog.attr('title',"Problem");
+  $dialogText = $('<p></p>');
+  $dialogText.append("It seems like the speech recognizer isn't hearing you very well. Do you want to enable clickable links for this single action?");
+  $dialog.append($dialogText);
+  $dialog.dialog({
+    autoOpen: false,
+    resizable: false,
+    height: "auto",
+    // width: 400,
+    modal: true,
+    buttons: {
+      "Yes": function() {
+        makeCommandsClickable();
+        $(this).dialog( "close" );
+      },
+      "Keep trying": function() {
+        $(this).dialog("close");
+      }
+    },
+    close: function () {
+      annyang.addCommands(annyangCommands);
+      attempts = 0;
+    }
+  });
 }

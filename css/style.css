@@ -1,7 +1,7 @@
 body {
-  font-family: "Courier", monospace;
-  font-size: 1.2em;
-  line-height: 1.2em;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 2em;
+  line-height: 0.5em;
   background-color: rgb(255,255,255);
 }
 
@@ -11,7 +11,7 @@ body {
 }
 
 #game {
-  margin-top: 5em;
+  margin-top: 3em;
 }
 
 #text {
@@ -24,11 +24,11 @@ body {
 
 .command {
   color: rgb(50,50,50);
+  font-weight: bold;
 }
 
 .commanded {
   color: rgb(100,100,100);
-  font-weight: bold;
 }
 
 .clickable {
