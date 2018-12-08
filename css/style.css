@@ -25,6 +25,7 @@ body {
 .command {
   color: rgb(50,50,50);
   font-weight: bold;
+  opacity: 1;
 }
 
 .commanded {

@@ -5,20 +5,26 @@ Pippin Barr
 
 */
 
+// let encounter = [
+//   "I point my gun at him",
+//   "I fire three times",
+//   "Bang",
+//   "The bullet hits his chest",
+//   "Bang",
+//   "The bullet goes through his shoulder",
+//   "Bang",
+//   "The bullet strikes his face",
+//   "He falls back against the car",
+//   "His blood patterns the passenger door",
+//   "He crumples to the ground",
+//   "He stares sightless into the blue sky"
+// ];
 let encounter = [
-  "I point my gun at him",
-  "I fire three times",
-  "Bang",
-  "The bullet hits his chest",
-  "Bang",
-  "The bullet goes through his shoulder",
-  "Bang",
-  "The bullet strikes his face",
-  "He falls back against the car",
-  "His blood patterns the passenger door",
-  "He crumples to the ground",
-  "He stares sightless into the blue sky"
-];
+  "One",
+  "Two",
+  "Three",
+  "Four"
+]
 let current = 0;
 let attempts = 0;
 let MAX_ATTEMPTS = 3;
@@ -33,15 +39,15 @@ $(document).ready(function() {
 
   // We need annyang to be loaded or we're screwed
   if (annyang) {
-    createMishearingDialog();
-
     // Set up for mishearings
+    createMishearingDialog();
     annyang.addCallback('resultNoMatch', handleMishearing);
+
+    // Add other event handlers
     annyang.addCallback('resultMatch', handleHearing);
     annyang.addCallback('errorPermissionDenied', handlePermissionDenied);
     annyang.addCallback('errorPermissionBlocked', handlePermissionBlocked);
     annyang.addCallback('start', function() {
-      textRecognitionStarted = true;
     });
 
     // Tell annyang to start listening
@@ -59,22 +65,35 @@ $(document).ready(function() {
 // Move to the initial location
 function startGame() {
   console.log('startGame()');
-  addNextCommand();
+  startNewSequence();
 }
 
 function addNextCommand() {
   $('.command').addClass('commanded').removeClass('command');
   attempts = 0;
   let command = encounter[current];
-  $p = $('<p></p>');
-  $p.append(command + '.');
-  $p.addClass('command');
-  $text.append($p);
+  $command = $('<p></p>');
+  $command.append(command + '.');
+  $command.addClass('command');
+  $text.append($command);
+  $command.hide();
+  $command.fadeIn(1000);
   current++;
 
   annyangCommands = {};
-  annyangCommands[command.toLowerCase()] = addNextCommand;
+  annyangCommands[command.toLowerCase()] = handleCommand;
   setAnnyangCommands(annyangCommands);
+
+  makeCommandsClickable();
+}
+
+function startNewSequence() {
+  current = 0;
+  $text.fadeOut(1000,function() {
+    $text.text('');
+    $text.fadeIn(1000);
+    addNextCommand();
+  });
 }
 
 // setAnnyangCommands()
@@ -96,11 +115,20 @@ function makeCommandsClickable() {
     $(this).addClass('clickable');
     // Add a click event that executes its command and makes it unclickable
     $(this).on('click', function () {
-      addNextCommand();
+      handleCommand();
       $(this).off('click');
       $(this).removeClass('clickable');
     });
   });
+}
+
+function handleCommand() {
+  if (current < encounter.length) {
+    addNextCommand()
+  }
+  else {
+    startNewSequence();
+  }
 }
 
 // handleMishearing()
